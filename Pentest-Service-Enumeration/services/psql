@@ -1,0 +1,1 @@
+Connect to postgresql DB:psql -h <TARGET-IP> -p <TARGET-PORT> -U postgres
