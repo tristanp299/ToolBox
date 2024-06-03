@@ -1,0 +1,1 @@
+WordPress scan:wpscan --url https://<TARGET> --enumerate p --plugins-detection aggressive -o dir/file.txt
