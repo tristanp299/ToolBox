@@ -1,0 +1,4 @@
+Get-NetUser -TrustedToAuth
+
+If found:
+[[Request delegation TGT]
