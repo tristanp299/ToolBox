@@ -1,0 +1,6 @@
+whoami /priv
+[[SeImpersonatePrivilege Enabled]]
+
+Get-NetUser -TrustedToAuth
+[[Contrained Delegation Enabled]]
+
