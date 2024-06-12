@@ -1,4 +1,5 @@
 Get-NetUser -TrustedToAuth
+Get-DomainComputer -TrustedToAuth
 
 If found:
 - Request delegation TGT:`
