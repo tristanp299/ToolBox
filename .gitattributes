@@ -62,3 +62,4 @@
 /PowerSharpPack/images/Example.JPG filter=lfs diff=lfs merge=lfs -text
 /PowerSharpPack/images/happy_alp.png filter=lfs diff=lfs merge=lfs -text
 /AD_PrivEsc/CheatSheet2 filter=lfs diff=lfs merge=lfs -text
+/AD_PrivEsc/CheatSheet2.md filter=lfs diff=lfs merge=lfs -text
