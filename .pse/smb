@@ -1,0 +1,9 @@
+Launch a semi-interactive shell:smbexec.py $HOST/$USERNAME:$PASSWORD@$IP
+List smb share files using a null user:smbclient -L $IP -U -N
+connect to remote smb share as null user:smbclient "//$RHOST/$SHARE_NAME" -U ""
+ngrep samba version while connecting via smbclient:export INTERFACE="tun0"; sudo ngrep -i -d $INTERFACE 's.?a.?m.?b.?a.*[[:digit:]]'
+Recursive directory listing:smbmap -H $ip -R
+Create a destination mount directory, mount remote share as guest:sudo mkdir /mnt/$IP_$FOLDER; sudo mount -v -t cifs "//$IP/$FOLDER" /mnt/$IP_$FOLDER -o username=guest
+Scan IP Address for SMB Pipe Names:pipef -a $IP
+NSE:--script smb-*
+Windows SMB connections: net view \\$RHOST /all

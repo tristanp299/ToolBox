@@ -1,0 +1,2 @@
+AD Enumeration:net user /domain ; net user <USER> /domain ; net group /domain ; net group <GROUP> /domain
+PowerView:pse powerview
