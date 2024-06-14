@@ -1,0 +1,21 @@
+Directory Traversal Linux - dotdotpwn:dotdotpwn -m http-url -u http://$IP/site/TRAVERSAL -k "root:"
+Directory Traversal Windows - dotdotpwn:dotdotpwn -o windows -m http-url -u http://$IP/site/TRAVERSAL -k "root:"
+Fuzz website directory:ffuf -c -w $WORDLIST -u http://$IP/FUZZ
+wfuzz for local file inclusion:wfuzz -c -u 'http://$IP/mutillidae/index.php?page=FUZZ{arbitrary-file-inclusion.php}' -z file,/usr/share/wordlists/wfuzz/Injections/Traversal.txt,urlencode --filter "lines != 1008"
+dirb scan against http site:dirb http://$IP -r -o $OUTPUTFILE
+dirb scan against https site:dirb https://$IP -r -o $OUTPUTFILE
+Quick nikto scan with a limit of 30 seconds:nikto --host http://$IP -maxtime=30s
+dirsearch with dirbuster medium for php, txt, sh, and pl extensions:dirsearch -u http://$IP -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -e php,txt,sh,pl -x 404 -t 100
+dirsearch RECURSIVE with dirbuster medium for php, txt, sh, and pl extensions:dirsearch -r -u http://$IP -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -e php,txt,sh,pl -x 404 -t 100
+nikto scan for header info and all directory checks:nikto -h -C all -host $IP
+Display only the unqiue text from a web page:curl $IP -s -L | html2text -width '150' | uniq
+go buster scan:export IP=10.11.1.71; gobuster dir -u http://$IP/ -w /usr/share/seclists/Discovery/Web-Content/common.txt -s '200,204,301,302,307,403,500' -e --output $IP_gobuster.txt
+go buster CGI scan, no 302 redirects, 30 second timeout:export IP=$IP; export FOLDER=/usr/share/seclists/Discovery/Web-Content/CGIs.txt; gobuster dir -u http://$IP/ -w $FOLDER  --timeout 30s -s '200,204,301,307,403,500' -e --output gobuster-cgi-scan
+Enumerate a wordpress site for plugins and themes:nmap -p443 -sV --script http-wordpress-enum $FQDN
+Wordpress plugin vulnerability check:wpscan --url https://$FQDN -e vp --plugins-detection mixed
+Nmap:--script=http-*
+WordPress:wpscan --url https://$RHOST --enumerate p --plugins-detection aggressive -o dir/file.txt
+Whatweb: whatweb <url>
+Gobuster:gobuster dir -u <target> -w /path/to/wordlist -t 10
+Gobuster:gobuster dir -u <target> -w /path/to/wordlist -p /path/to/api-pattern
+Gobuster:gobuster dir -u <target> -w /path/to/wordlist -x php js aspx md txt jpg png

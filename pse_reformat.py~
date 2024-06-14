@@ -1,0 +1,13 @@
+#!/bin/env python3
+import sys
+
+with open (sys.argv[1],'r') as f:
+	data = [i for i in f.readlines()]
+	
+flag = False	
+for c, line in enumerate(data):
+	new_line = line.split(':')[2]
+	new_line = "'"+new_line+"'"
+	print(new_line)
+	
+	
