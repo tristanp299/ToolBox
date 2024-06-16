@@ -65,3 +65,6 @@
 /AD_PrivEsc/CheatSheet2.md filter=lfs diff=lfs merge=lfs -text
 /Notes/AD_PrivEsc/AD_Mind_Map/Active[[:space:]]Directory[[:space:]]OSCP[[:space:]]Edition.xmind filter=lfs diff=lfs merge=lfs -text
 /Notes/AD_PrivEsc/CheatSheet2.md filter=lfs diff=lfs merge=lfs -text
+/binaries/SweetPotato.exe filter=lfs diff=lfs merge=lfs -text
+/PenNotes/AD_PrivEsc/AD_Mind_Map/Active[[:space:]]Directory[[:space:]]OSCP[[:space:]]Edition.xmind filter=lfs diff=lfs merge=lfs -text
+/PenNotes/AD_PrivEsc/CheatSheet2[[:space:]]-[[:space:]]the[[:space:]]sauce.md filter=lfs diff=lfs merge=lfs -text
