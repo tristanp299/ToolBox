@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "445dfacd3fcd208f",
+        "id": "06a38be6690b0459",
         "type": "tabs",
         "children": [
           {
-            "id": "110d2e5bab183e09",
+            "id": "42d9f3738ccc3cb1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "powerview",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -146,6 +147,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4b3628c6f6dcbf4d",
-  "lastOpenFiles": []
+  "active": "42d9f3738ccc3cb1",
+  "lastOpenFiles": [
+    "AD_PrivEsc/cheatsheet-active-directory.md",
+    "AD_PrivEsc/CheatSheet2 - the sauce.md",
+    "AD_PrivEsc/CheatSheet1.md"
+  ]
 }
