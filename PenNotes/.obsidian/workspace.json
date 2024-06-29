@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "powerview",
+                "query": "Hija",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -149,8 +149,8 @@
   },
   "active": "42d9f3738ccc3cb1",
   "lastOpenFiles": [
+    "AD_PrivEsc/CheatSheet1.md",
     "AD_PrivEsc/cheatsheet-active-directory.md",
-    "AD_PrivEsc/CheatSheet2 - the sauce.md",
-    "AD_PrivEsc/CheatSheet1.md"
+    "AD_PrivEsc/CheatSheet2 - the sauce.md"
   ]
 }
