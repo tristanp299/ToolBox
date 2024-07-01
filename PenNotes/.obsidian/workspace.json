@@ -1,5 +1,6 @@
 {
   "main": {
+<<<<<<< HEAD
     "id": "13f0783e73c4f21b",
     "type": "split",
     "children": [
@@ -9,6 +10,17 @@
         "children": [
           {
             "id": "42d9f3738ccc3cb1",
+=======
+    "id": "a1afaf46898d1262",
+    "type": "split",
+    "children": [
+      {
+        "id": "d2fbc15a2cedc5b3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e9c2c2cccf0afcf8",
+>>>>>>> 3c482fe (removed commits)
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -25,6 +37,7 @@
     "direction": "vertical"
   },
   "left": {
+<<<<<<< HEAD
     "id": "2b5e4c2e92ce01e6",
     "type": "split",
     "children": [
@@ -34,6 +47,17 @@
         "children": [
           {
             "id": "4b3628c6f6dcbf4d",
+=======
+    "id": "1bddb46da4b8f118",
+    "type": "split",
+    "children": [
+      {
+        "id": "6afdbcf882f6001c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "432b8e27f5c08e1c",
+>>>>>>> 3c482fe (removed commits)
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,12 +67,20 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "6b3bb951260d85e1",
+=======
+            "id": "5e0202dad0690c65",
+>>>>>>> 3c482fe (removed commits)
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
+<<<<<<< HEAD
                 "query": "Hija",
+=======
+                "query": "golden",
+>>>>>>> 3c482fe (removed commits)
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -58,7 +90,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "e4ab621179d6bd8c",
+=======
+            "id": "3e209a5f3e0bb4f1",
+>>>>>>> 3c482fe (removed commits)
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -73,6 +109,7 @@
     "width": 300
   },
   "right": {
+<<<<<<< HEAD
     "id": "0c4d25754d520d85",
     "type": "split",
     "children": [
@@ -82,6 +119,17 @@
         "children": [
           {
             "id": "70b8060dec9871c5",
+=======
+    "id": "0b193b0b330b3da3",
+    "type": "split",
+    "children": [
+      {
+        "id": "f3031e24500db482",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "336d81534fd634bc",
+>>>>>>> 3c482fe (removed commits)
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -98,7 +146,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "0ffea17e38ec3284",
+=======
+            "id": "6862d71a6f58d93b",
+>>>>>>> 3c482fe (removed commits)
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -110,7 +162,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "666e5b339026f40e",
+=======
+            "id": "479add0c4e21fafe",
+>>>>>>> 3c482fe (removed commits)
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -121,7 +177,11 @@
             }
           },
           {
+<<<<<<< HEAD
             "id": "469b6ff6da5cc5fa",
+=======
+            "id": "e6a979990b27b852",
+>>>>>>> 3c482fe (removed commits)
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -147,10 +207,35 @@
       "command-palette:Open command palette": false
     }
   },
+<<<<<<< HEAD
   "active": "42d9f3738ccc3cb1",
   "lastOpenFiles": [
     "AD_PrivEsc/CheatSheet1.md",
     "AD_PrivEsc/cheatsheet-active-directory.md",
     "AD_PrivEsc/CheatSheet2 - the sauce.md"
+=======
+  "active": "e9c2c2cccf0afcf8",
+  "lastOpenFiles": [
+    "AD_PrivEsc/CheatSheet1.md",
+    "AD_PrivEsc/cheatsheet-active-directory.md",
+    "AD_PrivEsc/CheatSheet2 - the sauce.md",
+    "AD_PrivEsc/Spraying.md",
+    "AD_PrivEsc/Silver Tickets",
+    "AD_PrivEsc/One-liners.md",
+    "AD_PrivEsc/LDAP.md",
+    "AD_PrivEsc/Kerberos Attacks",
+    "AD_PrivEsc/Kerberoasting.md",
+    "AD_PrivEsc/DC Sync",
+    "AD_PrivEsc/Constrained_Delegation_Enabled.md",
+    "AD_PrivEsc/Checklist.md",
+    "AD_PrivEsc/Add Domain names",
+    "AD_PrivEsc/AS-REP Roasting",
+    "AD_PrivEsc/AD_Mind_Map/Link.md",
+    "AD_PrivEsc/AD_Mind_Map/Active Directory OSCP Edition.xmind",
+    "AD_PrivEsc/AD Enumeration Commands.md",
+    "AD_PrivEsc/AD_Mind_Map",
+    "AD_PrivEsc",
+    "AD_PrivEsc/CheatSheet2.md"
+>>>>>>> 3c482fe (removed commits)
   ]
 }
