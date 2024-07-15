@@ -1,0 +1,50 @@
+{
+  "types": {
+    "markdown": [
+      "",
+      "md",
+      "txt",
+      "js",
+      "css",
+      "ts",
+      "jsx",
+      "tsx",
+      "yaml",
+      "yml",
+      "sass",
+      "scss",
+      "tex",
+      "json",
+      "html",
+      "scan"
+    ]
+  },
+  "configIsValid": true,
+  "errors": {
+    "": "Could not register extension: '' to view type: markdown.  is already registered to markdown."
+  },
+  "allowMdOverride": false,
+  "mobileSettings": {
+    "enabled": false,
+    "configIsValid": true,
+    "types": {
+      "markdown": [
+        "",
+        "md",
+        "txt",
+        "js",
+        "css",
+        "ts",
+        "jsx",
+        "tsx",
+        "yaml",
+        "yml",
+        "sass",
+        "scss",
+        "tex",
+        "json",
+        "html"
+      ]
+    }
+  }
+}

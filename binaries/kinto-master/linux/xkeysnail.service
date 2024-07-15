@@ -1,0 +1,14 @@
+[Unit]
+Description=xkeysnail
+
+[Service]
+Type=simple
+KillMode=process
+ExecStart={sudo}/bin/bash -c '/usr/bin/xhost +SI:localuser:root && {homedir}/.config/kinto/killdups.sh && {xkeysnail} --quiet --watch {homedir}/.config/kinto/kinto.py'
+ExecStop={sudo}/bin/bash -c '{sudo}pkill -f bin/xkeysnail && exit 0'
+Restart=on-failure
+RestartSec=3
+Environment=DISPLAY={displayid}
+
+[Install]
+WantedBy=graphical.target
