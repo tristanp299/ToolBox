@@ -121,3 +121,14 @@
 /binaries/tmux-3.4/tmux.1 filter=lfs diff=lfs merge=lfs -text
 /binaries/tmux-3.4/tmux.h filter=lfs diff=lfs merge=lfs -text
 /binaries/tmux-3.4/window-copy.c filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/Invoke-RunasCs.ps1 filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/PowerUp.ps1 filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/PowerView.ps1 filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/PsExec.exe filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/Rubeus.exe filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/SharpHound.ps1 filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/adduser.exe filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/agent.exe filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/kerbrute_windows_amd64.exe filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/mimikatz.exe filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/winPEASany.exe filter=lfs diff=lfs merge=lfs -text
