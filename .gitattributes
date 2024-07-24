@@ -132,3 +132,5 @@
 /binaries/ToolBox/kerbrute_windows_amd64.exe filter=lfs diff=lfs merge=lfs -text
 /binaries/ToolBox/mimikatz.exe filter=lfs diff=lfs merge=lfs -text
 /binaries/ToolBox/winPEASany.exe filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/linpeas.sh filter=lfs diff=lfs merge=lfs -text
+/binaries/jdwp-shellifier.py filter=lfs diff=lfs merge=lfs -text
