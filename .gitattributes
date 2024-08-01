@@ -136,3 +136,11 @@
 /binaries/jdwp-shellifier.py filter=lfs diff=lfs merge=lfs -text
 /binaries/ToolBox/PowerSharpPack.ps1 filter=lfs diff=lfs merge=lfs -text
 /binaries/ToolBox/win32/mimikatz.exe filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/agent_amd64_win filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/ligolo/6.2_not_working/agent_amd64_lin filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/ligolo/6.2_not_working/agent_amd64_win filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/ligolo/6.2_not_working/proxy_amd64_lin filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/ligolo/6.2_not_working/proxy_arm64_lin filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/ligolo/Archive/Archive.tgz filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/ligolo/agent.exe filter=lfs diff=lfs merge=lfs -text
+/binaries/ToolBox/ligolo/proxy filter=lfs diff=lfs merge=lfs -text
