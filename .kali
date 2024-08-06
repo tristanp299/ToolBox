@@ -2,13 +2,15 @@
 #$DOMAIN = hackn.lab or medtech.com
 #$DC = server01.hackn.lab or dc01.medtech.com
 # alias example='(){ echo Your arg was $1. ;}'
-export RHOST="192.168.183.147"
-export LHOST="192.168.45.182"
+export RHOST="192.168.162.155"
+export LHOST="192.168.45.165"
 export RPORT=""
 export LPORT=""
 export USERNAME=""
 export PASSWORD=""
 
+
+alias se='(){searchsploit "$@"}'
 alias toolbox='cd /home/kali/Tools/binaries/ToolBox'
 alias cloud_transfe="echo scp -i ~/.ssh/hambone.pem kali@ec2-3-101-154-224.us-west-1.compute.amazonaws.com"
 alias pty="echo python3 -c 'import pty;pty.spawn('/bin/bash')'"
@@ -22,7 +24,7 @@ alias setpassword='(){/home/kali/setpassword.py "$1" && source /home/kali/.kali}
 alias setlport='(){/home/kali/setlport.py "$1" && source /home/kali/.kali}'
 #alias setcwd='hash -d cwd=`pwd`'
 alias setcwd='(){/home/kali/setcwd.py "$1" && source /home/kali/.kali}'
-export cwd="/home/kali/Documents/OSCP_C"
+export cwd="/home/kali/Documents/OSCP_C/192.168.183.155"
 alias cwd='cd "$cwd"'
 alias s='(){grep -i "$1" /home/kali/.kali --color}'
 alias o='gedit /home/kali/.kali &'
