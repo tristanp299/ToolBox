@@ -144,3 +144,4 @@
 /binaries/ToolBox/ligolo/Archive/Archive.tgz filter=lfs diff=lfs merge=lfs -text
 /binaries/ToolBox/ligolo/agent.exe filter=lfs diff=lfs merge=lfs -text
 /binaries/ToolBox/ligolo/proxy filter=lfs diff=lfs merge=lfs -text
+/scripts/vim-plugin-AnsiEsc/autoload/AnsiEsc.vim filter=lfs diff=lfs merge=lfs -text
