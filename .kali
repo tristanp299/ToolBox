@@ -11,6 +11,8 @@ export RPORT=""
 export LPORT=""
 export USERNAME=""
 export PASSWORD=""
+
+alias credspray='(){/home/kali/Tools/scripts/CredSpray.py "$@"}'
 - Fishing attack: (ref: 24.3.2 Phishing for Access - PEN200-book)
 	Step1: wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/webdav/
 	Step2: python3 -m http.server 8000
