@@ -145,3 +145,6 @@
 /binaries/ToolBox/ligolo/agent.exe filter=lfs diff=lfs merge=lfs -text
 /binaries/ToolBox/ligolo/proxy filter=lfs diff=lfs merge=lfs -text
 /scripts/vim-plugin-AnsiEsc/autoload/AnsiEsc.vim filter=lfs diff=lfs merge=lfs -text
+/PenNotes/PenNotes/AD/CheatSheet2[[:space:]]-[[:space:]]the[[:space:]]sauce.md filter=lfs diff=lfs merge=lfs -text
+/PenNotes/PenNotes/Lessons[[:space:]]Learned/Maveris[[:space:]]Labs/Pasted[[:space:]]image[[:space:]]20240915141511.png filter=lfs diff=lfs merge=lfs -text
+/PenNotes/PenNotes/Lessons[[:space:]]Learned/Maveris[[:space:]]Labs/Pasted[[:space:]]image[[:space:]]20240915141739.png filter=lfs diff=lfs merge=lfs -text
