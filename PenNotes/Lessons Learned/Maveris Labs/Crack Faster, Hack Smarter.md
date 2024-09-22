@@ -5,10 +5,9 @@ https://medium.com/maverislabs/crack-faster-hack-smarter-c0c4defbcae7
 Identified a server running Nexus Repository 3 that was vulnerable to CVE-2024–4956
 
 Ultimately extracting Apache Shiro 1 SHA-512 password hashes
-
 ### Objective
 Wanting to increase cracking performance by taking advantage of a multiple GPU hash cracking rig as well as Hashcat features such as advanced rule support, this led to the journey of creating a custom Hashcat module for the Apache Shiro 1 hashing implementation.
-### Lessons Learned
+### Notes
 	- note that the Apache Shiro 1 SHA-512 algorithm is used by Sonatype Repository 3
 - Downloading public Github repo and examine code.
 - Recursive **grep** command for the text “**shiro.crypto**”, to reveal hashing class functions.

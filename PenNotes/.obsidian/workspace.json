@@ -1,31 +1,19 @@
 {
   "main": {
-<<<<<<< HEAD
-    "id": "13f0783e73c4f21b",
+    "id": "254f67d40b5d3686",
     "type": "split",
     "children": [
       {
-        "id": "06a38be6690b0459",
+        "id": "00f756b61607bce7",
         "type": "tabs",
         "children": [
           {
-            "id": "42d9f3738ccc3cb1",
-=======
-    "id": "a1afaf46898d1262",
-    "type": "split",
-    "children": [
-      {
-        "id": "d2fbc15a2cedc5b3",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "e9c2c2cccf0afcf8",
->>>>>>> 3c482fe (removed commits)
+            "id": "fec2bde8be0b8522",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AD_PrivEsc/CheatSheet2 - the sauce.md",
+                "file": "Lessons Learned/Maveris Labs/Crack Faster, Hack Smarter.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,27 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-<<<<<<< HEAD
-    "id": "2b5e4c2e92ce01e6",
+    "id": "97e1f7f34e00c289",
     "type": "split",
     "children": [
       {
-        "id": "c698fb8f9fd6e701",
+        "id": "0333fea03d7495ed",
         "type": "tabs",
         "children": [
           {
-            "id": "4b3628c6f6dcbf4d",
-=======
-    "id": "1bddb46da4b8f118",
-    "type": "split",
-    "children": [
-      {
-        "id": "6afdbcf882f6001c",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "432b8e27f5c08e1c",
->>>>>>> 3c482fe (removed commits)
+            "id": "be5415bb77f0b129",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -67,20 +43,12 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "6b3bb951260d85e1",
-=======
-            "id": "5e0202dad0690c65",
->>>>>>> 3c482fe (removed commits)
+            "id": "2c9359713d3891dc",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-<<<<<<< HEAD
-                "query": "Hija",
-=======
-                "query": "golden",
->>>>>>> 3c482fe (removed commits)
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -90,51 +58,34 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "e4ab621179d6bd8c",
-=======
-            "id": "3e209a5f3e0bb4f1",
->>>>>>> 3c482fe (removed commits)
+            "id": "4d88f996ae69c5c3",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
     "width": 300
   },
   "right": {
-<<<<<<< HEAD
-    "id": "0c4d25754d520d85",
+    "id": "eceac75232b84798",
     "type": "split",
     "children": [
       {
-        "id": "4e6b9db8b38889ac",
+        "id": "e464ad9d5892451b",
         "type": "tabs",
         "children": [
           {
-            "id": "70b8060dec9871c5",
-=======
-    "id": "0b193b0b330b3da3",
-    "type": "split",
-    "children": [
-      {
-        "id": "f3031e24500db482",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "336d81534fd634bc",
->>>>>>> 3c482fe (removed commits)
+            "id": "6dd34418b1195b0f",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AD_PrivEsc/CheatSheet2 - the sauce.md",
+                "file": "Lessons Learned/Maveris Labs/Crack Faster, Hack Smarter.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,27 +97,19 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "0ffea17e38ec3284",
-=======
-            "id": "6862d71a6f58d93b",
->>>>>>> 3c482fe (removed commits)
+            "id": "e29a1bb8c534bf9c",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AD_PrivEsc/CheatSheet2 - the sauce.md",
+                "file": "Lessons Learned/Maveris Labs/Crack Faster, Hack Smarter.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-<<<<<<< HEAD
-            "id": "666e5b339026f40e",
-=======
-            "id": "479add0c4e21fafe",
->>>>>>> 3c482fe (removed commits)
+            "id": "5740782101481aaf",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -177,16 +120,12 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "469b6ff6da5cc5fa",
-=======
-            "id": "e6a979990b27b852",
->>>>>>> 3c482fe (removed commits)
+            "id": "d797b96264b07dfb",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "AD_PrivEsc/CheatSheet2 - the sauce.md"
+                "file": "Lessons Learned/Maveris Labs/Crack Faster, Hack Smarter.md"
               }
             }
           }
@@ -207,35 +146,30 @@
       "command-palette:Open command palette": false
     }
   },
-<<<<<<< HEAD
-  "active": "42d9f3738ccc3cb1",
+  "active": "fec2bde8be0b8522",
   "lastOpenFiles": [
-    "AD_PrivEsc/CheatSheet1.md",
-    "AD_PrivEsc/cheatsheet-active-directory.md",
-    "AD_PrivEsc/CheatSheet2 - the sauce.md"
-=======
-  "active": "e9c2c2cccf0afcf8",
-  "lastOpenFiles": [
-    "AD_PrivEsc/CheatSheet1.md",
-    "AD_PrivEsc/cheatsheet-active-directory.md",
-    "AD_PrivEsc/CheatSheet2 - the sauce.md",
-    "AD_PrivEsc/Spraying.md",
-    "AD_PrivEsc/Silver Tickets",
-    "AD_PrivEsc/One-liners.md",
-    "AD_PrivEsc/LDAP.md",
-    "AD_PrivEsc/Kerberos Attacks",
-    "AD_PrivEsc/Kerberoasting.md",
-    "AD_PrivEsc/DC Sync",
-    "AD_PrivEsc/Constrained_Delegation_Enabled.md",
-    "AD_PrivEsc/Checklist.md",
-    "AD_PrivEsc/Add Domain names",
-    "AD_PrivEsc/AS-REP Roasting",
-    "AD_PrivEsc/AD_Mind_Map/Link.md",
-    "AD_PrivEsc/AD_Mind_Map/Active Directory OSCP Edition.xmind",
-    "AD_PrivEsc/AD Enumeration Commands.md",
+    "Lessons Learned/Maveris Labs/What did you do? Discovering a DoS vulnerability by accident (CVE*).md",
+    "Lessons Learned/Maveris Labs/Critical.md",
+    "Lessons Learned/Maveris Labs/Crack Faster, Hack Smarter.md",
+    "Lessons Learned/Maveris Labs/Pasted image 20240915141511.png",
     "AD_PrivEsc/AD_Mind_Map",
     "AD_PrivEsc",
-    "AD_PrivEsc/CheatSheet2.md"
->>>>>>> 3c482fe (removed commits)
+    "Lessons Learned/Maveris Labs/Pasted image 20240915141739.png",
+    "AD/AD Enumeration Commands.md",
+    "Lessons Learned",
+    "AD/AD_Mind_Map/Link.md",
+    "AD/AD_Mind_Map 1",
+    "Lessons Learned/Maveris Labs",
+    "AD/cheatsheet-active-directory.md",
+    "AD/CheatSheet1.md",
+    "AD/CheatSheet2 - the sauce.md",
+    "AD/Checklist.md",
+    "AD/Constrained_Delegation_Enabled.md",
+    "AD/Spraying.md",
+    "AD/One-liners.md",
+    "AD/Kerberoasting.md",
+    "AD/LDAP.md",
+    "AD/AD_Mind_Map",
+    "AD"
   ]
 }

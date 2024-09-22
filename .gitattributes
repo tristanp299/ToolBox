@@ -148,3 +148,7 @@
 /PenNotes/PenNotes/AD/CheatSheet2[[:space:]]-[[:space:]]the[[:space:]]sauce.md filter=lfs diff=lfs merge=lfs -text
 /PenNotes/PenNotes/Lessons[[:space:]]Learned/Maveris[[:space:]]Labs/Pasted[[:space:]]image[[:space:]]20240915141511.png filter=lfs diff=lfs merge=lfs -text
 /PenNotes/PenNotes/Lessons[[:space:]]Learned/Maveris[[:space:]]Labs/Pasted[[:space:]]image[[:space:]]20240915141739.png filter=lfs diff=lfs merge=lfs -text
+/Burpsuite/Hackverter.ext.bapp filter=lfs diff=lfs merge=lfs -text
+/PenNotes/AD/CheatSheet2[[:space:]]-[[:space:]]the[[:space:]]sauce.md filter=lfs diff=lfs merge=lfs -text
+/PenNotes/Lessons[[:space:]]Learned/Maveris[[:space:]]Labs/Pasted[[:space:]]image[[:space:]]20240915141511.png filter=lfs diff=lfs merge=lfs -text
+/PenNotes/Lessons[[:space:]]Learned/Maveris[[:space:]]Labs/Pasted[[:space:]]image[[:space:]]20240915141739.png filter=lfs diff=lfs merge=lfs -text
