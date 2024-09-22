@@ -1,3 +1,4 @@
+*.bapp filter=lfs diff=lfs merge=lfs -text
 /binaries/Rubeus.exe filter=lfs diff=lfs merge=lfs -text
 /binaries/SharpHound.ps1 filter=lfs diff=lfs merge=lfs -text
 /binaries/adduser.exe filter=lfs diff=lfs merge=lfs -text
