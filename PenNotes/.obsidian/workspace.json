@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Web/SQLi.md",
+                "file": "Web/APIs.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "e169ca3d4a9adaa6",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Web/SQLi.md",
+                "file": "Web/APIs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Web/SQLi.md",
+                "file": "Web/APIs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Web/SQLi.md"
+                "file": "Web/APIs.md"
               }
             }
           }
@@ -147,9 +146,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "333e35da1f06c402",
+  "active": "fb7f4086eaaa1485",
   "lastOpenFiles": [
     "Web/SQLi.md",
+    "Web/APIs.md",
     "AD/API Recon.md",
     "Web/APIs",
     "Web"
