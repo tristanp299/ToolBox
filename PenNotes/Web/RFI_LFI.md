@@ -14,6 +14,12 @@
 - URL encoding (or double URL encoding)
 	- `exploit%2Ephp`
 - Add semicolons or URL-encoded null byte characters
+	- `exploit.asp;.jpg` or `exploit.asp%00.jpg`
+- Multibyte unicode characters
+	- `xC0 x2E`, `xC4 xAE` or `xC0 xAE` may be translated to `x2E`
+		- if parsed as UTF-8
+- Obfuscate
+	- `exploit.p.phphp`
 
 ### Extension blacklist bypass
 - Change the value of the `filename` parameter to `.htaccess`.
