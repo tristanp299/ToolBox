@@ -4,7 +4,7 @@ net group /domain
 net group <GROUP> /domain
 Get-DomainUser -PreauthNotRequired
 Get-DomainUser -UACFilter DONT_REQ_PREAUTH
-Get-DomainUser -SPN | ?{$_.memberof -match 'Domain Adsmins'}
+Get-DomainUser -SPN | ?{$_.memberof -match 'Domain Admins'}
 Find-DomainUserLocation -ComputerUnconstrained -ShowAll
 Find-DomainUserLocation -ComputerUnconstrained -UserAdminCount -UserAllowDelegation
 Get-DomainGPOUserLocalGroupMapping -Identity <User/Group>

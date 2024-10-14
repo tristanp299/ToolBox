@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Web/RFI_LFI.md",
+                "file": "PenNotes/AD/CheatSheet1.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "smbclient",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Web/RFI_LFI.md",
+                "file": "PenNotes/AD/CheatSheet1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Web/RFI_LFI.md",
+                "file": "PenNotes/AD/CheatSheet1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Web/RFI_LFI.md"
+                "file": "PenNotes/AD/CheatSheet1.md"
               }
             }
           }
@@ -146,11 +147,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "333e35da1f06c402",
+  "active": "fb7f4086eaaa1485",
   "lastOpenFiles": [
+    "PenNotes/AD/CheatSheet2 - the sauce.md",
+    "AD_PrivEsc/CheatSheet2 - the sauce.md",
+    "PenNotes/AD/CheatSheet1.md",
+    "AD/cheatsheet-active-directory.md",
+    "AD_PrivEsc/cheatsheet-active-directory.md",
+    "PenNotes/AD/cheatsheet-active-directory.md",
+    "AD/Spraying.md",
+    "AD_PrivEsc/Spraying.md",
+    "PenNotes/AD/Spraying.md",
+    "AD/CheatSheet2 - the sauce.md",
+    "AD_PrivEsc/CheatSheet1.md",
+    "Web/RFI_LFI.md",
     "Untitled",
     "Web/SQLi.md",
-    "Web/RFI_LFI.md",
     "Web/Path traversal.md",
     "Web/APIs.md",
     "AD/API Recon.md",
