@@ -24,7 +24,7 @@
 ### Extension blacklist bypass
 - Change the value of the `filename` parameter to `.htaccess`.
 - Change the value of the `Content-Type` header to `text/plain`.
-- Replace the contents of the file (your PHP payload) with the following Apache directive:
+- Replace the contents of the file (PHP payload) with the following Apache directive:
     
     `AddType application/x-httpd-php .l33t`
     

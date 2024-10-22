@@ -16,10 +16,25 @@
                 "file": "PenNotes/AD/CheatSheet1.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "CheatSheet1"
+            }
+          },
+          {
+            "id": "101dc9241584cc9d",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.4"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.4"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -39,7 +54,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +71,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +81,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ],
@@ -94,7 +115,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for CheatSheet1"
             }
           },
           {
@@ -106,7 +129,9 @@
                 "file": "PenNotes/AD/CheatSheet1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from CheatSheet1"
             }
           },
           {
@@ -117,7 +142,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -127,7 +154,9 @@
               "type": "outline",
               "state": {
                 "file": "PenNotes/AD/CheatSheet1.md"
-              }
+              },
+              "icon": "lucide-list",
+              "title": "Outline of CheatSheet1"
             }
           }
         ]
@@ -147,8 +176,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fb7f4086eaaa1485",
+  "active": "101dc9241584cc9d",
   "lastOpenFiles": [
+    "PenNotes/Early Cascade Injection.md",
+    "PenNotes/Pasted image 20241017103458.png",
     "PenNotes/AD/CheatSheet2 - the sauce.md",
     "AD_PrivEsc/CheatSheet2 - the sauce.md",
     "PenNotes/AD/CheatSheet1.md",

@@ -11,9 +11,15 @@ export LPORT=""
 export USERNAME=""
 export PASSWORD=""
 
+########## OSINT #############
 
+#GitHub
+alias trufflehog='(){docker run --rm -it -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --token="$GIT_API_TOKEN" "$@"}' #--org or --repo # --only-verified #--json #--issue-comments #--pr-comments #s3 --bucket
 # Docker
+alias gedit='(){gedit "$@" &}'
 alias dhelp='echo "docker run -v /host_dir:/cont_dir -p 8080:443 -it  [image] [command] \n docker exec -it [containerId] [command], docker exec -it [containerId] sh \n docker run -it [imageName] sh \n docker export red_panda > latest.tar"'
+alias de='(){sudo docker exec -it "$@"}'
+alias dgitleaks='(){sudo docker run --rm -it zricethezav/gitleaks "$@"}'
 #smbclient -U 'relia.com\jim%Castello1!' -c 'mask "";recurse ON;prompt OFF;mget *' //192.168.232.248/transfer
 alias credspray='(){"$HOME"/Tools/scripts/CredSpray.py "$@"}'
 #smbclient -U 'relia.com\jim%Castello1!' -c 'mask "";recurse ON;prompt OFF;mget *' //192.168.232.248/transfer 
@@ -42,7 +48,7 @@ alias setpassword='(){"$HOME"/Tools/scripts/setpassword.py "$1" && source "$HOME
 alias setlport='(){"$HOME"/Tools/scripts/setlport.py "$1" && source "$HOME"/.kali}'
 #alias setcwd='hash -d cwd=`pwd`'
 alias setcwd='(){"$HOME"/Tools/scripts/setcwd.py "$1" && source "$HOME"/.kali}'
-export cwd="/home/kali/Documents/VA"
+export cwd="/home/kali/Documents/VA_TEST/VA/OSINT_Tristan/iFAMS"
 alias cwd='cd "$cwd"'
 alias s='(){grep -i "$1" "$HOME"/.kali --color}'
 alias o='gedit "$HOME"/.kali &'
