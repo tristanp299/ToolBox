@@ -11,6 +11,9 @@ export LPORT=""
 export USERNAME=""
 export PASSWORD=""
 
+
+# Docker
+alias dhelp='echo "docker run -v /host_dir:/cont_dir -p 8080:443 -it  [image] [command] \n docker exec -it [containerId] [command], docker exec -it [containerId] sh \n docker run -it [imageName] sh \n docker export red_panda > latest.tar"'
 #smbclient -U 'relia.com\jim%Castello1!' -c 'mask "";recurse ON;prompt OFF;mget *' //192.168.232.248/transfer
 alias credspray='(){"$HOME"/Tools/scripts/CredSpray.py "$@"}'
 #smbclient -U 'relia.com\jim%Castello1!' -c 'mask "";recurse ON;prompt OFF;mget *' //192.168.232.248/transfer 
