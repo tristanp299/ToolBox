@@ -1,0 +1,27 @@
+- *opcodes*
+	- Binary value which the CPU maps to a specific action.
+	- opcodes = native code
+	- Set of *opcodes* -> assembly
+	- *C*
+		- Accepts directly embedded assembly code through _inline assembly_ instructions.
+- *bytecode*
+	- Compiled into *opcodes* -> CPU executes
+	- processed by an installed virtual machine
+		- "managed code"
+	- Java
+		- _Java Virtual Machine_ (_JVM_) which is part of the _Java Runtime Environment_ (_JRE_)
+	- C#
+		- _Common Language Runtime_[15](https://portal.offsec.com/courses/pen-300-9502/learning/operating-system-and-programming-theory-14682/programming-theory-14792/programming-language-level-15051#fn-local_id_533-15) (_CLR_), which is part of the _.NET_ framework.
+- Web browsers
+	- JavaScript
+		- _just-in-time_ (_JIT_) compilation
+		- script is compiled directly into native code.
+
+	- WOW64 (Windows on Windows 64-bit)
+		- Utilized four 64-bit libraries to emulate 32-bit versions
+			- Ntdll.dll, Wow64.dll, Wow64Win.dll and Wow64Cpu.dll
+- *Registry*
+	- interface with the registry through the Win32 APIs
+	- GUI -> Registry Editor (regedit)
+- Staged Payloads
+	- executed in memory

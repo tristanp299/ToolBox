@@ -3,5 +3,6 @@
   "newFileLocation": "current",
   "attachmentFolderPath": "./",
   "showUnsupportedFiles": true,
-  "promptDelete": false
+  "promptDelete": false,
+  "readableLineLength": false
 }

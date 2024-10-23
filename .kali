@@ -11,12 +11,16 @@ export LPORT=""
 export USERNAME=""
 export PASSWORD=""
 
+
+alias gedit='(){gedit "$@" &}'
 ########## OSINT #############
 
 #GitHub
 alias trufflehog='(){docker run --rm -it -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --token="$GIT_API_TOKEN" "$@"}' #--org or --repo # --only-verified #--json #--issue-comments #--pr-comments #s3 --bucket
 # Docker
-alias gedit='(){gedit "$@" &}'
+alias subfinder='(){docker run --rm -it -v "$PWD:/pwd" rojectdiscovery/subfinder:latest "$@"}'
+alias subfinderc='(){docker run --rm -it -v $CONFIG/subfinder:/root/.config/subfinder -t projectdiscovery/subfinder -d hackerone.com}'
+
 alias dhelp='echo "docker run -v /host_dir:/cont_dir -p 8080:443 -it  [image] [command] \n docker exec -it [containerId] [command], docker exec -it [containerId] sh \n docker run -it [imageName] sh \n docker export red_panda > latest.tar"'
 alias de='(){sudo docker exec -it "$@"}'
 alias dgitleaks='(){sudo docker run --rm -it zricethezav/gitleaks "$@"}'
@@ -28,7 +32,7 @@ alias addu='(){printf "$1" >> "$HOME"/Tools/db/users.txt}'
 alias addo='(){printf "$1" >> "$HOME"/Tools/db/passwords.txt}'
 alias addc='(){printf "$1" >> "$HOME"/Tools/db/creds.txt}'
 alias addh='(){printf "$1" >> "$HOME"/Tools/db/hashes.txt}'
-alias users='cat "$HOME"/Tools/db/users.txt'
+alias users='cat "$HgeidOME"/Tools/db/users.txt'
 alias passwords='cat "$HOME"/Tools/db/passwords.txt'
 alias creds='cat "$HOME"/Tools/db/creds.txt'
 alias hashes='cat "$HOME"/Tools/db/hashes.txt'
