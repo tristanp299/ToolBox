@@ -18,6 +18,7 @@ alias gedit='(){gedit "$@" &}'
 #GitHub
 alias trufflehog='(){docker run --rm -it -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --token="$GIT_API_TOKEN" "$@"}' #--org or --repo # --only-verified #--json #--issue-comments #--pr-comments #s3 --bucket
 # Docker
+alias drecon-ng='(){docker run --rm -it -p 5000:5000 -v $(pwd):/recon-ng -v ~/.recon-ng:/root/.recon-ng --entrypoint "./recon-ng" recon-ng}'
 alias subfinder='(){docker run --rm -it -v "$PWD:/pwd" rojectdiscovery/subfinder:latest "$@"}'
 alias subfinderc='(){docker run --rm -it -v $CONFIG/subfinder:/root/.config/subfinder -t projectdiscovery/subfinder -d hackerone.com}'
 
