@@ -13,6 +13,7 @@ export PASSWORD=""
 
 
 alias gedit='(){gedit "$@" &}'
+alias autorecon'(){sudo -E $(which autorecon) -c $AUTORECON_CONFIG "$@"}'
 ########## OSINT #############
 
 #GitHub
@@ -43,7 +44,7 @@ alias se='(){searchsploit "$@"}'
 alias toolbox='cd "$HOME"/Tools/ToolBox'
 alias cloud_transfe="echo scp -i ~/.ssh/hambone.pem kali@ec2-3-101-154-224.us-west-1.compute.amazonaws.com"
 alias pty="echo python3 -c 'import pty;pty.spawn('/bin/bash')'"
-alias tjp='source "$HOME"/.kali'
+alias tjp='source "$HOME"/.zshrc && source "$HOME"/.kali'
 alias setrhost='(){"$HOME"/Tools/scripts/setrhost.py "$1" && source "$HOME"/.kali}'
 alias setlhost='(){"$HOME"/Tools/scripts/setlhost.py "$1" && source ""$HOME"/.kali}'
 alias setvpnhost="export LHOST=`ifconfig | grep tun0 -A 1 | grep inet | cut -b 14-27`"
