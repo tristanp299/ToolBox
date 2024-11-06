@@ -1,8 +1,9 @@
 {
   "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": true,
   "newFileLocation": "current",
   "attachmentFolderPath": "./",
-  "showUnsupportedFiles": true,
   "promptDelete": false,
-  "readableLineLength": false
+  "readableLineLength": false,
+  "showLineNumber": true
 }
