@@ -12,6 +12,9 @@ export USERNAME=""
 export PASSWORD=""
 
 
+######### WEB ########
+alias curlburp="curl --insecure -x 127.0.0.1:8080 --location '$WEB_SITE' \
+--header 'apikey:GTkoEM5UMCy0xjOMabM00B9WaLA3GW4d' -i"
 alias gedit='(){gedit "$@" &}'
 alias autorecon'(){sudo -E $(which autorecon) -c $AUTORECON_CONFIG "$@"}'
 ########## OSINT #############
