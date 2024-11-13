@@ -114,7 +114,7 @@ if __name__ == "__main__":
     try:
         
         # Create controller for the command
-        command = 'feroxbuster -u https://developer.va.gov/platform-backend/v0/ -x pdf -x js,html -x ini,key,rsa,pub,bak,tgz,php,txt,env,pyjson,docx -g --thorough -t 2 --scan-limit 1 -A'
+        command = 'feroxbuster -u [TGT URL] -x pdf -x js,html -x ini,key,rsa,pub,bak,tgz,php,txt,env,pyjson,docx -g --thorough -t 2 --scan-limit 1 -A'
         controller = ThreadController(command)
         
         # Start the process
