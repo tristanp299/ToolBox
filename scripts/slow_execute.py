@@ -1,5 +1,5 @@
 #!/bin/env python3
-import subprocess, os, signal, time, psutil
+import subprocess, os, signal, time, psutil, random
 from threading import Thread, Event
 
 class ThreadController:
@@ -113,8 +113,9 @@ class ThreadController:
 if __name__ == "__main__":
     try:
         
-        # Create controller for the command
         command = 'feroxbuster -u [INSERT URL HERE] -x pdf -x js,html -x ini,key,rsa,pub,bak,tgz,php,txt,env,pyjson,docx -g --thorough -t 2 --scan-limit 1 -A'
+  
+        # Create controller for the command
         controller = ThreadController(command)
         
         # Start the process
@@ -125,13 +126,13 @@ if __name__ == "__main__":
         controller.start_monitoring()
         
         while(True):
-
-            # Demo thread control
-            time.sleep(5)
+			RANDOM_SLEEP = random.uniform(5,10)
+            #thread control
+            time.sleep(RANDOM_SLEEP)
             print("\nSuspending all threads...")
             controller.suspend_thread()
             
-            time.sleep(10)
+            time.sleep(RANDOM_SLEEP)
             print("\nResuming all threads...")
             controller.resume_thread()
         
