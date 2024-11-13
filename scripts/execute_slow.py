@@ -113,9 +113,8 @@ class ThreadController:
 if __name__ == "__main__":
     try:
         
-        command = 'feroxbuster -u [INSERT URL HERE] -x pdf -x js,html -x ini,key,rsa,pub,bak,tgz,php,txt,env,pyjson,docx -g --thorough -t 2 --scan-limit 1 -A'
-  
         # Create controller for the command
+        command = 'feroxbuster -u https://developer.va.gov/platform-backend/v0/ -x pdf -x js,html -x ini,key,rsa,pub,bak,tgz,php,txt,env,pyjson,docx -g --thorough -t 2 --scan-limit 1 -A'
         controller = ThreadController(command)
         
         # Start the process
@@ -126,13 +125,13 @@ if __name__ == "__main__":
         controller.start_monitoring()
         
         while(True):
-			RANDOM_SLEEP = random.uniform(5,10)
-            #thread control
-            time.sleep(RANDOM_SLEEP)
+            SLEEP = random.uniform(5,10)
+            # Demo thread control
+            time.sleep(SLEEP)
             print("\nSuspending all threads...")
             controller.suspend_thread()
             
-            time.sleep(RANDOM_SLEEP)
+            time.sleep(SLEEP)
             print("\nResuming all threads...")
             controller.resume_thread()
         
