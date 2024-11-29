@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chatbot Example</title>
+    <style>
+      /* Style the chatbot */
+      .chatbot {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      .chatbot h3 {
+        margin: 0;
+        color: white;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Add a chatbot button -->
+    <button onclick="openChat()">Open Chat</button>
+
+    <!-- Add the chatbot container -->
+    <div id="chat-box" style="display:none;">
+      <div class="chatbot">
+        <h3>Chatbot</h3>
+        <input type="text" id="userInput" placeholder="Ask me anything...">
+        <p id="botResponse"></p>
+      </div>
+    </div>
+
+    <!-- Include the Dialogflow JavaScript client library -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <script>
+      // Initialize the Dialogflow agent
+      const df = window.dialogflow({
+        accessToken: '<INSERT_ACCESS_TOKEN>',
+        languageCode: 'en'
+      });
+
+      // Define a function to open and close the chatbot container
+      function openChat() {
+        var chatBox = document.getElementById('chat-box');
+        chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
+      }
+
+      // Listen for user input and send it to Dialogflow
+      df.on('detectIntent', (text, response) => {
+        document.getElementById('botResponse').innerText = response.fulfillment.speech || '';
+        if (!response.fulfillment.speech)
+          document.getElementById('userInput').value = '';
+      });
+
+      // Listen for user input and send it to Dialogflow
+      df.on('input', (event) => {
+        var text = event.currentTarget.value;
+        if (text) {
+          df.detectIntent(text, true);
+        }
+      });
+    </script>
+  </body>
+</html>

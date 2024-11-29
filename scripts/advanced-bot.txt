@@ -1,0 +1,36 @@
+Sure! Let's say we want to train a model that predicts whether a person is obese or not based on their height, weight and age. We can use the following Python code as a starting point:
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.preprocessing import LabelEncoder
+
+# Load the data from a CSV file into a Pandas DataFrame object
+data = pd.read_csv('obesity.csv')
+
+# Encode categorical variables as numerical values using LabelEncoder
+le = LabelEncoder()
+data['Gender'] = le.fit_transform(data['Gender'])
+data['Education'] = le.fit_transform(data['Education'])
+
+# Split the data into training and testing sets
+X = data[['Height', 'Weight', 'Age', 'Gender', 'Education']]
+y = data['Obesity']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create a LogisticRegression model and fit it to the training data
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Make predictions on the testing set and calculate accuracy and classification report
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print('Accuracy:', accuracy)
+print(classification_report(y_test, y_pred))
+
+#We're  the pandas library to load a CSV file into a DataFrame object. We then use LabelEncoder from the sklearn.preprocessing module to encode categorical variables as numerical values. The data is split into training and testing sets using train_test_split. We train a Logistic Regression model on the training set and make predictions on the testing set using its predict() method, which returns class labels (0 or 1). Finally, we calculate accuracy and classification report using accuracy_score and classification_report, respectively.
+
+#Note that you need to have a CSV file called obesity.csv in your current working directory for this example to work. The file should have columns named 'Height', 'Weight', 'Age', 'Gender', 'Education' and 'Obesity'. You can replace these column names with the actual ones from your own data set.
+
+

