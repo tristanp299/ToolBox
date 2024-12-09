@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-version https://git-lfs.github.com/spec/v1
-oid sha256:507e8666c239397561c58609f7ea569c9c49ddbb900cd260e7e42b02d03cfd87
-size 770279
-=======
 #requires -version 2
 
 <#
@@ -20917,4 +20912,3 @@ Set-Alias Find-ForeignUser Get-DomainForeignUser
 Set-Alias Find-ForeignGroup Get-DomainForeignGroupMember
 Set-Alias Invoke-MapDomainTrust Get-DomainTrustMapping
 Set-Alias Get-DomainPolicy Get-DomainPolicyData
->>>>>>> 70f25b31926173fb357a7fd3e88d0a095fa80fb2
