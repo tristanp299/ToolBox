@@ -12,6 +12,12 @@ export USERNAME=""
 export PASSWORD=""
 
 
+#### Administrative ######
+alias store='(){python3 "$KALI"/scripts/store.py "$@"}'
+
+##### Ports #####
+alias qnmap='(){nmap -vv --min-rate=1000 -T4 -Pn "$@"}'
+
 ######### WEB ########
 alias curlburp="curl --insecure -x 127.0.0.1:8080 --location '$WEB_SITE' \
 --header 'apikey:GTkoEM5UMCy0xjOMabM00B9WaLA3GW4d' -i"
@@ -57,7 +63,7 @@ alias setpassword='(){"$HOME"/Tools/scripts/setpassword.py "$1" && source "$HOME
 alias setlport='(){"$HOME"/Tools/scripts/setlport.py "$1" && source "$HOME"/.kali}'
 #alias setcwd='hash -d cwd=`pwd`'
 alias setcwd='(){"$HOME"/Tools/scripts/setcwd.py "$1" && source "$HOME"/.kali}'
-export cwd="/home/kali/Documents/OSCP_E/192.168.127.112"
+export cwd="/home/kali/Documents/Zeus"
 alias cwd='cd "$cwd"'
 alias s='(){grep -i "$1" "$HOME"/.kali --color}'
 alias o='gedit "$HOME"/.kali &'
@@ -84,6 +90,7 @@ alias auto_dnsrecon='dnsrecon -d $ip /usr/share/wordlists/dnsmap.txt -t std --xm
 alias dnsrecon_list='dnsrecon -d megacorpone.com -t axfr'
 
 #### LDAP ### Finding Usernames
+alias anon_ldap='ldapsearch -H ldaps://company.com:636/ -x -s base -b '' "(objectClass=*)" "*" +'
 alias auto_ldap='(){ldapsearch -h "$1" -p "$2" -x -s base}'
 
 #### Transfer Files #####

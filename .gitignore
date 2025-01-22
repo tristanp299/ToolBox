@@ -1,6 +1,8 @@
 PowerSharpPack
 <<<<<<< HEAD
 =======
+ToolBox/binaries
+ToolBox/binaries_GOTO
 binaries/Obsidian-1.5.8-arm64.AppImage
 binaries/hydra.restore
 binaries/Obsidian-1.5.8-arm64.AppImage
