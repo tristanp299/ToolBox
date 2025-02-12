@@ -175,11 +175,17 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
   "active": "101dc9241584cc9d",
   "lastOpenFiles": [
+    "AWS.md",
+    "AWS",
+    "Untitled 1",
+    "Mind_Maps/Untitled.canvas",
+    "Web/mXSS.md",
     "Mind_Maps/pineapple.md",
     "Mind_Maps/Untitled.md",
     "excalibrain.md",
@@ -211,13 +217,8 @@
     "AD/excalibrain.md",
     "Excalidraw/Drawing 2024-11-03 10.24.55.excalidraw.md",
     "Excalidraw",
-    "Mind_Maps/Untitled.canvas",
-    "Mind_Maps",
     "PenNotes/AD/CheatSheet1.md",
     "AD/AD_Mind_Map/Link.md",
-    "AD/Constrained_Delegation_Enabled 1.md",
-    "OSEP/OS and Programming Theory.md",
-    "OSEP/OS and Programming Theory",
     "PenNotes/Pasted image 20241017103458.png"
   ]
 }

@@ -16,7 +16,9 @@ export PASSWORD=""
 alias store='(){python3 "$KALI"/scripts/store.py "$@"}'
 
 ##### Ports #####
-alias qnmap='(){nmap -vv --min-rate=1000 -T4 -Pn "$@"}'
+alias qn='(){nmap -vv --min-rate=1000 -T4 -sT -Pn "$@"}' #quick
+alias fn='(){nmap -vv --min-rate=1000 --open -p- -T4 -A -Pn "$@"}' 
+alias sautorecon='(){sudo autorecon -t "$1" -vv --plugins-dir /root/.config/AutoRecon/plugins}'
 
 ######### WEB ########
 alias curlburp="curl --insecure -x 127.0.0.1:8080 --location '$WEB_SITE' \
@@ -63,7 +65,7 @@ alias setpassword='(){"$HOME"/Tools/scripts/setpassword.py "$1" && source "$HOME
 alias setlport='(){"$HOME"/Tools/scripts/setlport.py "$1" && source "$HOME"/.kali}'
 #alias setcwd='hash -d cwd=`pwd`'
 alias setcwd='(){"$HOME"/Tools/scripts/setcwd.py "$1" && source "$HOME"/.kali}'
-export cwd="/home/kali/Documents/Zeus"
+export cwd="/home/kali/Documents/OSCP_Labs/EvilBox-One"
 alias cwd='cd "$cwd"'
 alias s='(){grep -i "$1" "$HOME"/.kali --color}'
 alias o='gedit "$HOME"/.kali &'
