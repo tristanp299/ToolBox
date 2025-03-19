@@ -754,3 +754,7 @@
 2025-03-19 11:59:07,191 - DEBUG - Performing service fingerprinting
 2025-03-19 11:59:07,191 - DEBUG - Analyzing vulnerabilities
 2025-03-19 11:59:07,191 - INFO - Scan completed. Generating report...
+2025-03-19 15:55:25,264 - DEBUG - Using selector: EpollSelector
+2025-03-19 15:55:25,264 - INFO - Starting scan of 127.0.0.1
+2025-03-19 15:55:29,403 - DEBUG - Using selector: EpollSelector
+2025-03-19 15:55:29,403 - INFO - Starting scan of 127.0.0.1
