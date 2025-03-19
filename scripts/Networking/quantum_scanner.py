@@ -67,18 +67,6 @@ class QuantumScanner:
         json_output: bool = False,
         shuffle_ports: bool = False
     ):
-        """
-        :param target: Target hostname or IP
-        :param ports: List of ports to scan
-        :param scan_types: List of scan types (SYN, SSL, etc.)
-        :param concurrency: Number of ports to probe concurrently
-        :param max_rate: Max packets per second
-        :param evasions: Whether to enable packet fragmentation, random TTL, etc.
-        :param verbose: Debug-level logging
-        :param use_ipv6: Use IPv6 for scanning
-        :param json_output: Write results to JSON
-        :param shuffle_ports: Randomize port order
-        """
         self.use_ipv6 = use_ipv6
         self.json_output = json_output
         self.shuffle_ports = shuffle_ports
@@ -95,28 +83,27 @@ class QuantumScanner:
             self.target_ip = info[0][4][0]
             self.local_ip = "::"
 
-        # Possibly randomize ports
         if self.shuffle_ports:
             random.shuffle(ports)
         self.ports = ports
-
         self.scan_types = scan_types
         self.concurrency = concurrency
         self.max_rate = max_rate
         self.evasions = evasions
         self.verbose = verbose
+
         self.results: Dict[int, PortResult] = {}
         self.adaptation_factor = 1.0
         self.history = deque(maxlen=100)
         self.lock = asyncio.Lock()
 
-        # SSL context (for SSL scans)
+        # SSL context
         self.ctx = ssl.create_default_context()
         self.ctx.check_hostname = False
         self.ctx.verify_mode = ssl.CERT_NONE
 
         if self.evasions and os.geteuid() != 0:
-            logging.error("Evasion techniques require root privileges! Exiting.")
+            logging.error("Evasions require root privileges! Exiting.")
             sys.exit(1)
 
         if self.verbose:
@@ -169,37 +156,57 @@ class QuantumScanner:
 
         progress.update(task, advance=len(self.scan_types))
 
-    # -------------------- SCAN METHODS (SR1) --------------------
+    # -------------------- SCAN HELPERS --------------------
     def build_ip_layer(self):
         """
-        Constructs either an IPv4 or IPv6 scapy layer, depending on user config.
+        Build IPv4 or IPv6 base. We'll set TTL/hlim manually if needed.
         """
         if not self.use_ipv6:
             return scapy.IP(src=self.local_ip, dst=self.target_ip)
         else:
             return scapy.IPv6(src=self.local_ip, dst=self.target_ip)
 
+    def set_ip_ttl_or_hlim(self, ip_layer) -> None:
+        """
+        If using IPv4, we set ip_layer.ttl.
+        If IPv6, we set ip_layer.hlim.
+        """
+        if self.use_ipv6:
+            # For IPv6, set "hlim" if evasions
+            if self.evasions:
+                ip_layer.hlim = random.choice([64, 128, 255])
+            else:
+                ip_layer.hlim = 64
+        else:
+            if self.evasions:
+                ip_layer.ttl = random.choice([64, 128, 255])
+            else:
+                ip_layer.ttl = 64
+
+    # -------------------- SCAN METHODS (SR1) --------------------
     async def syn_scan(self, port: int, max_tries=3):
         """
-        Raw SYN scan using sr1(). If we get a SYN/ACK => open, RST => closed, else => filtered.
+        Raw SYN: if SYN/ACK => open, RST => closed, else => filtered.
+        The big fix: we set "ttl" or "hlim" in the IP layer, not the TCP object.
         """
         def do_syn_probe():
             for attempt in range(max_tries):
-                pkt = self.build_ip_layer()/scapy.TCP(
+                ip_layer = self.build_ip_layer()
+                self.set_ip_ttl_or_hlim(ip_layer)
+                tcp_layer = scapy.TCP(
                     dport=port,
                     sport=random.randint(1024, 65535),
                     flags="S",
-                    seq=random.randint(0, 2**32 - 1),
-                    ttl=random.choice([64, 128, 255]) if self.evasions else 64
+                    seq=random.randint(0, 2**32 - 1)
                 )
+                pkt = ip_layer / tcp_layer
+
                 resp = scapy.sr1(pkt, timeout=2, verbose=0)
                 if resp is not None and resp.haslayer(scapy.TCP):
-                    tcp_flags = resp[scapy.TCP].flags
-                    if (tcp_flags & 0x12) == 0x12:
-                        # SYN/ACK => open
+                    flags = resp[scapy.TCP].flags
+                    if (flags & 0x12) == 0x12:  # SYN/ACK
                         return "open", resp
-                    elif (tcp_flags & 0x04) == 0x04:
-                        # RST => closed
+                    elif (flags & 0x04) == 0x04:  # RST
                         return "closed", resp
             return "filtered", None
 
@@ -212,16 +219,17 @@ class QuantumScanner:
                 self.os_fingerprint(port, resp)
 
     async def ack_scan(self, port: int):
-        """
-        ACK scan: RST => unfiltered, else => filtered
-        """
         def do_ack_probe():
-            pkt = self.build_ip_layer()/scapy.TCP(
+            ip_layer = self.build_ip_layer()
+            self.set_ip_ttl_or_hlim(ip_layer)
+            tcp_layer = scapy.TCP(
                 dport=port,
                 sport=random.randint(1024, 65535),
                 flags="A",
                 seq=random.randint(0, 2**32 - 1)
             )
+            pkt = ip_layer / tcp_layer
+
             resp = scapy.sr1(pkt, timeout=2, verbose=0)
             if resp and resp.haslayer(scapy.TCP):
                 if resp[scapy.TCP].flags & 0x04:
@@ -234,16 +242,17 @@ class QuantumScanner:
             self.results[port].filtering = filtering
 
     async def fin_scan(self, port: int):
-        """
-        FIN scan: no response => open|filtered, RST => closed
-        """
         def do_fin_probe():
-            pkt = self.build_ip_layer()/scapy.TCP(
+            ip_layer = self.build_ip_layer()
+            self.set_ip_ttl_or_hlim(ip_layer)
+            tcp_layer = scapy.TCP(
                 dport=port,
                 sport=random.randint(1024, 65535),
                 flags="F",
                 seq=random.randint(0, 2**32 - 1)
             )
+            pkt = ip_layer / tcp_layer
+
             resp = scapy.sr1(pkt, timeout=2, verbose=0)
             if resp and resp.haslayer(scapy.TCP):
                 if resp[scapy.TCP].flags & 0x04:
@@ -256,16 +265,17 @@ class QuantumScanner:
             self.results[port].tcp_states[ScanType.FIN] = state
 
     async def xmas_scan(self, port: int):
-        """
-        XMAS scan: flags=FPU. RST => closed, else => open|filtered
-        """
         def do_xmas_probe():
-            pkt = self.build_ip_layer()/scapy.TCP(
+            ip_layer = self.build_ip_layer()
+            self.set_ip_ttl_or_hlim(ip_layer)
+            tcp_layer = scapy.TCP(
                 dport=port,
                 sport=random.randint(1024, 65535),
                 flags="FPU",
                 seq=random.randint(0, 2**32 - 1)
             )
+            pkt = ip_layer / tcp_layer
+
             resp = scapy.sr1(pkt, timeout=2, verbose=0)
             if resp and resp.haslayer(scapy.TCP):
                 if resp[scapy.TCP].flags & 0x04:
@@ -278,16 +288,17 @@ class QuantumScanner:
             self.results[port].tcp_states[ScanType.XMAS] = state
 
     async def null_scan(self, port: int):
-        """
-        NULL scan: no flags. RST => closed, else => open|filtered
-        """
         def do_null_probe():
-            pkt = self.build_ip_layer()/scapy.TCP(
+            ip_layer = self.build_ip_layer()
+            self.set_ip_ttl_or_hlim(ip_layer)
+            tcp_layer = scapy.TCP(
                 dport=port,
                 sport=random.randint(1024, 65535),
                 flags=0,
                 seq=random.randint(0, 2**32 - 1)
             )
+            pkt = ip_layer / tcp_layer
+
             resp = scapy.sr1(pkt, timeout=2, verbose=0)
             if resp and resp.haslayer(scapy.TCP):
                 if resp[scapy.TCP].flags & 0x04:
@@ -300,17 +311,17 @@ class QuantumScanner:
             self.results[port].tcp_states[ScanType.NULL] = state
 
     async def window_scan(self, port: int):
-        """
-        WINDOW scan: use ACK and look at window size.
-        Non-zero => open, zero => closed, no reply => filtered
-        """
         def do_window_probe():
-            pkt = self.build_ip_layer()/scapy.TCP(
+            ip_layer = self.build_ip_layer()
+            self.set_ip_ttl_or_hlim(ip_layer)
+            tcp_layer = scapy.TCP(
                 dport=port,
                 sport=random.randint(1024, 65535),
                 flags="A",
                 seq=random.randint(0, 2**32 - 1)
             )
+            pkt = ip_layer / tcp_layer
+
             resp = scapy.sr1(pkt, timeout=2, verbose=0)
             if resp is None:
                 return "filtered"
@@ -327,21 +338,21 @@ class QuantumScanner:
             self.results[port].tcp_states[ScanType.WINDOW] = state
 
     async def udp_scan(self, port: int):
-        """
-        Basic UDP scan with sr1. No response => open|filtered,
-        ICMP port unreachable => closed, or if we get a UDP => open
-        """
         def do_udp_probe():
-            pkt = self.build_ip_layer()/scapy.UDP(
+            ip_layer = self.build_ip_layer()
+            self.set_ip_ttl_or_hlim(ip_layer)
+            udp_layer = scapy.UDP(
                 dport=port,
                 sport=random.randint(1024, 65535)
-            )/b"probe"
+            )
+            pkt = ip_layer / udp_layer / b"probe"
+
             resp = scapy.sr1(pkt, timeout=2, verbose=0)
             if resp is None:
                 return "open|filtered"
-            elif resp.haslayer(scapy.UDP):
+            if resp.haslayer(scapy.UDP):
                 return "open"
-            elif resp.haslayer(scapy.ICMP):
+            if resp.haslayer(scapy.ICMP):
                 icmp = resp[scapy.ICMP]
                 if icmp.type == 3 and icmp.code == 3:
                     return "closed"
@@ -354,15 +365,10 @@ class QuantumScanner:
             self.results[port].udp_state = state
 
     async def ssl_probe(self, port: int):
-        """
-        Attempt a simple TCP connect with ssl=True.
-        If it succeeds => open, else closed/filtered
-        """
         def do_ssl_connect():
             try:
                 with socket.create_connection((self.target_ip, port), timeout=2) as sock:
                     with self.ctx.wrap_socket(sock, server_hostname=self.target_ip) as ssock:
-                        # If we got here, it’s open
                         cert_bin = ssock.getpeercert(binary_form=True)
                         cert_info = self.parse_certificate(cert_bin) if cert_bin else {}
                         ssl_version = ssock.version()
@@ -375,32 +381,36 @@ class QuantumScanner:
 
         loop = asyncio.get_running_loop()
         state, cert_info, ssl_version = await loop.run_in_executor(None, do_ssl_connect)
-
         async with self.lock:
             self.results[port].tcp_states[ScanType.SSL] = state
             if state == "open":
                 self.results[port].service = "SSL/TLS"
                 self.results[port].cert_info = cert_info
                 self.results[port].version = ssl_version or ""
-                # Possibly check for known SSL vulns
                 vulns = self.check_ssl_vulnerabilities(cert_info)
                 self.results[port].vulns.extend(vulns)
 
+    # -------------------- OS FINGERPRINT --------------------
     def os_fingerprint(self, port: int, resp):
-        """
-        Very basic OS guess from TTL or TCP options.
-        """
         if not resp.haslayer(scapy.TCP):
             return
-        ip_layer = resp.getlayer(scapy.IP) or resp.getlayer(scapy.IPv6)
+
+        ip4 = resp.getlayer(scapy.IP)
+        ip6 = resp.getlayer(scapy.IPv6)
+        if ip4:
+            ttl_or_hlim = ip4.ttl
+        elif ip6:
+            ttl_or_hlim = ip6.hlim
+        else:
+            return
+
         tcp_layer = resp[scapy.TCP]
-        ttl = ip_layer.ttl if ip_layer else 0
         options = tcp_layer.options
         os_guess = "Unknown"
 
-        if ttl <= 64:
+        if ttl_or_hlim <= 64:
             os_guess = "Linux/Unix"
-        elif ttl <= 128:
+        elif ttl_or_hlim <= 128:
             os_guess = "Windows"
         else:
             os_guess = "Solaris/Cisco"
@@ -415,9 +425,6 @@ class QuantumScanner:
         self.results[port].os_guess = os_guess
 
     async def banner_grabbing(self, port: int):
-        """
-        Attempt a minimal TCP connect and read a banner.
-        """
         def do_banner():
             try:
                 with socket.create_connection((self.target_ip, port), timeout=2) as sock:
@@ -444,15 +451,10 @@ class QuantumScanner:
         if banner_str:
             async with self.lock:
                 self.results[port].banner = banner_str[:256]
-                # If the banner indicates e.g. "220 <something> FTP"
                 if "220" in banner_str and "ftp" in banner_str.lower():
                     self.results[port].service = "FTP"
 
     async def adaptive_delay(self):
-        """
-        Rate-limits queries so we don’t exceed max_rate, 
-        and can scale scanning speed with self.adaptation_factor.
-        """
         if len(self.history) > 10:
             avg_delay = sum(self.history) / len(self.history)
             self.adaptation_factor = max(0.5, min(2.0, avg_delay * 1.2))
@@ -461,10 +463,8 @@ class QuantumScanner:
         self.history.append(delay)
         await asyncio.sleep(delay)
 
+    # -------------------- SERVICE FINGERPRINTING, VULNS --------------------
     def service_fingerprinting(self):
-        """
-        Basic guess of service by port or banner content.
-        """
         service_map = {
             80: "HTTP",
             443: "HTTPS",
@@ -477,16 +477,13 @@ class QuantumScanner:
             if not result.service:
                 result.service = service_map.get(port, "unknown")
             if result.banner:
-                banner_lower = result.banner.lower()
-                if "ssh" in banner_lower:
+                b = result.banner.lower()
+                if "ssh" in b:
                     result.service = "SSH"
-                elif "http" in banner_lower:
+                elif "http" in b:
                     result.service = "HTTP"
 
     def analyze_vulnerabilities(self):
-        """
-        Simple placeholder checks. Expand for your environment.
-        """
         vuln_db = {
             "apache/2.4.49": ["CVE-2021-41773 (Path Traversal)"],
             "openssh_8.0": ["CVE-2021-41617 (SSH Agent Vulnerability)"],
@@ -498,14 +495,10 @@ class QuantumScanner:
             for known_sig, vulns in vuln_db.items():
                 if known_sig in version_lower or known_sig in banner_lower:
                     result.vulns.extend(vulns)
-
             if result.service == "SSL/TLS" and "tlsv1.0" in result.version.lower():
                 result.vulns.append("Weak TLS version (TLSv1.0)")
 
     def parse_certificate(self, cert_bin: bytes) -> Dict:
-        """
-        Parse an SSL certificate with cryptography.x509.
-        """
         try:
             cert_obj = x509.load_der_x509_certificate(cert_bin, default_backend())
             return {
@@ -527,7 +520,7 @@ class QuantumScanner:
             vulns.append("Weak signature (SHA1)")
         return vulns
 
-    # ------------------ REPORT GENERATION -----------------
+    # -------------------- REPORTING --------------------
     def generate_report(self):
         table = Table(title="Quantum Scan Results", show_lines=True)
         table.add_column("Port", style="cyan")
@@ -590,16 +583,12 @@ class QuantumScanner:
 
 # ---------------------- UTILITIES ------------------------
 def parse_ports(port_input: str) -> List[int]:
-    """
-    Accepts a comma-delimited list or range (e.g. "80,443,1000-1010")
-    and returns a sorted, unique list of ports.
-    """
     ports = []
     if port_input.isdigit():
-        port = int(port_input)
-        if 1 <= port <= 65535:
-            return [port]
-        raise ValueError(f"Invalid port: {port}")
+        p = int(port_input)
+        if 1 <= p <= 65535:
+            return [p]
+        raise ValueError(f"Invalid port: {p}")
 
     for part in port_input.split(","):
         part = part.strip()
@@ -609,11 +598,11 @@ def parse_ports(port_input: str) -> List[int]:
                 raise ValueError(f"Invalid range: {part}")
             ports.extend(range(start, end + 1))
         elif part.isdigit():
-            port = int(part)
-            if 1 <= port <= 65535:
-                ports.append(port)
+            p = int(part)
+            if 1 <= p <= 65535:
+                ports.append(p)
             else:
-                raise ValueError(f"Invalid port: {port}")
+                raise ValueError(f"Invalid port: {p}")
         else:
             raise ValueError(f"Invalid port spec: {part}")
 
@@ -621,24 +610,23 @@ def parse_ports(port_input: str) -> List[int]:
 
 # ---------------------- MAIN ------------------------
 if __name__ == "__main__":
-    parser = ArgumentParser(description="Quantum Port Scanner - SYN, SSL, FIN, etc.")
+    parser = ArgumentParser(description="Quantum Port Scanner - Now with no TTL error!")
     parser.add_argument("target", help="Target hostname or IP")
-    parser.add_argument("-p", "--ports", required=True, help="Ports (e.g., 80, 1-100, 22,80)")
+    parser.add_argument("-p", "--ports", required=True, help="e.g. 80, 1-100, 22,80")
     parser.add_argument("-s", "--scan-types", nargs="+", default=["syn"],
                         choices=[st.value for st in ScanType],
-                        help="Scan types (syn, ssl, udp, ack, fin, xmas, null, window)")
-    parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose logging")
-    parser.add_argument("-e", "--evasions", action="store_true", help="Enable simple evasion (fragments, random TTL)")
-    parser.add_argument("-l", "--log-file", default="scanner.log", help="Log file path")
+                        help="scan methods (syn ssl udp ack fin xmas null window)")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Verbose logging")
+    parser.add_argument("-e", "--evasions", action="store_true", help="Enable fragmentation/TTL changes")
+    parser.add_argument("--ipv6", action="store_true", help="Use IPv6 scanning")
+    parser.add_argument("--json-output", action="store_true", help="Output results to JSON")
+    parser.add_argument("--shuffle-ports", action="store_true", help="Randomize port list")
+    parser.add_argument("--log-file", default="scanner.log", help="Log file path")
     parser.add_argument("--max-rate", type=int, default=500, help="Max pkts/sec")
     parser.add_argument("--concurrency", type=int, default=100, help="Concurrent tasks")
-    parser.add_argument("--ipv6", action="store_true", help="Use IPv6 scanning")
-    parser.add_argument("--json-output", action="store_true", help="Output results in scan_results.json")
-    parser.add_argument("--shuffle-ports", action="store_true", help="Randomize port scan order")
 
     args = parser.parse_args()
 
-    # Reset logger with new configuration
     logging.getLogger().handlers.clear()
     logging.basicConfig(
         level=logging.DEBUG if args.verbose else logging.INFO,
@@ -646,14 +634,12 @@ if __name__ == "__main__":
         handlers=[logging.FileHandler(args.log_file), logging.StreamHandler()],
     )
 
-    # Parse the ports
     try:
         ports = parse_ports(args.ports)
     except ValueError as exc:
         logging.error(f"Invalid ports: {exc}")
         sys.exit(1)
 
-    # Build and run the scanner
     scanner = QuantumScanner(
         target=args.target,
         ports=ports,
