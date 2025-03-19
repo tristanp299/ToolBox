@@ -1,0 +1,756 @@
+2025-03-18 16:44:30,726 - ERROR - Evasion techniques require root privileges! Exiting.
+2025-03-18 16:44:44,590 - DEBUG - Using selector: EpollSelector
+2025-03-18 16:44:44,590 - INFO - Starting scan against 127.0.0.1
+2025-03-18 16:44:44,590 - INFO - Ports: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+2025-03-18 16:44:44,590 - INFO - Scan types: ['syn']
+2025-03-18 16:44:44,590 - INFO - Concurrency limit: 100
+2025-03-18 16:44:44,593 - DEBUG - SYN scan on port 1
+2025-03-18 16:44:44,593 - DEBUG - Using fragmentation for SYN scan on port 1 (attempt 1)
+2025-03-18 16:44:44,593 - DEBUG - Sending fragmented TCP S packets to port 1 from source port 49270
+2025-03-18 16:44:44,652 - DEBUG - SYN scan on port 2
+2025-03-18 16:44:44,653 - DEBUG - Using fragmentation for SYN scan on port 2 (attempt 1)
+2025-03-18 16:44:44,653 - DEBUG - Sending fragmented TCP S packets to port 2 from source port 50941
+2025-03-18 16:44:44,704 - DEBUG - SYN scan on port 3
+2025-03-18 16:44:44,705 - DEBUG - Using fragmentation for SYN scan on port 3 (attempt 1)
+2025-03-18 16:44:44,705 - DEBUG - Sending fragmented TCP S packets to port 3 from source port 58724
+2025-03-18 16:44:44,752 - DEBUG - SYN scan on port 4
+2025-03-18 16:44:44,753 - DEBUG - Using fragmentation for SYN scan on port 4 (attempt 1)
+2025-03-18 16:44:44,753 - DEBUG - Sending fragmented TCP S packets to port 4 from source port 53694
+2025-03-18 16:44:44,796 - DEBUG - SYN scan on port 5
+2025-03-18 16:44:44,797 - DEBUG - Using fragmentation for SYN scan on port 5 (attempt 1)
+2025-03-18 16:44:44,797 - DEBUG - Sending fragmented TCP S packets to port 5 from source port 57029
+2025-03-18 16:44:44,844 - DEBUG - SYN scan on port 6
+2025-03-18 16:44:44,845 - DEBUG - Using fragmentation for SYN scan on port 6 (attempt 1)
+2025-03-18 16:44:44,845 - DEBUG - Sending fragmented TCP S packets to port 6 from source port 59719
+2025-03-18 16:44:44,892 - DEBUG - SYN scan on port 7
+2025-03-18 16:44:44,893 - DEBUG - Using fragmentation for SYN scan on port 7 (attempt 1)
+2025-03-18 16:44:44,893 - DEBUG - Sending fragmented TCP S packets to port 7 from source port 65429
+2025-03-18 16:44:44,940 - DEBUG - SYN scan on port 8
+2025-03-18 16:44:44,941 - DEBUG - Using fragmentation for SYN scan on port 8 (attempt 1)
+2025-03-18 16:44:44,941 - DEBUG - Sending fragmented TCP S packets to port 8 from source port 62152
+2025-03-18 16:44:44,988 - DEBUG - SYN scan on port 9
+2025-03-18 16:44:44,989 - DEBUG - Using fragmentation for SYN scan on port 9 (attempt 1)
+2025-03-18 16:44:44,989 - DEBUG - Sending fragmented TCP S packets to port 9 from source port 52844
+2025-03-18 16:44:45,036 - DEBUG - SYN scan on port 10
+2025-03-18 16:44:45,037 - DEBUG - Using fragmentation for SYN scan on port 10 (attempt 1)
+2025-03-18 16:44:45,037 - DEBUG - Sending fragmented TCP S packets to port 10 from source port 60885
+2025-03-18 16:44:45,084 - DEBUG - SYN scan on port 11
+2025-03-18 16:44:45,085 - DEBUG - Using fragmentation for SYN scan on port 11 (attempt 1)
+2025-03-18 16:44:45,085 - DEBUG - Sending fragmented TCP S packets to port 11 from source port 60989
+2025-03-18 16:44:45,128 - DEBUG - SYN scan on port 12
+2025-03-18 16:44:45,129 - DEBUG - Using fragmentation for SYN scan on port 12 (attempt 1)
+2025-03-18 16:44:45,129 - DEBUG - Sending fragmented TCP S packets to port 12 from source port 50390
+2025-03-18 16:44:45,169 - DEBUG - SYN scan on port 13
+2025-03-18 16:44:45,169 - DEBUG - Using fragmentation for SYN scan on port 13 (attempt 1)
+2025-03-18 16:44:45,169 - DEBUG - Sending fragmented TCP S packets to port 13 from source port 53165
+2025-03-18 16:44:45,209 - DEBUG - SYN scan on port 14
+2025-03-18 16:44:45,209 - DEBUG - Using fragmentation for SYN scan on port 14 (attempt 1)
+2025-03-18 16:44:45,209 - DEBUG - Sending fragmented TCP S packets to port 14 from source port 61143
+2025-03-18 16:44:45,248 - DEBUG - SYN scan on port 15
+2025-03-18 16:44:45,249 - DEBUG - Using fragmentation for SYN scan on port 15 (attempt 1)
+2025-03-18 16:44:45,249 - DEBUG - Sending fragmented TCP S packets to port 15 from source port 49922
+2025-03-18 16:44:45,296 - DEBUG - SYN scan on port 16
+2025-03-18 16:44:45,297 - DEBUG - Using fragmentation for SYN scan on port 16 (attempt 1)
+2025-03-18 16:44:45,297 - DEBUG - Sending fragmented TCP S packets to port 16 from source port 51988
+2025-03-18 16:44:45,329 - DEBUG - SYN scan on port 17
+2025-03-18 16:44:45,329 - DEBUG - Using fragmentation for SYN scan on port 17 (attempt 1)
+2025-03-18 16:44:45,329 - DEBUG - Sending fragmented TCP S packets to port 17 from source port 52131
+2025-03-18 16:44:45,369 - DEBUG - SYN scan on port 18
+2025-03-18 16:44:45,369 - DEBUG - Using fragmentation for SYN scan on port 18 (attempt 1)
+2025-03-18 16:44:45,369 - DEBUG - Sending fragmented TCP S packets to port 18 from source port 63280
+2025-03-18 16:44:45,408 - DEBUG - SYN scan on port 19
+2025-03-18 16:44:45,409 - DEBUG - Using fragmentation for SYN scan on port 19 (attempt 1)
+2025-03-18 16:44:45,409 - DEBUG - Sending fragmented TCP S packets to port 19 from source port 55886
+2025-03-18 16:44:45,456 - DEBUG - SYN scan on port 20
+2025-03-18 16:44:45,457 - DEBUG - Using fragmentation for SYN scan on port 20 (attempt 1)
+2025-03-18 16:44:45,457 - DEBUG - Sending fragmented TCP S packets to port 20 from source port 63831
+2025-03-18 16:44:45,501 - DEBUG - SYN scan on port 21
+2025-03-18 16:44:45,501 - DEBUG - Using fragmentation for SYN scan on port 21 (attempt 1)
+2025-03-18 16:44:45,501 - DEBUG - Sending fragmented TCP S packets to port 21 from source port 51214
+2025-03-18 16:44:45,541 - DEBUG - SYN scan on port 22
+2025-03-18 16:44:45,541 - DEBUG - Using fragmentation for SYN scan on port 22 (attempt 1)
+2025-03-18 16:44:45,541 - DEBUG - Sending fragmented TCP S packets to port 22 from source port 62697
+2025-03-18 16:44:45,581 - DEBUG - SYN scan on port 23
+2025-03-18 16:44:45,581 - DEBUG - Using fragmentation for SYN scan on port 23 (attempt 1)
+2025-03-18 16:44:45,581 - DEBUG - Sending fragmented TCP S packets to port 23 from source port 58355
+2025-03-18 16:44:45,628 - DEBUG - SYN scan on port 24
+2025-03-18 16:44:45,629 - DEBUG - Using fragmentation for SYN scan on port 24 (attempt 1)
+2025-03-18 16:44:45,629 - DEBUG - Sending fragmented TCP S packets to port 24 from source port 57235
+2025-03-18 16:44:45,672 - DEBUG - SYN scan on port 25
+2025-03-18 16:44:45,673 - DEBUG - Using fragmentation for SYN scan on port 25 (attempt 1)
+2025-03-18 16:44:45,673 - DEBUG - Sending fragmented TCP S packets to port 25 from source port 50273
+2025-03-18 16:44:45,712 - DEBUG - SYN scan on port 26
+2025-03-18 16:44:45,713 - DEBUG - Using fragmentation for SYN scan on port 26 (attempt 1)
+2025-03-18 16:44:45,713 - DEBUG - Sending fragmented TCP S packets to port 26 from source port 64027
+2025-03-18 16:44:45,756 - DEBUG - SYN scan on port 27
+2025-03-18 16:44:45,757 - DEBUG - Using fragmentation for SYN scan on port 27 (attempt 1)
+2025-03-18 16:44:45,757 - DEBUG - Sending fragmented TCP S packets to port 27 from source port 58057
+2025-03-18 16:44:45,796 - DEBUG - SYN scan on port 28
+2025-03-18 16:44:45,797 - DEBUG - Using fragmentation for SYN scan on port 28 (attempt 1)
+2025-03-18 16:44:45,797 - DEBUG - Sending fragmented TCP S packets to port 28 from source port 63427
+2025-03-18 16:44:45,840 - DEBUG - SYN scan on port 29
+2025-03-18 16:44:45,841 - DEBUG - Using fragmentation for SYN scan on port 29 (attempt 1)
+2025-03-18 16:44:45,841 - DEBUG - Sending fragmented TCP S packets to port 29 from source port 50380
+2025-03-18 16:44:45,884 - DEBUG - SYN scan on port 30
+2025-03-18 16:44:45,885 - DEBUG - Using fragmentation for SYN scan on port 30 (attempt 1)
+2025-03-18 16:44:45,885 - DEBUG - Sending fragmented TCP S packets to port 30 from source port 57858
+2025-03-18 16:44:45,937 - DEBUG - SYN scan on port 31
+2025-03-18 16:44:45,937 - DEBUG - Using fragmentation for SYN scan on port 31 (attempt 1)
+2025-03-18 16:44:45,937 - DEBUG - Sending fragmented TCP S packets to port 31 from source port 65140
+2025-03-18 16:44:45,980 - DEBUG - SYN scan on port 32
+2025-03-18 16:44:45,981 - DEBUG - Using fragmentation for SYN scan on port 32 (attempt 1)
+2025-03-18 16:44:45,981 - DEBUG - Sending fragmented TCP S packets to port 32 from source port 54656
+2025-03-18 16:44:46,028 - DEBUG - SYN scan on port 33
+2025-03-18 16:44:46,029 - DEBUG - Using fragmentation for SYN scan on port 33 (attempt 1)
+2025-03-18 16:44:46,029 - DEBUG - Sending fragmented TCP S packets to port 33 from source port 59102
+2025-03-18 16:44:46,068 - DEBUG - SYN scan on port 34
+2025-03-18 16:44:46,069 - DEBUG - Using fragmentation for SYN scan on port 34 (attempt 1)
+2025-03-18 16:44:46,069 - DEBUG - Sending fragmented TCP S packets to port 34 from source port 63330
+2025-03-18 16:44:46,116 - DEBUG - SYN scan on port 35
+2025-03-18 16:44:46,117 - DEBUG - Using fragmentation for SYN scan on port 35 (attempt 1)
+2025-03-18 16:44:46,117 - DEBUG - Sending fragmented TCP S packets to port 35 from source port 58462
+2025-03-18 16:44:46,164 - DEBUG - SYN scan on port 36
+2025-03-18 16:44:46,165 - DEBUG - Using fragmentation for SYN scan on port 36 (attempt 1)
+2025-03-18 16:44:46,165 - DEBUG - Sending fragmented TCP S packets to port 36 from source port 52087
+2025-03-18 16:44:46,200 - DEBUG - SYN scan on port 37
+2025-03-18 16:44:46,201 - DEBUG - Using fragmentation for SYN scan on port 37 (attempt 1)
+2025-03-18 16:44:46,201 - DEBUG - Sending fragmented TCP S packets to port 37 from source port 49649
+2025-03-18 16:44:46,241 - DEBUG - SYN scan on port 38
+2025-03-18 16:44:46,241 - DEBUG - Using fragmentation for SYN scan on port 38 (attempt 1)
+2025-03-18 16:44:46,241 - DEBUG - Sending fragmented TCP S packets to port 38 from source port 54705
+2025-03-18 16:44:46,280 - DEBUG - SYN scan on port 39
+2025-03-18 16:44:46,281 - DEBUG - Using fragmentation for SYN scan on port 39 (attempt 1)
+2025-03-18 16:44:46,281 - DEBUG - Sending fragmented TCP S packets to port 39 from source port 59215
+2025-03-18 16:44:46,329 - DEBUG - SYN scan on port 40
+2025-03-18 16:44:46,329 - DEBUG - Using fragmentation for SYN scan on port 40 (attempt 1)
+2025-03-18 16:44:46,329 - DEBUG - Sending fragmented TCP S packets to port 40 from source port 56974
+2025-03-18 16:44:46,372 - DEBUG - SYN scan on port 41
+2025-03-18 16:44:46,373 - DEBUG - Using fragmentation for SYN scan on port 41 (attempt 1)
+2025-03-18 16:44:46,373 - DEBUG - Sending fragmented TCP S packets to port 41 from source port 50817
+2025-03-18 16:44:46,420 - DEBUG - SYN scan on port 42
+2025-03-18 16:44:46,421 - DEBUG - Using fragmentation for SYN scan on port 42 (attempt 1)
+2025-03-18 16:44:46,421 - DEBUG - Sending fragmented TCP S packets to port 42 from source port 54391
+2025-03-18 16:44:46,456 - DEBUG - SYN scan on port 43
+2025-03-18 16:44:46,457 - DEBUG - Using fragmentation for SYN scan on port 43 (attempt 1)
+2025-03-18 16:44:46,457 - DEBUG - Sending fragmented TCP S packets to port 43 from source port 60816
+2025-03-18 16:44:46,496 - DEBUG - SYN scan on port 44
+2025-03-18 16:44:46,497 - DEBUG - Using fragmentation for SYN scan on port 44 (attempt 1)
+2025-03-18 16:44:46,497 - DEBUG - Sending fragmented TCP S packets to port 44 from source port 55398
+2025-03-18 16:44:46,548 - DEBUG - SYN scan on port 45
+2025-03-18 16:44:46,549 - DEBUG - Using fragmentation for SYN scan on port 45 (attempt 1)
+2025-03-18 16:44:46,549 - DEBUG - Sending fragmented TCP S packets to port 45 from source port 61285
+2025-03-18 16:44:46,589 - DEBUG - SYN scan on port 46
+2025-03-18 16:44:46,589 - DEBUG - Using fragmentation for SYN scan on port 46 (attempt 1)
+2025-03-18 16:44:46,589 - DEBUG - Sending fragmented TCP S packets to port 46 from source port 50599
+2025-03-18 16:44:46,640 - DEBUG - SYN scan on port 47
+2025-03-18 16:44:46,641 - DEBUG - Using fragmentation for SYN scan on port 47 (attempt 1)
+2025-03-18 16:44:46,641 - DEBUG - Sending fragmented TCP S packets to port 47 from source port 58256
+2025-03-18 16:44:46,680 - DEBUG - SYN scan on port 48
+2025-03-18 16:44:46,681 - DEBUG - Using fragmentation for SYN scan on port 48 (attempt 1)
+2025-03-18 16:44:46,681 - DEBUG - Sending fragmented TCP S packets to port 48 from source port 59131
+2025-03-18 16:44:46,720 - DEBUG - SYN scan on port 49
+2025-03-18 16:44:46,721 - DEBUG - Using fragmentation for SYN scan on port 49 (attempt 1)
+2025-03-18 16:44:46,721 - DEBUG - Sending fragmented TCP S packets to port 49 from source port 60021
+2025-03-18 16:44:46,769 - DEBUG - SYN scan on port 50
+2025-03-18 16:44:46,769 - DEBUG - Using fragmentation for SYN scan on port 50 (attempt 1)
+2025-03-18 16:44:46,769 - DEBUG - Sending fragmented TCP S packets to port 50 from source port 64276
+2025-03-18 16:44:46,804 - DEBUG - SYN scan on port 51
+2025-03-18 16:44:46,805 - DEBUG - Using fragmentation for SYN scan on port 51 (attempt 1)
+2025-03-18 16:44:46,805 - DEBUG - Sending fragmented TCP S packets to port 51 from source port 63552
+2025-03-18 16:44:46,836 - DEBUG - SYN scan on port 52
+2025-03-18 16:44:46,837 - DEBUG - Using fragmentation for SYN scan on port 52 (attempt 1)
+2025-03-18 16:44:46,837 - DEBUG - Sending fragmented TCP S packets to port 52 from source port 63658
+2025-03-18 16:44:46,876 - DEBUG - SYN scan on port 53
+2025-03-18 16:44:46,877 - DEBUG - Using fragmentation for SYN scan on port 53 (attempt 1)
+2025-03-18 16:44:46,877 - DEBUG - Sending fragmented TCP S packets to port 53 from source port 65069
+2025-03-18 16:44:46,924 - DEBUG - SYN scan on port 54
+2025-03-18 16:44:46,925 - DEBUG - Using fragmentation for SYN scan on port 54 (attempt 1)
+2025-03-18 16:44:46,925 - DEBUG - Sending fragmented TCP S packets to port 54 from source port 65466
+2025-03-18 16:44:46,968 - DEBUG - SYN scan on port 55
+2025-03-18 16:44:46,969 - DEBUG - Using fragmentation for SYN scan on port 55 (attempt 1)
+2025-03-18 16:44:46,969 - DEBUG - Sending fragmented TCP S packets to port 55 from source port 57539
+2025-03-18 16:44:47,020 - DEBUG - SYN scan on port 56
+2025-03-18 16:44:47,021 - DEBUG - Using fragmentation for SYN scan on port 56 (attempt 1)
+2025-03-18 16:44:47,021 - DEBUG - Sending fragmented TCP S packets to port 56 from source port 51553
+2025-03-18 16:44:47,068 - DEBUG - SYN scan on port 57
+2025-03-18 16:44:47,069 - DEBUG - Using fragmentation for SYN scan on port 57 (attempt 1)
+2025-03-18 16:44:47,069 - DEBUG - Sending fragmented TCP S packets to port 57 from source port 58384
+2025-03-18 16:44:47,116 - DEBUG - SYN scan on port 58
+2025-03-18 16:44:47,117 - DEBUG - Using fragmentation for SYN scan on port 58 (attempt 1)
+2025-03-18 16:44:47,118 - DEBUG - Sending fragmented TCP S packets to port 58 from source port 55004
+2025-03-18 16:44:47,164 - DEBUG - SYN scan on port 59
+2025-03-18 16:44:47,165 - DEBUG - Using fragmentation for SYN scan on port 59 (attempt 1)
+2025-03-18 16:44:47,165 - DEBUG - Sending fragmented TCP S packets to port 59 from source port 58973
+2025-03-18 16:44:47,212 - DEBUG - SYN scan on port 60
+2025-03-18 16:44:47,213 - DEBUG - Using fragmentation for SYN scan on port 60 (attempt 1)
+2025-03-18 16:44:47,213 - DEBUG - Sending fragmented TCP S packets to port 60 from source port 63358
+2025-03-18 16:44:47,260 - DEBUG - SYN scan on port 61
+2025-03-18 16:44:47,261 - DEBUG - Using fragmentation for SYN scan on port 61 (attempt 1)
+2025-03-18 16:44:47,261 - DEBUG - Sending fragmented TCP S packets to port 61 from source port 54414
+2025-03-18 16:44:47,308 - DEBUG - SYN scan on port 62
+2025-03-18 16:44:47,309 - DEBUG - Using fragmentation for SYN scan on port 62 (attempt 1)
+2025-03-18 16:44:47,309 - DEBUG - Sending fragmented TCP S packets to port 62 from source port 64249
+2025-03-18 16:44:47,357 - DEBUG - SYN scan on port 63
+2025-03-18 16:44:47,357 - DEBUG - Using fragmentation for SYN scan on port 63 (attempt 1)
+2025-03-18 16:44:47,357 - DEBUG - Sending fragmented TCP S packets to port 63 from source port 63189
+2025-03-18 16:44:47,405 - DEBUG - SYN scan on port 64
+2025-03-18 16:44:47,405 - DEBUG - Using fragmentation for SYN scan on port 64 (attempt 1)
+2025-03-18 16:44:47,405 - DEBUG - Sending fragmented TCP S packets to port 64 from source port 61684
+2025-03-18 16:44:47,444 - DEBUG - SYN scan on port 65
+2025-03-18 16:44:47,445 - DEBUG - Using fragmentation for SYN scan on port 65 (attempt 1)
+2025-03-18 16:44:47,445 - DEBUG - Sending fragmented TCP S packets to port 65 from source port 65492
+2025-03-18 16:44:47,496 - DEBUG - SYN scan on port 66
+2025-03-18 16:44:47,497 - DEBUG - Using fragmentation for SYN scan on port 66 (attempt 1)
+2025-03-18 16:44:47,497 - DEBUG - Sending fragmented TCP S packets to port 66 from source port 64558
+2025-03-18 16:44:47,544 - DEBUG - SYN scan on port 67
+2025-03-18 16:44:47,545 - DEBUG - Using fragmentation for SYN scan on port 67 (attempt 1)
+2025-03-18 16:44:47,545 - DEBUG - Sending fragmented TCP S packets to port 67 from source port 62439
+2025-03-18 16:44:47,588 - DEBUG - SYN scan on port 68
+2025-03-18 16:44:47,589 - DEBUG - Using fragmentation for SYN scan on port 68 (attempt 1)
+2025-03-18 16:44:47,589 - DEBUG - Sending fragmented TCP S packets to port 68 from source port 51615
+2025-03-18 16:44:47,624 - DEBUG - SYN scan on port 69
+2025-03-18 16:44:47,625 - DEBUG - Using fragmentation for SYN scan on port 69 (attempt 1)
+2025-03-18 16:44:47,625 - DEBUG - Sending fragmented TCP S packets to port 69 from source port 53436
+2025-03-18 16:44:47,672 - DEBUG - SYN scan on port 70
+2025-03-18 16:44:47,673 - DEBUG - Using fragmentation for SYN scan on port 70 (attempt 1)
+2025-03-18 16:44:47,673 - DEBUG - Sending fragmented TCP S packets to port 70 from source port 57508
+2025-03-18 16:44:47,720 - DEBUG - SYN scan on port 71
+2025-03-18 16:44:47,721 - DEBUG - Using fragmentation for SYN scan on port 71 (attempt 1)
+2025-03-18 16:44:47,721 - DEBUG - Sending fragmented TCP S packets to port 71 from source port 52981
+2025-03-18 16:44:47,768 - DEBUG - SYN scan on port 72
+2025-03-18 16:44:47,769 - DEBUG - Using fragmentation for SYN scan on port 72 (attempt 1)
+2025-03-18 16:44:47,769 - DEBUG - Sending fragmented TCP S packets to port 72 from source port 60906
+2025-03-18 16:44:47,816 - DEBUG - SYN scan on port 73
+2025-03-18 16:44:47,817 - DEBUG - Using fragmentation for SYN scan on port 73 (attempt 1)
+2025-03-18 16:44:47,817 - DEBUG - Sending fragmented TCP S packets to port 73 from source port 54030
+2025-03-18 16:44:47,864 - DEBUG - SYN scan on port 74
+2025-03-18 16:44:47,865 - DEBUG - Using fragmentation for SYN scan on port 74 (attempt 1)
+2025-03-18 16:44:47,865 - DEBUG - Sending fragmented TCP S packets to port 74 from source port 57976
+2025-03-18 16:44:47,912 - DEBUG - SYN scan on port 75
+2025-03-18 16:44:47,913 - DEBUG - Using fragmentation for SYN scan on port 75 (attempt 1)
+2025-03-18 16:44:47,913 - DEBUG - Sending fragmented TCP S packets to port 75 from source port 53606
+2025-03-18 16:44:47,964 - DEBUG - SYN scan on port 76
+2025-03-18 16:44:47,965 - DEBUG - Using fragmentation for SYN scan on port 76 (attempt 1)
+2025-03-18 16:44:47,965 - DEBUG - Sending fragmented TCP S packets to port 76 from source port 57571
+2025-03-18 16:44:48,004 - DEBUG - SYN scan on port 77
+2025-03-18 16:44:48,005 - DEBUG - Using fragmentation for SYN scan on port 77 (attempt 1)
+2025-03-18 16:44:48,005 - DEBUG - Sending fragmented TCP S packets to port 77 from source port 51945
+2025-03-18 16:44:48,052 - DEBUG - SYN scan on port 78
+2025-03-18 16:44:48,053 - DEBUG - Using fragmentation for SYN scan on port 78 (attempt 1)
+2025-03-18 16:44:48,053 - DEBUG - Sending fragmented TCP S packets to port 78 from source port 52961
+2025-03-18 16:44:48,096 - DEBUG - SYN scan on port 79
+2025-03-18 16:44:48,097 - DEBUG - Using fragmentation for SYN scan on port 79 (attempt 1)
+2025-03-18 16:44:48,097 - DEBUG - Sending fragmented TCP S packets to port 79 from source port 55330
+2025-03-18 16:44:48,136 - DEBUG - SYN scan on port 80
+2025-03-18 16:44:48,137 - DEBUG - Using fragmentation for SYN scan on port 80 (attempt 1)
+2025-03-18 16:44:48,137 - DEBUG - Sending fragmented TCP S packets to port 80 from source port 53106
+2025-03-18 16:44:48,176 - DEBUG - SYN scan on port 81
+2025-03-18 16:44:48,177 - DEBUG - Using fragmentation for SYN scan on port 81 (attempt 1)
+2025-03-18 16:44:48,177 - DEBUG - Sending fragmented TCP S packets to port 81 from source port 55801
+2025-03-18 16:44:48,224 - DEBUG - SYN scan on port 82
+2025-03-18 16:44:48,225 - DEBUG - Using fragmentation for SYN scan on port 82 (attempt 1)
+2025-03-18 16:44:48,225 - DEBUG - Sending fragmented TCP S packets to port 82 from source port 62813
+2025-03-18 16:44:48,272 - DEBUG - SYN scan on port 83
+2025-03-18 16:44:48,273 - DEBUG - Using fragmentation for SYN scan on port 83 (attempt 1)
+2025-03-18 16:44:48,273 - DEBUG - Sending fragmented TCP S packets to port 83 from source port 51581
+2025-03-18 16:44:48,321 - DEBUG - SYN scan on port 84
+2025-03-18 16:44:48,321 - DEBUG - Using fragmentation for SYN scan on port 84 (attempt 1)
+2025-03-18 16:44:48,321 - DEBUG - Sending fragmented TCP S packets to port 84 from source port 62126
+2025-03-18 16:44:48,360 - DEBUG - SYN scan on port 85
+2025-03-18 16:44:48,361 - DEBUG - Using fragmentation for SYN scan on port 85 (attempt 1)
+2025-03-18 16:44:48,361 - DEBUG - Sending fragmented TCP S packets to port 85 from source port 59829
+2025-03-18 16:44:48,408 - DEBUG - SYN scan on port 86
+2025-03-18 16:44:48,409 - DEBUG - Using fragmentation for SYN scan on port 86 (attempt 1)
+2025-03-18 16:44:48,409 - DEBUG - Sending fragmented TCP S packets to port 86 from source port 63813
+2025-03-18 16:44:48,452 - DEBUG - SYN scan on port 87
+2025-03-18 16:44:48,453 - DEBUG - Using fragmentation for SYN scan on port 87 (attempt 1)
+2025-03-18 16:44:48,453 - DEBUG - Sending fragmented TCP S packets to port 87 from source port 57811
+2025-03-18 16:44:48,500 - DEBUG - SYN scan on port 88
+2025-03-18 16:44:48,501 - DEBUG - Using fragmentation for SYN scan on port 88 (attempt 1)
+2025-03-18 16:44:48,501 - DEBUG - Sending fragmented TCP S packets to port 88 from source port 63954
+2025-03-18 16:44:48,540 - DEBUG - SYN scan on port 89
+2025-03-18 16:44:48,541 - DEBUG - Using fragmentation for SYN scan on port 89 (attempt 1)
+2025-03-18 16:44:48,541 - DEBUG - Sending fragmented TCP S packets to port 89 from source port 62935
+2025-03-18 16:44:48,588 - DEBUG - SYN scan on port 90
+2025-03-18 16:44:48,589 - DEBUG - Using fragmentation for SYN scan on port 90 (attempt 1)
+2025-03-18 16:44:48,589 - DEBUG - Sending fragmented TCP S packets to port 90 from source port 52750
+2025-03-18 16:44:48,636 - DEBUG - SYN scan on port 91
+2025-03-18 16:44:48,637 - DEBUG - Using fragmentation for SYN scan on port 91 (attempt 1)
+2025-03-18 16:44:48,637 - DEBUG - Sending fragmented TCP S packets to port 91 from source port 60444
+2025-03-18 16:44:48,688 - DEBUG - SYN scan on port 92
+2025-03-18 16:44:48,689 - DEBUG - Using fragmentation for SYN scan on port 92 (attempt 1)
+2025-03-18 16:44:48,689 - DEBUG - Sending fragmented TCP S packets to port 92 from source port 56620
+2025-03-18 16:44:48,740 - DEBUG - SYN scan on port 93
+2025-03-18 16:44:48,741 - DEBUG - Using fragmentation for SYN scan on port 93 (attempt 1)
+2025-03-18 16:44:48,741 - DEBUG - Sending fragmented TCP S packets to port 93 from source port 59932
+2025-03-18 16:44:48,788 - DEBUG - SYN scan on port 94
+2025-03-18 16:44:48,789 - DEBUG - Using fragmentation for SYN scan on port 94 (attempt 1)
+2025-03-18 16:44:48,789 - DEBUG - Sending fragmented TCP S packets to port 94 from source port 50903
+2025-03-18 16:44:48,837 - DEBUG - SYN scan on port 95
+2025-03-18 16:44:48,837 - DEBUG - Using fragmentation for SYN scan on port 95 (attempt 1)
+2025-03-18 16:44:48,837 - DEBUG - Sending fragmented TCP S packets to port 95 from source port 54724
+2025-03-18 16:44:48,884 - DEBUG - SYN scan on port 96
+2025-03-18 16:44:48,885 - DEBUG - Using fragmentation for SYN scan on port 96 (attempt 1)
+2025-03-18 16:44:48,885 - DEBUG - Sending fragmented TCP S packets to port 96 from source port 62025
+2025-03-18 16:44:48,933 - DEBUG - SYN scan on port 97
+2025-03-18 16:44:48,933 - DEBUG - Using fragmentation for SYN scan on port 97 (attempt 1)
+2025-03-18 16:44:48,933 - DEBUG - Sending fragmented TCP S packets to port 97 from source port 50347
+2025-03-18 16:44:48,981 - DEBUG - SYN scan on port 98
+2025-03-18 16:44:48,981 - DEBUG - Using fragmentation for SYN scan on port 98 (attempt 1)
+2025-03-18 16:44:48,981 - DEBUG - Sending fragmented TCP S packets to port 98 from source port 53255
+2025-03-18 16:44:49,028 - DEBUG - SYN scan on port 99
+2025-03-18 16:44:49,029 - DEBUG - Using fragmentation for SYN scan on port 99 (attempt 1)
+2025-03-18 16:44:49,029 - DEBUG - Sending fragmented TCP S packets to port 99 from source port 57069
+2025-03-18 16:44:49,076 - DEBUG - SYN scan on port 100
+2025-03-18 16:44:49,077 - DEBUG - Using fragmentation for SYN scan on port 100 (attempt 1)
+2025-03-18 16:44:49,077 - DEBUG - Sending fragmented TCP S packets to port 100 from source port 50916
+2025-03-18 16:44:51,181 - DEBUG - Using fragmentation for SYN scan on port 10 (attempt 2)
+2025-03-18 16:44:51,181 - DEBUG - Sending fragmented TCP S packets to port 10 from source port 60885
+2025-03-18 16:44:51,233 - DEBUG - Using fragmentation for SYN scan on port 2 (attempt 2)
+2025-03-18 16:44:51,233 - DEBUG - Sending fragmented TCP S packets to port 2 from source port 50941
+2025-03-18 16:44:51,280 - DEBUG - Using fragmentation for SYN scan on port 1 (attempt 2)
+2025-03-18 16:44:51,281 - DEBUG - Sending fragmented TCP S packets to port 1 from source port 49270
+2025-03-18 16:44:51,321 - DEBUG - Using fragmentation for SYN scan on port 15 (attempt 2)
+2025-03-18 16:44:51,321 - DEBUG - Sending fragmented TCP S packets to port 15 from source port 49922
+2025-03-18 16:44:51,361 - DEBUG - Using fragmentation for SYN scan on port 11 (attempt 2)
+2025-03-18 16:44:51,361 - DEBUG - Sending fragmented TCP S packets to port 11 from source port 60989
+2025-03-18 16:44:51,408 - DEBUG - Using fragmentation for SYN scan on port 5 (attempt 2)
+2025-03-18 16:44:51,409 - DEBUG - Sending fragmented TCP S packets to port 5 from source port 57029
+2025-03-18 16:44:51,456 - DEBUG - Using fragmentation for SYN scan on port 4 (attempt 2)
+2025-03-18 16:44:51,457 - DEBUG - Sending fragmented TCP S packets to port 4 from source port 53694
+2025-03-18 16:44:51,496 - DEBUG - Using fragmentation for SYN scan on port 12 (attempt 2)
+2025-03-18 16:44:51,497 - DEBUG - Sending fragmented TCP S packets to port 12 from source port 50390
+2025-03-18 16:44:51,544 - DEBUG - Using fragmentation for SYN scan on port 7 (attempt 2)
+2025-03-18 16:44:51,545 - DEBUG - Sending fragmented TCP S packets to port 7 from source port 65429
+2025-03-18 16:44:51,601 - DEBUG - Using fragmentation for SYN scan on port 9 (attempt 2)
+2025-03-18 16:44:51,601 - DEBUG - Sending fragmented TCP S packets to port 9 from source port 52844
+2025-03-18 16:44:51,664 - DEBUG - Using fragmentation for SYN scan on port 6 (attempt 2)
+2025-03-18 16:44:51,665 - DEBUG - Sending fragmented TCP S packets to port 6 from source port 59719
+2025-03-18 16:44:51,712 - DEBUG - Using fragmentation for SYN scan on port 13 (attempt 2)
+2025-03-18 16:44:51,713 - DEBUG - Sending fragmented TCP S packets to port 13 from source port 53165
+2025-03-18 16:44:51,760 - DEBUG - Using fragmentation for SYN scan on port 16 (attempt 2)
+2025-03-18 16:44:51,761 - DEBUG - Sending fragmented TCP S packets to port 16 from source port 51988
+2025-03-18 16:44:51,801 - DEBUG - Using fragmentation for SYN scan on port 3 (attempt 2)
+2025-03-18 16:44:51,801 - DEBUG - Sending fragmented TCP S packets to port 3 from source port 58724
+2025-03-18 16:44:51,849 - DEBUG - Using fragmentation for SYN scan on port 14 (attempt 2)
+2025-03-18 16:44:51,849 - DEBUG - Sending fragmented TCP S packets to port 14 from source port 61143
+2025-03-18 16:44:51,896 - DEBUG - Using fragmentation for SYN scan on port 8 (attempt 2)
+2025-03-18 16:44:51,897 - DEBUG - Sending fragmented TCP S packets to port 8 from source port 62152
+2025-03-18 16:44:53,221 - DEBUG - Using fragmentation for SYN scan on port 20 (attempt 2)
+2025-03-18 16:44:53,221 - DEBUG - Sending fragmented TCP S packets to port 20 from source port 63831
+2025-03-18 16:44:53,273 - DEBUG - Using fragmentation for SYN scan on port 17 (attempt 2)
+2025-03-18 16:44:53,273 - DEBUG - Sending fragmented TCP S packets to port 17 from source port 52131
+2025-03-18 16:44:53,308 - DEBUG - Using fragmentation for SYN scan on port 25 (attempt 2)
+2025-03-18 16:44:53,309 - DEBUG - Sending fragmented TCP S packets to port 25 from source port 50273
+2025-03-18 16:44:53,341 - DEBUG - Using fragmentation for SYN scan on port 29 (attempt 2)
+2025-03-18 16:44:53,341 - DEBUG - Sending fragmented TCP S packets to port 29 from source port 50380
+2025-03-18 16:44:53,384 - DEBUG - Using fragmentation for SYN scan on port 23 (attempt 2)
+2025-03-18 16:44:53,385 - DEBUG - Sending fragmented TCP S packets to port 23 from source port 58355
+2025-03-18 16:44:53,420 - DEBUG - Using fragmentation for SYN scan on port 21 (attempt 2)
+2025-03-18 16:44:53,421 - DEBUG - Sending fragmented TCP S packets to port 21 from source port 51214
+2025-03-18 16:44:53,468 - DEBUG - Using fragmentation for SYN scan on port 30 (attempt 2)
+2025-03-18 16:44:53,469 - DEBUG - Sending fragmented TCP S packets to port 30 from source port 57858
+2025-03-18 16:44:53,500 - DEBUG - Using fragmentation for SYN scan on port 22 (attempt 2)
+2025-03-18 16:44:53,501 - DEBUG - Sending fragmented TCP S packets to port 22 from source port 62697
+2025-03-18 16:44:53,548 - DEBUG - Using fragmentation for SYN scan on port 27 (attempt 2)
+2025-03-18 16:44:53,549 - DEBUG - Sending fragmented TCP S packets to port 27 from source port 58057
+2025-03-18 16:44:53,596 - DEBUG - Using fragmentation for SYN scan on port 31 (attempt 2)
+2025-03-18 16:44:53,597 - DEBUG - Sending fragmented TCP S packets to port 31 from source port 65140
+2025-03-18 16:44:53,629 - DEBUG - Using fragmentation for SYN scan on port 19 (attempt 2)
+2025-03-18 16:44:53,629 - DEBUG - Sending fragmented TCP S packets to port 19 from source port 55886
+2025-03-18 16:44:53,668 - DEBUG - Using fragmentation for SYN scan on port 18 (attempt 2)
+2025-03-18 16:44:53,669 - DEBUG - Sending fragmented TCP S packets to port 18 from source port 63280
+2025-03-18 16:44:53,700 - DEBUG - Using fragmentation for SYN scan on port 28 (attempt 2)
+2025-03-18 16:44:53,701 - DEBUG - Sending fragmented TCP S packets to port 28 from source port 63427
+2025-03-18 16:44:53,748 - DEBUG - Using fragmentation for SYN scan on port 24 (attempt 2)
+2025-03-18 16:44:53,749 - DEBUG - Sending fragmented TCP S packets to port 24 from source port 57235
+2025-03-18 16:44:53,788 - DEBUG - Using fragmentation for SYN scan on port 26 (attempt 2)
+2025-03-18 16:44:53,789 - DEBUG - Sending fragmented TCP S packets to port 26 from source port 64027
+2025-03-18 16:44:53,820 - DEBUG - Using fragmentation for SYN scan on port 32 (attempt 2)
+2025-03-18 16:44:53,821 - DEBUG - Sending fragmented TCP S packets to port 32 from source port 54656
+2025-03-18 16:44:55,273 - DEBUG - Using fragmentation for SYN scan on port 34 (attempt 2)
+2025-03-18 16:44:55,273 - DEBUG - Sending fragmented TCP S packets to port 34 from source port 63330
+2025-03-18 16:44:55,312 - DEBUG - Using fragmentation for SYN scan on port 33 (attempt 2)
+2025-03-18 16:44:55,313 - DEBUG - Sending fragmented TCP S packets to port 33 from source port 59102
+2025-03-18 16:44:55,357 - DEBUG - Using fragmentation for SYN scan on port 35 (attempt 2)
+2025-03-18 16:44:55,357 - DEBUG - Sending fragmented TCP S packets to port 35 from source port 58462
+2025-03-18 16:44:55,412 - DEBUG - Using fragmentation for SYN scan on port 41 (attempt 2)
+2025-03-18 16:44:55,413 - DEBUG - Sending fragmented TCP S packets to port 41 from source port 50817
+2025-03-18 16:44:55,461 - DEBUG - Using fragmentation for SYN scan on port 42 (attempt 2)
+2025-03-18 16:44:55,461 - DEBUG - Sending fragmented TCP S packets to port 42 from source port 54391
+2025-03-18 16:44:55,508 - DEBUG - Using fragmentation for SYN scan on port 47 (attempt 2)
+2025-03-18 16:44:55,509 - DEBUG - Sending fragmented TCP S packets to port 47 from source port 58256
+2025-03-18 16:44:55,557 - DEBUG - Using fragmentation for SYN scan on port 39 (attempt 2)
+2025-03-18 16:44:55,557 - DEBUG - Sending fragmented TCP S packets to port 39 from source port 59215
+2025-03-18 16:44:55,597 - DEBUG - Using fragmentation for SYN scan on port 40 (attempt 2)
+2025-03-18 16:44:55,597 - DEBUG - Sending fragmented TCP S packets to port 40 from source port 56974
+2025-03-18 16:44:55,652 - DEBUG - Using fragmentation for SYN scan on port 44 (attempt 2)
+2025-03-18 16:44:55,653 - DEBUG - Sending fragmented TCP S packets to port 44 from source port 55398
+2025-03-18 16:44:55,701 - DEBUG - Using fragmentation for SYN scan on port 45 (attempt 2)
+2025-03-18 16:44:55,701 - DEBUG - Sending fragmented TCP S packets to port 45 from source port 61285
+2025-03-18 16:44:55,748 - DEBUG - Using fragmentation for SYN scan on port 36 (attempt 2)
+2025-03-18 16:44:55,749 - DEBUG - Sending fragmented TCP S packets to port 36 from source port 52087
+2025-03-18 16:44:55,796 - DEBUG - Using fragmentation for SYN scan on port 37 (attempt 2)
+2025-03-18 16:44:55,797 - DEBUG - Sending fragmented TCP S packets to port 37 from source port 49649
+2025-03-18 16:44:55,844 - DEBUG - Using fragmentation for SYN scan on port 38 (attempt 2)
+2025-03-18 16:44:55,845 - DEBUG - Sending fragmented TCP S packets to port 38 from source port 54705
+2025-03-18 16:44:55,892 - DEBUG - Using fragmentation for SYN scan on port 43 (attempt 2)
+2025-03-18 16:44:55,893 - DEBUG - Sending fragmented TCP S packets to port 43 from source port 60816
+2025-03-18 16:44:55,940 - DEBUG - Using fragmentation for SYN scan on port 46 (attempt 2)
+2025-03-18 16:44:55,941 - DEBUG - Sending fragmented TCP S packets to port 46 from source port 50599
+2025-03-18 16:44:55,988 - DEBUG - Using fragmentation for SYN scan on port 48 (attempt 2)
+2025-03-18 16:44:55,989 - DEBUG - Sending fragmented TCP S packets to port 48 from source port 59131
+2025-03-18 16:44:57,317 - DEBUG - Using fragmentation for SYN scan on port 50 (attempt 2)
+2025-03-18 16:44:57,317 - DEBUG - Sending fragmented TCP S packets to port 50 from source port 64276
+2025-03-18 16:44:57,365 - DEBUG - Using fragmentation for SYN scan on port 51 (attempt 2)
+2025-03-18 16:44:57,365 - DEBUG - Sending fragmented TCP S packets to port 51 from source port 63552
+2025-03-18 16:44:57,412 - DEBUG - Using fragmentation for SYN scan on port 49 (attempt 2)
+2025-03-18 16:44:57,413 - DEBUG - Sending fragmented TCP S packets to port 49 from source port 60021
+2025-03-18 16:44:57,460 - DEBUG - Using fragmentation for SYN scan on port 52 (attempt 2)
+2025-03-18 16:44:57,461 - DEBUG - Sending fragmented TCP S packets to port 52 from source port 63658
+2025-03-18 16:44:57,509 - DEBUG - Using fragmentation for SYN scan on port 59 (attempt 2)
+2025-03-18 16:44:57,509 - DEBUG - Sending fragmented TCP S packets to port 59 from source port 58973
+2025-03-18 16:44:57,556 - DEBUG - Using fragmentation for SYN scan on port 58 (attempt 2)
+2025-03-18 16:44:57,557 - DEBUG - Sending fragmented TCP S packets to port 58 from source port 55004
+2025-03-18 16:44:57,596 - DEBUG - Using fragmentation for SYN scan on port 62 (attempt 2)
+2025-03-18 16:44:57,597 - DEBUG - Sending fragmented TCP S packets to port 62 from source port 64249
+2025-03-18 16:44:57,648 - DEBUG - Using fragmentation for SYN scan on port 57 (attempt 2)
+2025-03-18 16:44:57,649 - DEBUG - Sending fragmented TCP S packets to port 57 from source port 58384
+2025-03-18 16:44:57,681 - DEBUG - Using fragmentation for SYN scan on port 53 (attempt 2)
+2025-03-18 16:44:57,681 - DEBUG - Sending fragmented TCP S packets to port 53 from source port 65069
+2025-03-18 16:44:57,721 - DEBUG - Using fragmentation for SYN scan on port 60 (attempt 2)
+2025-03-18 16:44:57,721 - DEBUG - Sending fragmented TCP S packets to port 60 from source port 63358
+2025-03-18 16:44:57,760 - DEBUG - Using fragmentation for SYN scan on port 61 (attempt 2)
+2025-03-18 16:44:57,761 - DEBUG - Sending fragmented TCP S packets to port 61 from source port 54414
+2025-03-18 16:44:57,801 - DEBUG - Using fragmentation for SYN scan on port 55 (attempt 2)
+2025-03-18 16:44:57,801 - DEBUG - Sending fragmented TCP S packets to port 55 from source port 57539
+2025-03-18 16:44:57,840 - DEBUG - Using fragmentation for SYN scan on port 54 (attempt 2)
+2025-03-18 16:44:57,841 - DEBUG - Sending fragmented TCP S packets to port 54 from source port 65466
+2025-03-18 16:44:57,881 - DEBUG - Using fragmentation for SYN scan on port 63 (attempt 2)
+2025-03-18 16:44:57,881 - DEBUG - Sending fragmented TCP S packets to port 63 from source port 63189
+2025-03-18 16:44:57,920 - DEBUG - Using fragmentation for SYN scan on port 56 (attempt 2)
+2025-03-18 16:44:57,921 - DEBUG - Sending fragmented TCP S packets to port 56 from source port 51553
+2025-03-18 16:44:57,961 - DEBUG - Using fragmentation for SYN scan on port 64 (attempt 2)
+2025-03-18 16:44:57,961 - DEBUG - Sending fragmented TCP S packets to port 64 from source port 61684
+2025-03-18 16:44:59,373 - DEBUG - Using fragmentation for SYN scan on port 65 (attempt 2)
+2025-03-18 16:44:59,373 - DEBUG - Sending fragmented TCP S packets to port 65 from source port 65492
+2025-03-18 16:44:59,421 - DEBUG - Using fragmentation for SYN scan on port 66 (attempt 2)
+2025-03-18 16:44:59,421 - DEBUG - Sending fragmented TCP S packets to port 66 from source port 64558
+2025-03-18 16:44:59,476 - DEBUG - Using fragmentation for SYN scan on port 67 (attempt 2)
+2025-03-18 16:44:59,477 - DEBUG - Sending fragmented TCP S packets to port 67 from source port 62439
+2025-03-18 16:44:59,525 - DEBUG - Using fragmentation for SYN scan on port 68 (attempt 2)
+2025-03-18 16:44:59,525 - DEBUG - Sending fragmented TCP S packets to port 68 from source port 51615
+2025-03-18 16:44:59,573 - DEBUG - Using fragmentation for SYN scan on port 73 (attempt 2)
+2025-03-18 16:44:59,573 - DEBUG - Sending fragmented TCP S packets to port 73 from source port 54030
+2025-03-18 16:44:59,625 - DEBUG - Using fragmentation for SYN scan on port 70 (attempt 2)
+2025-03-18 16:44:59,625 - DEBUG - Sending fragmented TCP S packets to port 70 from source port 57508
+2025-03-18 16:44:59,685 - DEBUG - Using fragmentation for SYN scan on port 74 (attempt 2)
+2025-03-18 16:44:59,685 - DEBUG - Sending fragmented TCP S packets to port 74 from source port 57976
+2025-03-18 16:44:59,724 - DEBUG - Using fragmentation for SYN scan on port 78 (attempt 2)
+2025-03-18 16:44:59,725 - DEBUG - Sending fragmented TCP S packets to port 78 from source port 52961
+2025-03-18 16:44:59,772 - DEBUG - Using fragmentation for SYN scan on port 79 (attempt 2)
+2025-03-18 16:44:59,773 - DEBUG - Sending fragmented TCP S packets to port 79 from source port 55330
+2025-03-18 16:44:59,820 - DEBUG - Using fragmentation for SYN scan on port 71 (attempt 2)
+2025-03-18 16:44:59,821 - DEBUG - Sending fragmented TCP S packets to port 71 from source port 52981
+2025-03-18 16:44:59,868 - DEBUG - Using fragmentation for SYN scan on port 72 (attempt 2)
+2025-03-18 16:44:59,869 - DEBUG - Sending fragmented TCP S packets to port 72 from source port 60906
+2025-03-18 16:44:59,916 - DEBUG - Using fragmentation for SYN scan on port 76 (attempt 2)
+2025-03-18 16:44:59,917 - DEBUG - Sending fragmented TCP S packets to port 76 from source port 57571
+2025-03-18 16:44:59,964 - DEBUG - Using fragmentation for SYN scan on port 75 (attempt 2)
+2025-03-18 16:44:59,965 - DEBUG - Sending fragmented TCP S packets to port 75 from source port 53606
+2025-03-18 16:45:00,020 - DEBUG - Using fragmentation for SYN scan on port 69 (attempt 2)
+2025-03-18 16:45:00,021 - DEBUG - Sending fragmented TCP S packets to port 69 from source port 53436
+2025-03-18 16:45:00,065 - DEBUG - Using fragmentation for SYN scan on port 77 (attempt 2)
+2025-03-18 16:45:00,065 - DEBUG - Sending fragmented TCP S packets to port 77 from source port 51945
+2025-03-18 16:45:00,105 - DEBUG - Using fragmentation for SYN scan on port 80 (attempt 2)
+2025-03-18 16:45:00,105 - DEBUG - Sending fragmented TCP S packets to port 80 from source port 53106
+2025-03-18 16:45:01,409 - DEBUG - Using fragmentation for SYN scan on port 81 (attempt 2)
+2025-03-18 16:45:01,409 - DEBUG - Sending fragmented TCP S packets to port 81 from source port 55801
+2025-03-18 16:45:01,457 - DEBUG - Using fragmentation for SYN scan on port 83 (attempt 2)
+2025-03-18 16:45:01,457 - DEBUG - Sending fragmented TCP S packets to port 83 from source port 51581
+2025-03-18 16:45:01,529 - DEBUG - Using fragmentation for SYN scan on port 82 (attempt 2)
+2025-03-18 16:45:01,529 - DEBUG - Sending fragmented TCP S packets to port 82 from source port 62813
+2025-03-18 16:45:01,576 - DEBUG - Using fragmentation for SYN scan on port 84 (attempt 2)
+2025-03-18 16:45:01,577 - DEBUG - Sending fragmented TCP S packets to port 84 from source port 62126
+2025-03-18 16:45:01,620 - DEBUG - Using fragmentation for SYN scan on port 88 (attempt 2)
+2025-03-18 16:45:01,621 - DEBUG - Sending fragmented TCP S packets to port 88 from source port 63954
+2025-03-18 16:45:01,693 - DEBUG - Using fragmentation for SYN scan on port 93 (attempt 2)
+2025-03-18 16:45:01,693 - DEBUG - Sending fragmented TCP S packets to port 93 from source port 59932
+2025-03-18 16:45:01,741 - DEBUG - Using fragmentation for SYN scan on port 86 (attempt 2)
+2025-03-18 16:45:01,741 - DEBUG - Sending fragmented TCP S packets to port 86 from source port 63813
+2025-03-18 16:45:01,804 - DEBUG - Using fragmentation for SYN scan on port 91 (attempt 2)
+2025-03-18 16:45:01,805 - DEBUG - Sending fragmented TCP S packets to port 91 from source port 60444
+2025-03-18 16:45:01,864 - DEBUG - Using fragmentation for SYN scan on port 94 (attempt 2)
+2025-03-18 16:45:01,865 - DEBUG - Sending fragmented TCP S packets to port 94 from source port 50903
+2025-03-18 16:45:01,917 - DEBUG - Using fragmentation for SYN scan on port 85 (attempt 2)
+2025-03-18 16:45:01,917 - DEBUG - Sending fragmented TCP S packets to port 85 from source port 59829
+2025-03-18 16:45:01,964 - DEBUG - Using fragmentation for SYN scan on port 87 (attempt 2)
+2025-03-18 16:45:01,965 - DEBUG - Sending fragmented TCP S packets to port 87 from source port 57811
+2025-03-18 16:45:02,020 - DEBUG - Using fragmentation for SYN scan on port 90 (attempt 2)
+2025-03-18 16:45:02,021 - DEBUG - Sending fragmented TCP S packets to port 90 from source port 52750
+2025-03-18 16:45:02,068 - DEBUG - Using fragmentation for SYN scan on port 95 (attempt 2)
+2025-03-18 16:45:02,069 - DEBUG - Sending fragmented TCP S packets to port 95 from source port 54724
+2025-03-18 16:45:02,117 - DEBUG - Using fragmentation for SYN scan on port 92 (attempt 2)
+2025-03-18 16:45:02,117 - DEBUG - Sending fragmented TCP S packets to port 92 from source port 56620
+2025-03-18 16:45:02,164 - DEBUG - Using fragmentation for SYN scan on port 89 (attempt 2)
+2025-03-18 16:45:02,165 - DEBUG - Sending fragmented TCP S packets to port 89 from source port 62935
+2025-03-18 16:45:02,213 - DEBUG - Using fragmentation for SYN scan on port 96 (attempt 2)
+2025-03-18 16:45:02,213 - DEBUG - Sending fragmented TCP S packets to port 96 from source port 62025
+2025-03-18 16:45:03,445 - DEBUG - Using fragmentation for SYN scan on port 97 (attempt 2)
+2025-03-18 16:45:03,445 - DEBUG - Sending fragmented TCP S packets to port 97 from source port 50347
+2025-03-18 16:45:03,501 - DEBUG - Using fragmentation for SYN scan on port 98 (attempt 2)
+2025-03-18 16:45:03,501 - DEBUG - Sending fragmented TCP S packets to port 98 from source port 53255
+2025-03-18 16:45:03,545 - DEBUG - Using fragmentation for SYN scan on port 99 (attempt 2)
+2025-03-18 16:45:03,545 - DEBUG - Sending fragmented TCP S packets to port 99 from source port 57069
+2025-03-18 16:45:03,592 - DEBUG - Using fragmentation for SYN scan on port 100 (attempt 2)
+2025-03-18 16:45:03,593 - DEBUG - Sending fragmented TCP S packets to port 100 from source port 50916
+2025-03-18 16:45:03,668 - DEBUG - Using fragmentation for SYN scan on port 5 (attempt 3)
+2025-03-18 16:45:03,669 - DEBUG - Sending fragmented TCP S packets to port 5 from source port 57029
+2025-03-18 16:45:03,716 - DEBUG - Using fragmentation for SYN scan on port 11 (attempt 3)
+2025-03-18 16:45:03,717 - DEBUG - Sending fragmented TCP S packets to port 11 from source port 60989
+2025-03-18 16:45:03,764 - DEBUG - Using fragmentation for SYN scan on port 10 (attempt 3)
+2025-03-18 16:45:03,765 - DEBUG - Sending fragmented TCP S packets to port 10 from source port 60885
+2025-03-18 16:45:03,812 - DEBUG - Using fragmentation for SYN scan on port 1 (attempt 3)
+2025-03-18 16:45:03,813 - DEBUG - Sending fragmented TCP S packets to port 1 from source port 49270
+2025-03-18 16:45:03,861 - DEBUG - Using fragmentation for SYN scan on port 2 (attempt 3)
+2025-03-18 16:45:03,861 - DEBUG - Sending fragmented TCP S packets to port 2 from source port 50941
+2025-03-18 16:45:03,909 - DEBUG - Using fragmentation for SYN scan on port 4 (attempt 3)
+2025-03-18 16:45:03,909 - DEBUG - Sending fragmented TCP S packets to port 4 from source port 53694
+2025-03-18 16:45:03,956 - DEBUG - Using fragmentation for SYN scan on port 6 (attempt 3)
+2025-03-18 16:45:03,957 - DEBUG - Sending fragmented TCP S packets to port 6 from source port 59719
+2025-03-18 16:45:04,004 - DEBUG - Using fragmentation for SYN scan on port 9 (attempt 3)
+2025-03-18 16:45:04,005 - DEBUG - Sending fragmented TCP S packets to port 9 from source port 52844
+2025-03-18 16:45:04,056 - DEBUG - Using fragmentation for SYN scan on port 15 (attempt 3)
+2025-03-18 16:45:04,057 - DEBUG - Sending fragmented TCP S packets to port 15 from source port 49922
+2025-03-18 16:45:04,100 - DEBUG - Using fragmentation for SYN scan on port 7 (attempt 3)
+2025-03-18 16:45:04,101 - DEBUG - Sending fragmented TCP S packets to port 7 from source port 65429
+2025-03-18 16:45:04,141 - DEBUG - Using fragmentation for SYN scan on port 12 (attempt 3)
+2025-03-18 16:45:04,141 - DEBUG - Sending fragmented TCP S packets to port 12 from source port 50390
+2025-03-18 16:45:04,172 - DEBUG - Using fragmentation for SYN scan on port 13 (attempt 3)
+2025-03-18 16:45:04,173 - DEBUG - Sending fragmented TCP S packets to port 13 from source port 53165
+2025-03-18 16:45:05,501 - DEBUG - Using fragmentation for SYN scan on port 16 (attempt 3)
+2025-03-18 16:45:05,501 - DEBUG - Sending fragmented TCP S packets to port 16 from source port 51988
+2025-03-18 16:45:05,557 - DEBUG - Using fragmentation for SYN scan on port 3 (attempt 3)
+2025-03-18 16:45:05,557 - DEBUG - Sending fragmented TCP S packets to port 3 from source port 58724
+2025-03-18 16:45:05,625 - DEBUG - Using fragmentation for SYN scan on port 14 (attempt 3)
+2025-03-18 16:45:05,625 - DEBUG - Sending fragmented TCP S packets to port 14 from source port 61143
+2025-03-18 16:45:05,696 - DEBUG - Using fragmentation for SYN scan on port 8 (attempt 3)
+2025-03-18 16:45:05,697 - DEBUG - Sending fragmented TCP S packets to port 8 from source port 62152
+2025-03-18 16:45:05,736 - DEBUG - Using fragmentation for SYN scan on port 31 (attempt 3)
+2025-03-18 16:45:05,737 - DEBUG - Sending fragmented TCP S packets to port 31 from source port 65140
+2025-03-18 16:45:05,777 - DEBUG - Using fragmentation for SYN scan on port 20 (attempt 3)
+2025-03-18 16:45:05,777 - DEBUG - Sending fragmented TCP S packets to port 20 from source port 63831
+2025-03-18 16:45:05,828 - DEBUG - Using fragmentation for SYN scan on port 17 (attempt 3)
+2025-03-18 16:45:05,829 - DEBUG - Sending fragmented TCP S packets to port 17 from source port 52131
+2025-03-18 16:45:05,877 - DEBUG - Using fragmentation for SYN scan on port 21 (attempt 3)
+2025-03-18 16:45:05,877 - DEBUG - Sending fragmented TCP S packets to port 21 from source port 51214
+2025-03-18 16:45:05,925 - DEBUG - Using fragmentation for SYN scan on port 29 (attempt 3)
+2025-03-18 16:45:05,925 - DEBUG - Sending fragmented TCP S packets to port 29 from source port 50380
+2025-03-18 16:45:05,972 - DEBUG - Using fragmentation for SYN scan on port 30 (attempt 3)
+2025-03-18 16:45:05,973 - DEBUG - Sending fragmented TCP S packets to port 30 from source port 57858
+2025-03-18 16:45:06,020 - DEBUG - Using fragmentation for SYN scan on port 25 (attempt 3)
+2025-03-18 16:45:06,021 - DEBUG - Sending fragmented TCP S packets to port 25 from source port 50273
+2025-03-18 16:45:06,068 - DEBUG - Using fragmentation for SYN scan on port 27 (attempt 3)
+2025-03-18 16:45:06,069 - DEBUG - Sending fragmented TCP S packets to port 27 from source port 58057
+2025-03-18 16:45:06,117 - DEBUG - Using fragmentation for SYN scan on port 22 (attempt 3)
+2025-03-18 16:45:06,117 - DEBUG - Sending fragmented TCP S packets to port 22 from source port 62697
+2025-03-18 16:45:06,165 - DEBUG - Using fragmentation for SYN scan on port 23 (attempt 3)
+2025-03-18 16:45:06,165 - DEBUG - Sending fragmented TCP S packets to port 23 from source port 58355
+2025-03-18 16:45:06,212 - DEBUG - Using fragmentation for SYN scan on port 19 (attempt 3)
+2025-03-18 16:45:06,213 - DEBUG - Sending fragmented TCP S packets to port 19 from source port 55886
+2025-03-18 16:45:06,260 - DEBUG - Using fragmentation for SYN scan on port 18 (attempt 3)
+2025-03-18 16:45:06,261 - DEBUG - Sending fragmented TCP S packets to port 18 from source port 63280
+2025-03-18 16:45:07,549 - DEBUG - Using fragmentation for SYN scan on port 28 (attempt 3)
+2025-03-18 16:45:07,549 - DEBUG - Sending fragmented TCP S packets to port 28 from source port 63427
+2025-03-18 16:45:07,601 - DEBUG - Using fragmentation for SYN scan on port 24 (attempt 3)
+2025-03-18 16:45:07,601 - DEBUG - Sending fragmented TCP S packets to port 24 from source port 57235
+2025-03-18 16:45:07,649 - DEBUG - Using fragmentation for SYN scan on port 26 (attempt 3)
+2025-03-18 16:45:07,649 - DEBUG - Sending fragmented TCP S packets to port 26 from source port 64027
+2025-03-18 16:45:07,697 - DEBUG - Using fragmentation for SYN scan on port 32 (attempt 3)
+2025-03-18 16:45:07,697 - DEBUG - Sending fragmented TCP S packets to port 32 from source port 54656
+2025-03-18 16:45:07,744 - DEBUG - Using fragmentation for SYN scan on port 34 (attempt 3)
+2025-03-18 16:45:07,745 - DEBUG - Sending fragmented TCP S packets to port 34 from source port 63330
+2025-03-18 16:45:07,784 - DEBUG - Using fragmentation for SYN scan on port 47 (attempt 3)
+2025-03-18 16:45:07,785 - DEBUG - Sending fragmented TCP S packets to port 47 from source port 58256
+2025-03-18 16:45:07,833 - DEBUG - Using fragmentation for SYN scan on port 40 (attempt 3)
+2025-03-18 16:45:07,833 - DEBUG - Sending fragmented TCP S packets to port 40 from source port 56974
+2025-03-18 16:45:07,880 - DEBUG - Using fragmentation for SYN scan on port 33 (attempt 3)
+2025-03-18 16:45:07,881 - DEBUG - Sending fragmented TCP S packets to port 33 from source port 59102
+2025-03-18 16:45:07,924 - DEBUG - Using fragmentation for SYN scan on port 39 (attempt 3)
+2025-03-18 16:45:07,925 - DEBUG - Sending fragmented TCP S packets to port 39 from source port 59215
+2025-03-18 16:45:07,972 - DEBUG - Using fragmentation for SYN scan on port 42 (attempt 3)
+2025-03-18 16:45:07,973 - DEBUG - Sending fragmented TCP S packets to port 42 from source port 54391
+2025-03-18 16:45:08,024 - DEBUG - Using fragmentation for SYN scan on port 35 (attempt 3)
+2025-03-18 16:45:08,025 - DEBUG - Sending fragmented TCP S packets to port 35 from source port 58462
+2025-03-18 16:45:08,073 - DEBUG - Using fragmentation for SYN scan on port 41 (attempt 3)
+2025-03-18 16:45:08,073 - DEBUG - Sending fragmented TCP S packets to port 41 from source port 50817
+2025-03-18 16:45:08,120 - DEBUG - Using fragmentation for SYN scan on port 44 (attempt 3)
+2025-03-18 16:45:08,121 - DEBUG - Sending fragmented TCP S packets to port 44 from source port 55398
+2025-03-18 16:45:08,168 - DEBUG - Using fragmentation for SYN scan on port 45 (attempt 3)
+2025-03-18 16:45:08,169 - DEBUG - Sending fragmented TCP S packets to port 45 from source port 61285
+2025-03-18 16:45:08,216 - DEBUG - Using fragmentation for SYN scan on port 36 (attempt 3)
+2025-03-18 16:45:08,217 - DEBUG - Sending fragmented TCP S packets to port 36 from source port 52087
+2025-03-18 16:45:08,264 - DEBUG - Using fragmentation for SYN scan on port 37 (attempt 3)
+2025-03-18 16:45:08,265 - DEBUG - Sending fragmented TCP S packets to port 37 from source port 49649
+2025-03-18 16:45:09,593 - DEBUG - Using fragmentation for SYN scan on port 38 (attempt 3)
+2025-03-18 16:45:09,593 - DEBUG - Sending fragmented TCP S packets to port 38 from source port 54705
+2025-03-18 16:45:09,645 - DEBUG - Using fragmentation for SYN scan on port 43 (attempt 3)
+2025-03-18 16:45:09,645 - DEBUG - Sending fragmented TCP S packets to port 43 from source port 60816
+2025-03-18 16:45:09,697 - DEBUG - Using fragmentation for SYN scan on port 46 (attempt 3)
+2025-03-18 16:45:09,697 - DEBUG - Sending fragmented TCP S packets to port 46 from source port 50599
+2025-03-18 16:45:09,749 - DEBUG - Using fragmentation for SYN scan on port 48 (attempt 3)
+2025-03-18 16:45:09,749 - DEBUG - Sending fragmented TCP S packets to port 48 from source port 59131
+2025-03-18 16:45:09,800 - DEBUG - Using fragmentation for SYN scan on port 50 (attempt 3)
+2025-03-18 16:45:09,801 - DEBUG - Sending fragmented TCP S packets to port 50 from source port 64276
+2025-03-18 16:45:09,848 - DEBUG - Using fragmentation for SYN scan on port 49 (attempt 3)
+2025-03-18 16:45:09,849 - DEBUG - Sending fragmented TCP S packets to port 49 from source port 60021
+2025-03-18 16:45:09,900 - DEBUG - Using fragmentation for SYN scan on port 51 (attempt 3)
+2025-03-18 16:45:09,901 - DEBUG - Sending fragmented TCP S packets to port 51 from source port 63552
+2025-03-18 16:45:09,952 - DEBUG - Using fragmentation for SYN scan on port 59 (attempt 3)
+2025-03-18 16:45:09,953 - DEBUG - Sending fragmented TCP S packets to port 59 from source port 58973
+2025-03-18 16:45:10,017 - DEBUG - Using fragmentation for SYN scan on port 52 (attempt 3)
+2025-03-18 16:45:10,017 - DEBUG - Sending fragmented TCP S packets to port 52 from source port 63658
+2025-03-18 16:45:10,064 - DEBUG - Using fragmentation for SYN scan on port 53 (attempt 3)
+2025-03-18 16:45:10,065 - DEBUG - Sending fragmented TCP S packets to port 53 from source port 65069
+2025-03-18 16:45:10,112 - DEBUG - Using fragmentation for SYN scan on port 58 (attempt 3)
+2025-03-18 16:45:10,113 - DEBUG - Sending fragmented TCP S packets to port 58 from source port 55004
+2025-03-18 16:45:10,165 - DEBUG - Using fragmentation for SYN scan on port 57 (attempt 3)
+2025-03-18 16:45:10,165 - DEBUG - Sending fragmented TCP S packets to port 57 from source port 58384
+2025-03-18 16:45:10,213 - DEBUG - Using fragmentation for SYN scan on port 62 (attempt 3)
+2025-03-18 16:45:10,213 - DEBUG - Sending fragmented TCP S packets to port 62 from source port 64249
+2025-03-18 16:45:10,264 - DEBUG - Using fragmentation for SYN scan on port 60 (attempt 3)
+2025-03-18 16:45:10,265 - DEBUG - Sending fragmented TCP S packets to port 60 from source port 63358
+2025-03-18 16:45:10,312 - DEBUG - Using fragmentation for SYN scan on port 55 (attempt 3)
+2025-03-18 16:45:10,313 - DEBUG - Sending fragmented TCP S packets to port 55 from source port 57539
+2025-03-18 16:45:10,361 - DEBUG - Using fragmentation for SYN scan on port 61 (attempt 3)
+2025-03-18 16:45:10,361 - DEBUG - Sending fragmented TCP S packets to port 61 from source port 54414
+2025-03-18 16:45:11,653 - DEBUG - Using fragmentation for SYN scan on port 54 (attempt 3)
+2025-03-18 16:45:11,653 - DEBUG - Sending fragmented TCP S packets to port 54 from source port 65466
+2025-03-18 16:45:11,701 - DEBUG - Using fragmentation for SYN scan on port 63 (attempt 3)
+2025-03-18 16:45:11,701 - DEBUG - Sending fragmented TCP S packets to port 63 from source port 63189
+2025-03-18 16:45:11,749 - DEBUG - Using fragmentation for SYN scan on port 56 (attempt 3)
+2025-03-18 16:45:11,749 - DEBUG - Sending fragmented TCP S packets to port 56 from source port 51553
+2025-03-18 16:45:11,808 - DEBUG - Using fragmentation for SYN scan on port 65 (attempt 3)
+2025-03-18 16:45:11,809 - DEBUG - Sending fragmented TCP S packets to port 65 from source port 65492
+2025-03-18 16:45:11,856 - DEBUG - Using fragmentation for SYN scan on port 66 (attempt 3)
+2025-03-18 16:45:11,857 - DEBUG - Sending fragmented TCP S packets to port 66 from source port 64558
+2025-03-18 16:45:11,908 - DEBUG - Using fragmentation for SYN scan on port 67 (attempt 3)
+2025-03-18 16:45:11,909 - DEBUG - Sending fragmented TCP S packets to port 67 from source port 62439
+2025-03-18 16:45:11,952 - DEBUG - Using fragmentation for SYN scan on port 64 (attempt 3)
+2025-03-18 16:45:11,953 - DEBUG - Sending fragmented TCP S packets to port 64 from source port 61684
+2025-03-18 16:45:11,992 - DEBUG - Using fragmentation for SYN scan on port 70 (attempt 3)
+2025-03-18 16:45:11,993 - DEBUG - Sending fragmented TCP S packets to port 70 from source port 57508
+2025-03-18 16:45:12,048 - DEBUG - Using fragmentation for SYN scan on port 73 (attempt 3)
+2025-03-18 16:45:12,049 - DEBUG - Sending fragmented TCP S packets to port 73 from source port 54030
+2025-03-18 16:45:12,080 - DEBUG - Using fragmentation for SYN scan on port 74 (attempt 3)
+2025-03-18 16:45:12,081 - DEBUG - Sending fragmented TCP S packets to port 74 from source port 57976
+2025-03-18 16:45:12,124 - DEBUG - Using fragmentation for SYN scan on port 79 (attempt 3)
+2025-03-18 16:45:12,125 - DEBUG - Sending fragmented TCP S packets to port 79 from source port 55330
+2025-03-18 16:45:12,164 - DEBUG - Using fragmentation for SYN scan on port 71 (attempt 3)
+2025-03-18 16:45:12,165 - DEBUG - Sending fragmented TCP S packets to port 71 from source port 52981
+2025-03-18 16:45:12,200 - DEBUG - Using fragmentation for SYN scan on port 78 (attempt 3)
+2025-03-18 16:45:12,201 - DEBUG - Sending fragmented TCP S packets to port 78 from source port 52961
+2025-03-18 16:45:12,248 - DEBUG - Using fragmentation for SYN scan on port 68 (attempt 3)
+2025-03-18 16:45:12,249 - DEBUG - Sending fragmented TCP S packets to port 68 from source port 51615
+2025-03-18 16:45:12,300 - DEBUG - Using fragmentation for SYN scan on port 72 (attempt 3)
+2025-03-18 16:45:12,301 - DEBUG - Sending fragmented TCP S packets to port 72 from source port 60906
+2025-03-18 16:45:12,348 - DEBUG - Using fragmentation for SYN scan on port 76 (attempt 3)
+2025-03-18 16:45:12,349 - DEBUG - Sending fragmented TCP S packets to port 76 from source port 57571
+2025-03-18 16:45:13,709 - DEBUG - Using fragmentation for SYN scan on port 75 (attempt 3)
+2025-03-18 16:45:13,709 - DEBUG - Sending fragmented TCP S packets to port 75 from source port 53606
+2025-03-18 16:45:13,761 - DEBUG - Using fragmentation for SYN scan on port 69 (attempt 3)
+2025-03-18 16:45:13,761 - DEBUG - Sending fragmented TCP S packets to port 69 from source port 53436
+2025-03-18 16:45:13,817 - DEBUG - Using fragmentation for SYN scan on port 81 (attempt 3)
+2025-03-18 16:45:13,817 - DEBUG - Sending fragmented TCP S packets to port 81 from source port 55801
+2025-03-18 16:45:13,868 - DEBUG - Using fragmentation for SYN scan on port 83 (attempt 3)
+2025-03-18 16:45:13,869 - DEBUG - Sending fragmented TCP S packets to port 83 from source port 51581
+2025-03-18 16:45:13,922 - DEBUG - Using fragmentation for SYN scan on port 80 (attempt 3)
+2025-03-18 16:45:13,923 - DEBUG - Sending fragmented TCP S packets to port 80 from source port 53106
+2025-03-18 16:45:13,964 - DEBUG - Using fragmentation for SYN scan on port 77 (attempt 3)
+2025-03-18 16:45:13,965 - DEBUG - Sending fragmented TCP S packets to port 77 from source port 51945
+2025-03-18 16:45:14,012 - DEBUG - Using fragmentation for SYN scan on port 82 (attempt 3)
+2025-03-18 16:45:14,013 - DEBUG - Sending fragmented TCP S packets to port 82 from source port 62813
+2025-03-18 16:45:14,052 - DEBUG - Using fragmentation for SYN scan on port 93 (attempt 3)
+2025-03-18 16:45:14,053 - DEBUG - Sending fragmented TCP S packets to port 93 from source port 59932
+2025-03-18 16:45:14,096 - DEBUG - Using fragmentation for SYN scan on port 88 (attempt 3)
+2025-03-18 16:45:14,097 - DEBUG - Sending fragmented TCP S packets to port 88 from source port 63954
+2025-03-18 16:45:14,140 - DEBUG - Using fragmentation for SYN scan on port 94 (attempt 3)
+2025-03-18 16:45:14,141 - DEBUG - Sending fragmented TCP S packets to port 94 from source port 50903
+2025-03-18 16:45:14,181 - DEBUG - Using fragmentation for SYN scan on port 84 (attempt 3)
+2025-03-18 16:45:14,181 - DEBUG - Sending fragmented TCP S packets to port 84 from source port 62126
+2025-03-18 16:45:14,224 - DEBUG - Using fragmentation for SYN scan on port 86 (attempt 3)
+2025-03-18 16:45:14,225 - DEBUG - Sending fragmented TCP S packets to port 86 from source port 63813
+2025-03-18 16:45:14,273 - DEBUG - Using fragmentation for SYN scan on port 91 (attempt 3)
+2025-03-18 16:45:14,273 - DEBUG - Sending fragmented TCP S packets to port 91 from source port 60444
+2025-03-18 16:45:14,321 - DEBUG - Using fragmentation for SYN scan on port 85 (attempt 3)
+2025-03-18 16:45:14,321 - DEBUG - Sending fragmented TCP S packets to port 85 from source port 59829
+2025-03-18 16:45:14,369 - DEBUG - Using fragmentation for SYN scan on port 90 (attempt 3)
+2025-03-18 16:45:14,369 - DEBUG - Sending fragmented TCP S packets to port 90 from source port 52750
+2025-03-18 16:45:14,416 - DEBUG - Using fragmentation for SYN scan on port 87 (attempt 3)
+2025-03-18 16:45:14,417 - DEBUG - Sending fragmented TCP S packets to port 87 from source port 57811
+2025-03-18 16:45:15,745 - DEBUG - Using fragmentation for SYN scan on port 95 (attempt 3)
+2025-03-18 16:45:15,745 - DEBUG - Sending fragmented TCP S packets to port 95 from source port 54724
+2025-03-18 16:45:15,773 - DEBUG - Using fragmentation for SYN scan on port 92 (attempt 3)
+2025-03-18 16:45:15,773 - DEBUG - Sending fragmented TCP S packets to port 92 from source port 56620
+2025-03-18 16:45:15,821 - DEBUG - Using fragmentation for SYN scan on port 89 (attempt 3)
+2025-03-18 16:45:15,821 - DEBUG - Sending fragmented TCP S packets to port 89 from source port 62935
+2025-03-18 16:45:15,868 - DEBUG - Using fragmentation for SYN scan on port 96 (attempt 3)
+2025-03-18 16:45:15,869 - DEBUG - Sending fragmented TCP S packets to port 96 from source port 62025
+2025-03-18 16:45:15,920 - DEBUG - Using fragmentation for SYN scan on port 97 (attempt 3)
+2025-03-18 16:45:15,921 - DEBUG - Sending fragmented TCP S packets to port 97 from source port 50347
+2025-03-18 16:45:15,957 - DEBUG - Using fragmentation for SYN scan on port 99 (attempt 3)
+2025-03-18 16:45:15,957 - DEBUG - Sending fragmented TCP S packets to port 99 from source port 57069
+2025-03-18 16:45:16,005 - DEBUG - Using fragmentation for SYN scan on port 98 (attempt 3)
+2025-03-18 16:45:16,005 - DEBUG - Sending fragmented TCP S packets to port 98 from source port 53255
+2025-03-18 16:45:16,032 - DEBUG - Using fragmentation for SYN scan on port 100 (attempt 3)
+2025-03-18 16:45:16,033 - DEBUG - Sending fragmented TCP S packets to port 100 from source port 50916
+2025-03-18 16:45:28,180 - DEBUG - Performing service fingerprinting
+2025-03-18 16:45:28,180 - DEBUG - Analyzing vulnerabilities
+2025-03-18 16:45:28,180 - INFO - Scan completed. Generating report...
+2025-03-18 16:45:41,922 - DEBUG - Using selector: EpollSelector
+2025-03-18 16:45:41,922 - INFO - Starting scan against 127.0.0.1
+2025-03-18 16:45:41,922 - INFO - Ports: [80]
+2025-03-18 16:45:41,923 - INFO - Scan types: ['syn']
+2025-03-18 16:45:41,923 - INFO - Concurrency limit: 100
+2025-03-18 16:45:41,924 - DEBUG - SYN scan on port 80
+2025-03-18 16:45:41,924 - DEBUG - Using fragmentation for SYN scan on port 80 (attempt 1)
+2025-03-18 16:45:41,924 - DEBUG - Sending fragmented TCP S packets to port 80 from source port 60123
+2025-03-18 16:45:44,037 - DEBUG - Using fragmentation for SYN scan on port 80 (attempt 2)
+2025-03-18 16:45:44,037 - DEBUG - Sending fragmented TCP S packets to port 80 from source port 60123
+2025-03-18 16:45:46,165 - DEBUG - Using fragmentation for SYN scan on port 80 (attempt 3)
+2025-03-18 16:45:46,165 - DEBUG - Sending fragmented TCP S packets to port 80 from source port 60123
+2025-03-18 16:45:48,308 - DEBUG - Performing service fingerprinting
+2025-03-18 16:45:48,308 - DEBUG - Analyzing vulnerabilities
+2025-03-18 16:45:48,308 - INFO - Scan completed. Generating report...
+2025-03-18 16:45:52,143 - DEBUG - Using selector: EpollSelector
+2025-03-18 16:45:52,143 - INFO - Starting scan against 127.0.0.1
+2025-03-18 16:45:52,143 - INFO - Ports: [80]
+2025-03-18 16:45:52,143 - INFO - Scan types: ['syn']
+2025-03-18 16:45:52,143 - INFO - Concurrency limit: 100
+2025-03-18 16:45:52,145 - DEBUG - SYN scan on port 80
+2025-03-18 16:45:52,145 - DEBUG - Sending TCP S packet to port 80 from source port 59993
+2025-03-18 16:45:54,285 - DEBUG - Sending TCP S packet to port 80 from source port 59993
+2025-03-18 16:45:56,433 - DEBUG - Sending TCP S packet to port 80 from source port 59993
+2025-03-18 16:45:58,585 - DEBUG - Performing service fingerprinting
+2025-03-18 16:45:58,585 - DEBUG - Analyzing vulnerabilities
+2025-03-18 16:45:58,585 - INFO - Scan completed. Generating report...
+2025-03-19 11:58:51,764 - DEBUG - Using selector: EpollSelector
+2025-03-19 11:58:51,764 - INFO - Starting scan against 127.0.0.1
+2025-03-19 11:58:51,764 - INFO - Ports: [80, 443]
+2025-03-19 11:58:51,764 - INFO - Scan types: ['syn']
+2025-03-19 11:58:51,765 - DEBUG - Standard SYN scan on port 80 from source port 50000
+2025-03-19 11:58:51,766 - ERROR - SYN scan failed on port 80: [Errno 1] Operation not permitted
+2025-03-19 11:58:51,766 - DEBUG - Standard SYN scan on port 443 from source port 50001
+2025-03-19 11:58:51,767 - ERROR - SYN scan failed on port 443: [Errno 1] Operation not permitted
+2025-03-19 11:58:51,769 - DEBUG - Performing service fingerprinting
+2025-03-19 11:58:51,769 - DEBUG - Analyzing vulnerabilities
+2025-03-19 11:58:51,769 - INFO - Scan completed. Generating report...
+2025-03-19 11:59:05,020 - DEBUG - Using selector: EpollSelector
+2025-03-19 11:59:05,021 - INFO - Starting scan against 127.0.0.1
+2025-03-19 11:59:05,021 - INFO - Ports: [80, 443]
+2025-03-19 11:59:05,021 - INFO - Scan types: ['syn']
+2025-03-19 11:59:05,022 - DEBUG - Standard SYN scan on port 80 from source port 50000
+2025-03-19 11:59:05,082 - DEBUG - Standard SYN scan on port 443 from source port 50001
+2025-03-19 11:59:07,191 - DEBUG - Performing service fingerprinting
+2025-03-19 11:59:07,191 - DEBUG - Analyzing vulnerabilities
+2025-03-19 11:59:07,191 - INFO - Scan completed. Generating report...
