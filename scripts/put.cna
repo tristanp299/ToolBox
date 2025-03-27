@@ -1,0 +1,37 @@
+sub _put_real
+{
+  local('$fileh $filebytes');
+  $fileh = openf($file);
+  $filebytes = readb($fileh, -1);
+  closef($fileh);
+  bupload_raw($bid, $dest, $filebytes, $file);
+  if ( $touch !is $null)
+  {
+    btimestomp($bid, $dest, $touch);
+  }
+}
+
+alias put
+{
+  local('@args $bid $dest $touch $file');
+  $bid = $1;
+  $dest = $2;
+  $touch = $3;
+  $file = $4;
+
+  if ( $file is $null ) {
+    prompt_file_open(
+      "file to upload",
+      $null,
+      false,
+      let({ $file = $1; _put_real(\$bid, \$dest, \$touch, \$file) }, \$bid, \$dest, \$touch)
+    );
+  }
+  else
+  {
+    _put_real(\$bid, \$dest, \$touch, \$file);
+  }
+}
+
+beacon_command_register("put", "put", "put <dest> <touch> <file>
+prompts for file if not specified");

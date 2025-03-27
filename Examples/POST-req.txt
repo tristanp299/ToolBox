@@ -1,0 +1,6 @@
+POST /api/now/sp/search HTTP/1.1
+Host: Example.com
+Content-Length: 71
+Connection: close
+
+{"query":"password","count":100000,"source":"kb","include_facets":true}
