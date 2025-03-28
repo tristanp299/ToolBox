@@ -1,0 +1,79 @@
+# Common #
+export cwd=/home/tristan/homelab
+export HOMELAB="$HOME/homelab"
+source "$HOME"/.env
+alias ll='ls -lart'
+alias gedit='(){gedit "$@" &}'
+alias setcwd='(){sed -i "0,/export cwd=/s|export cwd=.*|export cwd=`pwd`|" "$HOMELAB/.alias"} &&'
+alias se='(){searchsploit "$@"}'
+alias tjp='source "$HOMELAB"/.alias'
+alias cwd='cd "$cwd"'
+alias s='(){grep -i "$1" "$HOMELAB"/.alias --color}'
+alias o='gedit "$HOMELAB"/.alias &'
+
+# Security #
+alias encrypt='(){sudo gpg -c --no-symkey-cache --cipher-algo AES256 "$1" && rm "$1"}'
+alias chperm='(){sudo chown root:$USER "$1" && sudo chmod 640 "$1"}'
+
+# Network #
+alias qn='(){nmap -vv --min-rate=500 -T3 -sT -Pn "$1"}'
+alias tailscaleup='sudo tailscale set --exit-node= --exit-node-allow-lan-access=true'
+# System #
+alias accessUEFI='sudo systemctl reboot --firmware-setup'
+#alias flash live usb --> sudo dd if="./debian-12.8.0-amd64-DVD-1.iso" of="/dev/sda" status="progress" conv="fsync"
+alias changeDE='sudo tasksel'
+alias refreshSSH='eval $(ssh-agent) && ssh-add "$GITHUB_KEY"'
+#!/bin/zsh
+alias ll="ls -lart"
+#Add randomized exit node
+function nen() {
+        current=`tailscale exit-node list | grep -i 'selected' | cut -f 2 -d ' ' | tr -d '\n'`
+        if [ -z $current ]; then
+                current="NONE"
+        fi
+        n=`tailscale exit-node list --filter=USA | grep -v 'selected' | grep -v "$current" | cut -f 2 -d ' ' | uniq | sort -R | head -n 1`
+        echo "Setting new Exit Node to $n..."
+        sudo tailscale set --exit-node=$(echo -n "$n") --exit-node-allow-lan-access
+        curl -sSL ipv4.icanhazip.com
+}
+
+# Remove Exit Node for TailScale
+function nenoff() {
+        tailscale set --exit-node= --exit-node-allow-lan-access
+        echo "Disabling Exit Node"
+       curl -sSL ipv4.icanhazip.com
+}
+## /root/.zshrc
+# Attribution
+
+function log_operator_info() {
+        dc_logfile='/var/log/dc_log'
+        if [ -z $1 ]; then
+                ip_address=`curl -sSL ipv4.icanhazip.com`
+        else
+                ip_address="$1"
+        fi
+        echo "$ip_address" | tr -d '\n' > /tmp/external.txt
+        echo "$(date '+%Y-%m-%d_%H:%M:%S'),$ip_address,$(hostname),$(whoami)" >> $dc_logfile
+
+}
+
+alias rotatenen='while true; do sleep 60; nen; done &'
+#
+### /root/.oh-my-zsh/templates/default*
+##if [ -f /tmp/external.txt ]; then
+#IP_ADDRESS=`cat /tmp/external.txt | tr -d '\n'`
+#else
+#IP_ADDRESS=`dig +short myip.opendns.com @resolver1.opendns.com | tr -d '\n'`
+#curl -sSL ipv4.icanhazip.com | tr -d '\n' > /tmp/external.txt
+#
+#fi
+#if [ "$EUID" -eq 0 ]; then
+#SYMBOL="#";
+#else
+#SYMBOL="\$"
+#fi
+#PROMPT='%{$fg_bold[red]%}%D %T %{$reset_color%}%{$fg_bold[white]%}$(cat /tmp/external.txt) %{$reset_color%}%{$fg_bold[blue]%}%1~%{$reset_color%} ${SYMBOL} '
+#PROMPT='%{$fg_bold[red]%}%D %T %{$reset_color%}%{$fg_bold[white]%}$(hostname -I | cut -d " " -f 1) %{$reset_color%}%{$fg_bold[blue]%}%1~%{$reset_color%} ${SYMBOL} '
+#export LSCOLORS="exfxcxdxbxegedabagacad"
+#export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
