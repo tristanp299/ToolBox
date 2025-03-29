@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 #Author: Tristan Pereira
-#Date: 2025-03-28
 #Purpose: Parse JSON files and organize the data by various fields.
 #Usage: python3 json_parser.py <json_file> [--path <dot_notation_path>] [--pretty] [--compact] [--organize-by <field>] [--organize-all] [--include-lists-dicts] [--output-dir <output_directory>] [--inspect] [--grep]
 

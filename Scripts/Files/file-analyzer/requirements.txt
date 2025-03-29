@@ -1,0 +1,1 @@
+pip install radon astroid scikit-learn joblib spacy pefile pyelftools macholib python-magic pylint bandit
