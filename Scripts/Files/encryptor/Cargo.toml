@@ -35,15 +35,18 @@ rpassword = "7.2.0"     # Secure password input
 indicatif = "0.17.0"    # Progress bars and indicators
 
 [profile.release]
-# Optimize for size and speed
+# Maximum optimization for size and speed
 opt-level = 3
 # Strip debug symbols
 debug = false
-# Enable link-time optimization
-lto = true
+# Enable link-time optimization for maximum size reduction
+lto = "fat"
 # Panic behavior: abort instead of unwinding for smaller binary
 panic = "abort"
 # Strip symbols to reduce binary size
 strip = true
-# Enable more optimizations
-codegen-units = 1 
+# Enable more aggressive optimizations
+codegen-units = 1
+# Optimize for size where possible without hurting performance
+# This produces smaller binaries than the default settings
+opt-level = "z" 

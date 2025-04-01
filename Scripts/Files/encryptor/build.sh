@@ -8,6 +8,7 @@
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Define directories
@@ -22,6 +23,8 @@ echo -e "${YELLOW}Starting secure encryptor/decryptor build process...${NC}"
 CLEAN_ONLY=false
 FULL_CLEAN=false
 MINIMAL=false
+ULTRA_MINIMAL=false
+STATIC=false
 
 for arg in "$@"; do
   case $arg in
@@ -35,6 +38,15 @@ for arg in "$@"; do
       ;;
     --minimal)
       MINIMAL=true
+      shift
+      ;;
+    --ultra-minimal)
+      ULTRA_MINIMAL=true
+      MINIMAL=true
+      shift
+      ;;
+    --static)
+      STATIC=true
       shift
       ;;
   esac
@@ -104,9 +116,18 @@ if ! mount | grep -q "tmpfs on /tmp"; then
     echo -e "${YELLOW}⚠️  WARNING: /tmp directory may not be memory-backed. Temporary files might persist on disk.${NC}"
 fi
 
+# Set build flags based on options
+BUILD_FLAGS="--release"
+
+if [ "$STATIC" = true ]; then
+    echo -e "${BLUE}Building with static linking for maximum portability...${NC}"
+    # Set environment variables for static linking
+    export RUSTFLAGS="-C target-feature=+crt-static -C link-self-contained=yes -C prefer-dynamic=no"
+fi
+
 # Build both binaries
 echo -e "Building independent encryptor and decryptor binaries..."
-cargo build --release
+cargo build $BUILD_FLAGS
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Build successful!${NC}"
@@ -125,14 +146,33 @@ if [ $? -eq 0 ]; then
     # Make executable
     chmod +x ./encryptor ./decryptor "$OUTPUT_DIR/encryptor" "$OUTPUT_DIR/decryptor"
     
+    echo -e "${BLUE}Applying binary hardening...${NC}"
+    
     # Apply strip to make binaries smaller and harder to reverse-engineer
-    echo -e "Stripping debug symbols and applying binary hardening..."
+    echo -e "Stripping debug symbols and other metadata..."
     strip -s ./encryptor ./decryptor
     
-    # Check if we should apply additional hardening (not available on all systems)
-    if command -v upx &> /dev/null && [ "$MINIMAL" = true ]; then
-        echo -e "Applying UPX compression to reduce binary size..."
-        upx --best --ultra-brute ./encryptor ./decryptor 2>/dev/null || echo -e "${YELLOW}UPX compression failed, continuing without it.${NC}"
+    # Check if we should apply additional hardening
+    if [ "$MINIMAL" = true ]; then
+        # Check if UPX is available
+        if command -v upx &> /dev/null; then
+            echo -e "Applying UPX compression to reduce binary size..."
+            
+            if [ "$ULTRA_MINIMAL" = true ]; then
+                echo -e "${YELLOW}Using extreme compression (may slow startup time)...${NC}"
+                upx --best --ultra-brute ./encryptor ./decryptor 2>/dev/null || echo -e "${YELLOW}UPX compression failed, continuing without it.${NC}"
+            else
+                upx --best ./encryptor ./decryptor 2>/dev/null || echo -e "${YELLOW}UPX compression failed, continuing without it.${NC}"
+            fi
+        else
+            echo -e "${YELLOW}UPX not found. Install UPX for better compression.${NC}"
+        fi
+    fi
+    
+    # Apply sstrip for even more aggressive stripping if available
+    if command -v sstrip &> /dev/null && [ "$ULTRA_MINIMAL" = true ]; then
+        echo -e "Applying super strip (sstrip) for maximum size reduction..."
+        sstrip ./encryptor ./decryptor 2>/dev/null || echo -e "${YELLOW}Super strip failed, continuing without it.${NC}"
     fi
     
     echo -e "${GREEN}Binaries built and hardened successfully!${NC}"
@@ -142,6 +182,11 @@ if [ $? -eq 0 ]; then
     dec_size=$(du -h ./decryptor | cut -f1)
     echo -e "Encryptor size: ${YELLOW}$enc_size${NC}"
     echo -e "Decryptor size: ${YELLOW}$dec_size${NC}"
+    
+    # Run file command to verify binary type
+    echo -e "\n${BLUE}Binary information:${NC}"
+    file ./encryptor
+    file ./decryptor
 else
     echo -e "${RED}Build failed!${NC}"
     exit 1
@@ -169,12 +214,12 @@ echo -e "  ${YELLOW}./decryptor <encrypted_file> [output_directory]${NC}"
 echo -e "\nFor more options:"
 echo -e "  ${YELLOW}./encryptor --help${NC}"
 echo -e "  ${YELLOW}./decryptor --help${NC}"
-echo -e "\nTo clean build files:"
-echo -e "  ${YELLOW}./build.sh --clean${NC}"
-echo -e "\nTo remove all generated files including binaries:"
-echo -e "  ${YELLOW}./build.sh --full-clean${NC}"
-echo -e "\nTo build minimal size binaries (using UPX if available):"
-echo -e "  ${YELLOW}./build.sh --minimal${NC}"
+echo -e "\nBuild options:"
+echo -e "  ${YELLOW}./build.sh --clean${NC}           Clean build files only"
+echo -e "  ${YELLOW}./build.sh --full-clean${NC}      Remove all generated files including binaries"
+echo -e "  ${YELLOW}./build.sh --minimal${NC}         Build minimal size binaries with UPX compression"
+echo -e "  ${YELLOW}./build.sh --ultra-minimal${NC}   Build extremely small binaries (slower startup)"
+echo -e "  ${YELLOW}./build.sh --static${NC}          Build fully static binaries (no external dependencies)"
 echo -e "\nFor more information, please read the README.md file."
 
 echo -e "${GREEN}Done!${NC}" 

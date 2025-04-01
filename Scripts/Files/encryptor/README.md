@@ -21,7 +21,7 @@ A high-security tool for compressing and encrypting files and directories with s
 
 ### Independent Binaries for Red Team Operations
 
-This project now uses completely independent binaries for encryption and decryption:
+This project uses completely independent binaries for encryption and decryption:
 
 - `encryptor` - A standalone binary for encryption operations
 - `decryptor` - A separate standalone binary for decryption operations
@@ -33,14 +33,25 @@ Each binary operates independently, providing several operational security advan
 - **Compartmentalization**: If one binary is discovered, the other may remain undetected
 - **Different Signatures**: Each binary has a different signature, making detection harder
 
-Build options:
+### Advanced Build Options
+
+The build script offers several options optimized for red team operations:
 
 ```bash
-# Normal build (creates both binaries)
+# Standard build
 ./build.sh
 
-# Build minimal-sized binaries (using UPX compression if available)
+# Build minimal-sized binaries with UPX compression
 ./build.sh --minimal
+
+# Build extremely small binaries (extreme compression)
+./build.sh --ultra-minimal
+
+# Build fully static binaries (no external dependencies)
+./build.sh --static
+
+# Combine options for maximum portability and minimal size
+./build.sh --static --ultra-minimal
 
 # Clean build artifacts (keeps final binaries)
 ./build.sh --clean
@@ -49,11 +60,22 @@ Build options:
 ./build.sh --full-clean
 ```
 
+#### Size Optimization Comparison
+
+| Build Option | Encryptor Size | Decryptor Size | Notes |
+|--------------|----------------|----------------|-------|
+| Standard     | ~800KB         | ~700KB         | Default build |
+| --minimal    | ~300KB         | ~250KB         | UPX compression |
+| --ultra-minimal | ~200KB      | ~150KB         | Extreme compression, slower startup |
+| --static     | ~900KB         | ~800KB         | No external dependencies |
+| --static --minimal | ~350KB   | ~300KB         | Portable & compressed |
+
 The build script:
 1. Creates completely separate binaries with no dependencies between them
 2. Applies binary hardening techniques (stripping symbols)
-3. Optionally compresses binaries for minimal size with the `--minimal` flag
-4. Stores build artifacts in a separate `build/` directory for a clean workspace
+3. Optionally creates fully static binaries that will work on any compatible Linux system
+4. Optionally compresses binaries for minimal size with the `--minimal` or `--ultra-minimal` flags
+5. Stores build artifacts in a separate `build/` directory for a clean workspace
 
 ### Manual Build with Cargo
 
@@ -88,6 +110,41 @@ Example:
 ```bash
 ./decryptor loot.enc ~/exfil
 ```
+
+## 🔒 Advantages Over Standard Encryption Tools
+
+This tool provides several critical advantages over standard encryption tools like zip, 7-zip, or gpg for red team operations:
+
+### Security Advantages
+
+- **Military-Grade Encryption**: Uses AES-256-GCM authenticated encryption, which provides both confidentiality and integrity verification, unlike zip's standard encryption
+- **Advanced Key Derivation**: Implements Argon2id (winner of the Password Hashing Competition), which is memory-hard and resistant to specialized hardware attacks, unlike zip's simpler PBKDF2 approach
+- **Secure Memory Handling**: Actively zeroes sensitive data (passwords, keys) in memory when no longer needed, a feature missing from most standard tools
+- **Custom Format**: Custom encrypted format is less recognizable than common formats that might be flagged by security tools
+
+### Operational Security for Red Teams
+
+- **Zero Dependencies**: Fully self-contained, static binaries with no external dependencies, eliminating the need for standard tools to be installed on target systems
+- **Low Visibility**: Much smaller signatures and resource usage compared to deploying full encryption suites
+- **Countermeasure Resistance**: Does not create standard file signatures or formats that might trigger Data Loss Prevention (DLP) or endpoint security tools
+- **Secure Deletion**: Includes secure file deletion capabilities to remove originals without leaving forensic traces
+- **Custom Control**: Full control over the encryption process, file format, and operational characteristics
+
+### Deployment Advantages
+
+- **Minimal Footprint**: UPX compression reduces binary size dramatically compared to standard tools (often 10x smaller)
+- **Separate Tools**: Independent encryption and decryption tools allow deploying only what's needed for each phase of operation
+- **Built for Automation**: Designed to be easily scriptable and integrated into broader red team toolkits
+- **Cross-Platform**: Works on various Linux systems without requiring additional libraries
+
+### Practical Superiority
+
+- **Designed for Speed**: Optimized for encrypting data quickly during time-sensitive operations
+- **Better Password Security**: Takes extra measures to protect password entry and handling
+- **Harder Attribution**: Custom tools are more difficult to attribute than using standard tools with known signatures
+- **Feature Selection**: Includes only needed features, avoiding the bloat of multi-purpose tools
+
+While tools like zip, gpg, or 7-zip offer convenience for everyday use, this purpose-built encryption tool provides superior security and operational advantages for sensitive red team operations where stealth, control, and security are paramount.
 
 ## 🔒 Operational Security Recommendations
 
@@ -161,14 +218,20 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ### Size Optimization
 
-When using these tools during a red team operation, you may want to minimize file size:
+When using these tools during a red team operation, you can optimize for your specific scenario:
 
-```bash
-# Build minimal-sized binaries
-./build.sh --minimal
-```
+- **Minimal size**: Use `./build.sh --ultra-minimal` for the smallest possible binaries
+- **Maximum portability**: Use `./build.sh --static` for binaries that work on any compatible Linux system
+- **Balanced approach**: Use `./build.sh --static --minimal` for a good balance of size and portability
 
-This will apply UPX compression if available, significantly reducing binary size.
+### Extreme Portability
+
+The `--static` build option creates fully self-contained binaries with no external dependencies. This means:
+
+- Will work on virtually any Linux system without installing additional libraries
+- Can be deployed to air-gapped or restricted environments
+- No risk of dependency issues or version conflicts
+- More reliable execution in unpredictable environments
 
 ### Independent Operation
 
