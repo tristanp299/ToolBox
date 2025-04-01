@@ -455,12 +455,18 @@ pub fn decrypt_archive<P: AsRef<Path>>(
 }
 
 /// Print usage information
-fn print_usage(program_name: &str) {
-    println!("Usage:");
-    println!("  Encryption mode:");
-    println!("    {} <input_path> [output_file.enc]", program_name);
-    println!("  Decryption mode:");
-    println!("    {} --decrypt <encrypted_file.enc> [output_directory]", program_name);
+fn print_usage(program_name: &str, is_decrypt_mode: bool) {
+    if is_decrypt_mode {
+        println!("Usage (Decryption Mode):");
+        println!("  {} <encrypted_file.enc> [output_directory]", program_name);
+    } else {
+        println!("Usage:");
+        println!("  Encryption mode:");
+        println!("    {} <input_path> [output_file.enc]", program_name);
+        println!("  Decryption mode:");
+        println!("    {} --decrypt <encrypted_file.enc> [output_directory]", program_name);
+    }
+    
     println!("\nOptions:");
     println!("  -v, --verbose    Enable verbose output");
     println!("  -p, --progress   Show progress bars");
@@ -471,7 +477,17 @@ fn print_usage(program_name: &str) {
 fn main() -> Result<(), Box<dyn error::Error>> {
     // Parse command line arguments
     let args: Vec<String> = env::args().collect();
-    let program_name = args[0].split('/').last().unwrap_or("encryptor");
+    
+    // Extract the program name from the command path
+    let program_name = if let Some(cmd) = args.get(0) {
+        // Create a Path from the command and extract just the filename
+        std::path::Path::new(cmd)
+            .file_name()
+            .and_then(|name| name.to_str())
+            .unwrap_or("encryptor")
+    } else {
+        "encryptor"
+    };
     
     // Parse configuration flags
     let mut config = Config {
@@ -479,19 +495,27 @@ fn main() -> Result<(), Box<dyn error::Error>> {
         show_progress: false,
     };
     
-    // Handle help flag
-    if args.iter().any(|arg| arg == "--help" || arg == "-h") {
-        print_usage(program_name);
-        return Ok(());
-    }
-    
-    // Parse other flags
+    // Parse flags
     for arg in &args {
         match arg.as_str() {
             "--verbose" | "-v" => config.verbose = true,
             "--progress" | "-p" => config.show_progress = true,
             _ => {}
         }
+    }
+    
+    if config.verbose {
+        println!("DEBUG: Executing as: {}", program_name);
+    }
+    
+    // Determine operation mode - decrypt if explicitly specified with --decrypt flag
+    // The 'decryptor' script will add this flag automatically
+    let is_decrypting = args.iter().any(|arg| arg == "--decrypt");
+    
+    // Handle help flag
+    if args.iter().any(|arg| arg == "--help" || arg == "-h") {
+        print_usage(program_name, is_decrypting);
+        return Ok(());
     }
     
     // Remove flags from arguments for simpler processing
@@ -502,17 +526,24 @@ fn main() -> Result<(), Box<dyn error::Error>> {
     
     // Show usage if not enough arguments
     if filtered_args.len() < 2 {
-        print_usage(program_name);
+        print_usage(program_name, is_decrypting);
         return Err("Not enough arguments provided".into());
     }
-    
-    // Determine if we're encrypting or decrypting
-    let is_decrypting = args.iter().any(|arg| arg == "--decrypt");
     
     if is_decrypting {
         // DECRYPTION MODE
         // Find the encrypted file path (first non-flag argument after program name)
-        let encrypted_file = filtered_args.get(1).ok_or("Missing encrypted file path")?;
+        let encrypted_file = if filtered_args.len() >= 2 {
+            filtered_args[1].clone()
+        } else {
+            // If we're using the decryptor script, the argument might be in a different position
+            // Search for first argument that isn't the program name
+            args.iter()
+                .filter(|&arg| !arg.starts_with("-") && !arg.ends_with(program_name))
+                .next()
+                .ok_or("Missing encrypted file path")?
+                .clone()
+        };
         
         // Find output directory (second non-flag argument or default)
         let output_dir = filtered_args.get(2).cloned().unwrap_or_else(|| "decrypted_files".to_string());
@@ -557,8 +588,8 @@ fn main() -> Result<(), Box<dyn error::Error>> {
         let password = rpassword::read_password()?;
         
         // Validate password strength
-        if password.len() < 8 {
-            return Err("Password is too weak. For security, please use at least 8 characters.".into());
+        if password.len() < 4 {
+            return Err("Password is too weak. For security, please use at least 4 characters.".into());
         }
         
         println!("Confirm encryption password: ");

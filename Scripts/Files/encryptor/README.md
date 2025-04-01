@@ -1,6 +1,6 @@
 # 🔒 Secure File Encryptor/Decryptor
 
-A high-security tool for compressing and encrypting files and directories with strong operational security (opsec) considerations.
+A high-security tool for compressing and encrypting files and directories with strong operational security (opsec) considerations specifically designed for red team operations.
 
 ## 🛡️ Security Features
 
@@ -17,10 +17,47 @@ A high-security tool for compressing and encrypting files and directories with s
 - Rust toolchain (Cargo, rustc)
 - Linux-based operating system (for secure file deletion)
 
-## 📦 Installation
+## 📦 Installation & Building
 
-1. Clone this repository
-2. Build with cargo:
+### Independent Binaries for Red Team Operations
+
+This project now uses completely independent binaries for encryption and decryption:
+
+- `encryptor` - A standalone binary for encryption operations
+- `decryptor` - A separate standalone binary for decryption operations
+
+Each binary operates independently, providing several operational security advantages:
+- **Smaller Footprints**: Each binary is more focused and potentially smaller
+- **Reduced Detection**: Smaller, single-purpose binaries are less likely to trigger detection
+- **Operational Flexibility**: You can deploy only the functionality you need
+- **Compartmentalization**: If one binary is discovered, the other may remain undetected
+- **Different Signatures**: Each binary has a different signature, making detection harder
+
+Build options:
+
+```bash
+# Normal build (creates both binaries)
+./build.sh
+
+# Build minimal-sized binaries (using UPX compression if available)
+./build.sh --minimal
+
+# Clean build artifacts (keeps final binaries)
+./build.sh --clean
+
+# Full cleanup (removes all generated files including binaries)
+./build.sh --full-clean
+```
+
+The build script:
+1. Creates completely separate binaries with no dependencies between them
+2. Applies binary hardening techniques (stripping symbols)
+3. Optionally compresses binaries for minimal size with the `--minimal` flag
+4. Stores build artifacts in a separate `build/` directory for a clean workspace
+
+### Manual Build with Cargo
+
+Alternatively, you can build directly with cargo:
 
 ```bash
 cargo build --release
@@ -33,23 +70,23 @@ The binaries will be located in `target/release/`.
 ### Encryption
 
 ```bash
-./secure_encryptor <file_or_directory_path> [output_file]
+./encryptor <file_or_directory_path> [output_file]
 ```
 
 Example:
 ```bash
-./secure_encryptor ~/Documents/secret_project
+./encryptor ~/Documents/loot
 ```
 
 ### Decryption
 
 ```bash
-./secure_decryptor <encrypted_file> [output_directory]
+./decryptor <encrypted_file> [output_directory]
 ```
 
 Example:
 ```bash
-./secure_decryptor secret_project.enc ~/Documents/recovered
+./decryptor loot.enc ~/exfil
 ```
 
 ## 🔒 Operational Security Recommendations
@@ -118,4 +155,32 @@ The tool offers secure deletion with multiple-pass overwriting to prevent forens
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🔍 Red Team Operational Considerations
+
+### Size Optimization
+
+When using these tools during a red team operation, you may want to minimize file size:
+
+```bash
+# Build minimal-sized binaries
+./build.sh --minimal
+```
+
+This will apply UPX compression if available, significantly reducing binary size.
+
+### Independent Operation
+
+Each binary can be deployed independently:
+
+- Deploy only the encryptor to target systems for data exfiltration
+- Keep the decryptor on your control system for data recovery
+- Avoid unnecessary tools on target systems
+
+### OPSEC Best Practices
+
+- Rename the binaries to blend in with the target environment
+- Consider embedding these tools in other legitimate binaries
+- Use memory-only execution when possible
+- Securely delete these tools after use 

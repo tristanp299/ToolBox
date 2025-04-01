@@ -456,34 +456,66 @@ pub fn decrypt_archive<P: AsRef<Path>>(
 
 /// Print usage information
 fn print_usage(program_name: &str) {
-    println!("Usage:");
-    println!("  Encryption mode:");
-    println!("    {} <input_path> [output_file.enc]", program_name);
-    println!("  Decryption mode:");
-    println!("    {} --decrypt <encrypted_file.enc> [output_directory]", program_name);
+    if program_name == "decryptor" {
+        println!("Usage (Decryption Mode):");
+        println!("  {} <encrypted_file.enc> [output_directory]", program_name);
+    } else {
+        println!("Usage:");
+        println!("  Encryption mode:");
+        println!("    {} <input_path> [output_file.enc]", program_name);
+        println!("  Decryption mode:");
+        println!("    {} --decrypt <encrypted_file.enc> [output_directory]", program_name);
+        println!("    decryptor <encrypted_file.enc> [output_directory]");
+    }
+    
     println!("\nOptions:");
     println!("  -v, --verbose    Enable verbose output");
     println!("  -p, --progress   Show progress bars");
     println!("  -h, --help       Display this help message");
+    
+    println!("\nNote: 'decryptor' is a symbolic link to the same executable as 'encryptor'");
 }
 
 /// Command-line interface for the encryption/decryption tool
 fn main() -> Result<(), Box<dyn error::Error>> {
     // Parse command line arguments
     let args: Vec<String> = env::args().collect();
-    let program_name = args[0].split('/').last().unwrap_or("encryptor");
+    
+    // Get the actual executable name more reliably by looking at the filename
+    let program_name = if let Some(cmd) = args.get(0) {
+        // Create a Path from the command and extract just the filename
+        std::path::Path::new(cmd)
+            .file_name()
+            .and_then(|name| name.to_str())
+            .unwrap_or("encryptor")
+    } else {
+        "encryptor"
+    };
+    
+    if program_name == "decryptor" {
+        println!("Usage (Decryption Mode):");
+        println!("  {} <encrypted_file.enc> [output_directory]", program_name);
+    } else {
+        println!("Usage:");
+        println!("  Encryption mode:");
+        println!("    {} <input_path> [output_file.enc]", program_name);
+        println!("  Decryption mode:");
+        println!("    {} --decrypt <encrypted_file.enc> [output_directory]", program_name);
+        println!("    decryptor <encrypted_file.enc> [output_directory]");
+    }
+    
+    println!("\nOptions:");
+    println!("  -v, --verbose    Enable verbose output");
+    println!("  -p, --progress   Show progress bars");
+    println!("  -h, --help       Display this help message");
+    
+    println!("\nNote: 'decryptor' is a symbolic link to the same executable as 'encryptor'");
     
     // Parse configuration flags
     let mut config = Config {
         verbose: false,
         show_progress: false,
     };
-    
-    // Handle help flag
-    if args.iter().any(|arg| arg == "--help" || arg == "-h") {
-        print_usage(program_name);
-        return Ok(());
-    }
     
     // Parse other flags
     for arg in &args {
@@ -493,6 +525,19 @@ fn main() -> Result<(), Box<dyn error::Error>> {
             _ => {}
         }
     }
+    
+    if config.verbose {
+        println!("DEBUG: Executing as: {}", program_name);
+    }
+    
+    // Handle help flag
+    if args.iter().any(|arg| arg == "--help" || arg == "-h") {
+        print_usage(program_name);
+        return Ok(());
+    }
+    
+    // Check if the program is being called as "decryptor" from symlink
+    let called_as_decryptor = program_name == "decryptor";
     
     // Remove flags from arguments for simpler processing
     let filtered_args: Vec<String> = args.iter()
@@ -506,8 +551,9 @@ fn main() -> Result<(), Box<dyn error::Error>> {
         return Err("Not enough arguments provided".into());
     }
     
-    // Determine if we're encrypting or decrypting
-    let is_decrypting = args.iter().any(|arg| arg == "--decrypt");
+    // Determine if we're encrypting or decrypting 
+    // Either explicitly with --decrypt flag or implicitly by being called as "decryptor"
+    let is_decrypting = args.iter().any(|arg| arg == "--decrypt") || called_as_decryptor;
     
     if is_decrypting {
         // DECRYPTION MODE
@@ -557,8 +603,8 @@ fn main() -> Result<(), Box<dyn error::Error>> {
         let password = rpassword::read_password()?;
         
         // Validate password strength
-        if password.len() < 8 {
-            return Err("Password is too weak. For security, please use at least 8 characters.".into());
+        if password.len() < 4 {
+            return Err("Password is too weak. For security, please use at least 4 characters.".into());
         }
         
         println!("Confirm encryption password: ");

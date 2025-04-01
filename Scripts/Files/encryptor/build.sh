@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Build script for secure_encryptor tools
-# This script builds the encryption and decryption tools with maximum security settings
+# Build script for secure encryptor/decryptor tools
+# This script builds completely independent binaries for encryption and decryption
+# with maximum security and operational security for red team operations
 
 # Color formatting for terminal output
 GREEN='\033[0;32m'
@@ -9,7 +10,60 @@ RED='\033[0;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${YELLOW}Starting secure encryptor build process...${NC}"
+# Define directories
+BUILD_DIR="./build"
+RELEASE_DIR="$BUILD_DIR/release"
+OUTPUT_DIR="$BUILD_DIR/bin"
+SRC_DIR="./src"
+
+echo -e "${YELLOW}Starting secure encryptor/decryptor build process...${NC}"
+
+# Parse command line arguments
+CLEAN_ONLY=false
+FULL_CLEAN=false
+MINIMAL=false
+
+for arg in "$@"; do
+  case $arg in
+    --clean)
+      CLEAN_ONLY=true
+      shift
+      ;;
+    --full-clean)
+      FULL_CLEAN=true
+      shift
+      ;;
+    --minimal)
+      MINIMAL=true
+      shift
+      ;;
+  esac
+done
+
+# Function to clean build artifacts
+clean_build() {
+  echo -e "Cleaning build artifacts..."
+  
+  # Clean cargo build
+  cargo clean
+  
+  # Remove build directories but preserve source
+  rm -rf "$BUILD_DIR"
+  
+  echo -e "${GREEN}Build files cleaned.${NC}"
+  
+  if [ "$FULL_CLEAN" = true ]; then
+    echo -e "Performing full cleanup (removing binaries)..."
+    rm -f ./encryptor ./decryptor
+    echo -e "${GREEN}Full cleanup completed.${NC}"
+  fi
+}
+
+# Clean up if requested
+if [ "$CLEAN_ONLY" = true ] || [ "$FULL_CLEAN" = true ]; then
+  clean_build
+  exit 0
+fi
 
 # Check if Rust and Cargo are installed
 if ! command -v cargo &> /dev/null; then
@@ -19,18 +73,26 @@ if ! command -v cargo &> /dev/null; then
 fi
 
 # Clean previous builds to ensure we're starting fresh
-echo -e "Cleaning previous builds..."
-cargo clean
+clean_build
 
-# Create directory structure if it doesn't exist
-mkdir -p src
-mkdir -p target/release
+# Create directory structure
+echo -e "Creating build directory structure..."
+mkdir -p "$SRC_DIR"
+mkdir -p "$OUTPUT_DIR"
+mkdir -p "$RELEASE_DIR"
 
 # Copy source files to src directory
 echo -e "Preparing source files..."
-# Use our updated encryptor.rs for both tools (they share the same codebase)
-cp -v encryptor.rs src/main.rs
-cp Cargo.toml ./
+
+# Make sure the main source file is in place
+if [ ! -f "$SRC_DIR/main.rs" ]; then
+    cp -v encryptor.rs "$SRC_DIR/main.rs"
+fi
+
+# Make sure decryptor source is in place
+if [ ! -f "$SRC_DIR/decryptor.rs" ]; then
+    cp -v decryptor.rs "$SRC_DIR/decryptor.rs"
+fi
 
 # Check if we're in a secure environment
 echo -e "Checking system security..."
@@ -42,57 +104,60 @@ if ! mount | grep -q "tmpfs on /tmp"; then
     echo -e "${YELLOW}⚠️  WARNING: /tmp directory may not be memory-backed. Temporary files might persist on disk.${NC}"
 fi
 
-# Build the encryptor in release mode
-echo -e "Building encryptor..."
+# Build both binaries
+echo -e "Building independent encryptor and decryptor binaries..."
 cargo build --release
 
 if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Encryptor built successfully!${NC}"
-    # The binary name might be secure_decryptor based on Cargo.toml
-    if [ -f "target/release/secure_decryptor" ]; then
-        cp target/release/secure_decryptor ./encryptor
-    else
-        cp target/release/secure_encryptor ./encryptor
+    echo -e "${GREEN}Build successful!${NC}"
+    
+    # Create the output directory
+    mkdir -p "$OUTPUT_DIR"
+    
+    # Copy the built binaries to our output directory
+    cp target/release/encryptor "$OUTPUT_DIR/encryptor"
+    cp target/release/decryptor "$OUTPUT_DIR/decryptor"
+    
+    # Copy to main directory for convenience
+    cp "$OUTPUT_DIR/encryptor" ./encryptor
+    cp "$OUTPUT_DIR/decryptor" ./decryptor
+    
+    # Make executable
+    chmod +x ./encryptor ./decryptor "$OUTPUT_DIR/encryptor" "$OUTPUT_DIR/decryptor"
+    
+    # Apply strip to make binaries smaller and harder to reverse-engineer
+    echo -e "Stripping debug symbols and applying binary hardening..."
+    strip -s ./encryptor ./decryptor
+    
+    # Check if we should apply additional hardening (not available on all systems)
+    if command -v upx &> /dev/null && [ "$MINIMAL" = true ]; then
+        echo -e "Applying UPX compression to reduce binary size..."
+        upx --best --ultra-brute ./encryptor ./decryptor 2>/dev/null || echo -e "${YELLOW}UPX compression failed, continuing without it.${NC}"
     fi
-    chmod +x ./encryptor
+    
+    echo -e "${GREEN}Binaries built and hardened successfully!${NC}"
+    
+    # Show binary sizes
+    enc_size=$(du -h ./encryptor | cut -f1)
+    dec_size=$(du -h ./decryptor | cut -f1)
+    echo -e "Encryptor size: ${YELLOW}$enc_size${NC}"
+    echo -e "Decryptor size: ${YELLOW}$dec_size${NC}"
 else
-    echo -e "${RED}Encryptor build failed!${NC}"
+    echo -e "${RED}Build failed!${NC}"
     exit 1
 fi
-
-# Now build the decryptor - use the same binary with a different name
-echo -e "Preparing decryptor files..."
-
-# Copy the encryptor binary to decryptor_bin
-# The binary could be named secure_encryptor or secure_decryptor based on Cargo.toml
-if [ -f "target/release/secure_decryptor" ]; then
-    cp target/release/secure_decryptor ./decryptor_bin
-else
-    cp target/release/secure_encryptor ./decryptor_bin
-fi
-
-# Create a simpler decryptor wrapper that directly calls the encryptor
-echo -e "Creating decryptor wrapper..."
-
-# Create a streamlined wrapper script that calls encryptor directly
-cat > decryptor << 'EOF'
-#!/bin/bash
-# Streamlined wrapper script that calls encryptor with --decrypt flag
-
-# Get the directory where this script is located
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-
-# Call the encryptor directly with --decrypt flag
-"$SCRIPT_DIR/encryptor" --decrypt "$@"
-EOF
-
-# Make the wrapper script executable
-chmod +x decryptor
 
 # No need for file_encryptor.sh since its functionality is in encryptor
 if [ -f "file_encryptor.sh" ]; then
     echo -e "${YELLOW}Removing obsolete file_encryptor.sh (functionality now in encryptor binary)${NC}"
     rm -f file_encryptor.sh
+fi
+
+# Move build artifacts to build directory
+echo -e "Organizing build artifacts..."
+if [ -d "target" ]; then
+    # Move target directory to build folder
+    mv target "$BUILD_DIR/"
 fi
 
 # Provide usage instructions
@@ -101,11 +166,15 @@ echo -e "\nTo encrypt files/folders:"
 echo -e "  ${YELLOW}./encryptor <file_or_directory_path> [output_file]${NC}"
 echo -e "\nTo decrypt files:"
 echo -e "  ${YELLOW}./decryptor <encrypted_file> [output_directory]${NC}"
+echo -e "\nFor more options:"
+echo -e "  ${YELLOW}./encryptor --help${NC}"
+echo -e "  ${YELLOW}./decryptor --help${NC}"
+echo -e "\nTo clean build files:"
+echo -e "  ${YELLOW}./build.sh --clean${NC}"
+echo -e "\nTo remove all generated files including binaries:"
+echo -e "  ${YELLOW}./build.sh --full-clean${NC}"
+echo -e "\nTo build minimal size binaries (using UPX if available):"
+echo -e "  ${YELLOW}./build.sh --minimal${NC}"
 echo -e "\nFor more information, please read the README.md file."
-
-# Cleanup
-echo -e "\nCleaning up build files..."
-# Keep the final binaries but remove intermediate files
-chmod +x encryptor decryptor
 
 echo -e "${GREEN}Done!${NC}" 

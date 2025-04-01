@@ -5,6 +5,15 @@ edition = "2021"
 authors = ["Security Conscious User"]
 description = "A secure file/folder compression and encryption utility with opsec considerations"
 
+# Define multiple binary targets
+[[bin]]
+name = "encryptor"
+path = "src/main.rs"
+
+[[bin]]
+name = "decryptor"
+path = "src/decryptor.rs"
+
 [dependencies]
 # Cryptography
 aes-gcm = "0.10.1"      # AES-GCM authenticated encryption
