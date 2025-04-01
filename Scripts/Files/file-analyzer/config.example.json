@@ -1,0 +1,40 @@
+{
+    "log_level": "INFO",
+    "log_file": "file_analyzer.log",
+    "plugin_dirs": [
+        "./custom_plugins"
+    ],
+    "analysis_settings": {
+        "max_entropy_threshold": 5.0,
+        "code_complexity_threshold": 10,
+        "min_password_length": 8
+    },
+    "output_settings": {
+        "redact_sensitive_info": true,
+        "max_context_length": 50,
+        "color_output": true
+    },
+    "plugins": {
+        "code_analyzers": {
+            "enabled": true,
+            "python_analyzer": {
+                "ignore_patterns": ["test_*", "*_test.py"]
+            },
+            "js_analyzer": {
+                "include_node_modules": false
+            }
+        },
+        "api_analyzers": {
+            "enabled": true,
+            "request_example_limit": 5
+        },
+        "network_analyzers": {
+            "enabled": true,
+            "scan_ports": true,
+            "ignore_localhost": true
+        },
+        "binary_analyzers": {
+            "enabled": false
+        }
+    }
+} 
