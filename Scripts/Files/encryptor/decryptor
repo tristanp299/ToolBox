@@ -1,0 +1,8 @@
+#!/bin/bash
+# Streamlined wrapper script that calls encryptor with --decrypt flag
+
+# Get the directory where this script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# Call the encryptor directly with --decrypt flag
+"$SCRIPT_DIR/encryptor" --decrypt "$@"

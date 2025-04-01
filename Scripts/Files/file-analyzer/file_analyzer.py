@@ -1916,15 +1916,203 @@ class FileAnalyzer:
             logging.error(f"Error analyzing Mach-O file: {str(e)}")
             return {"error": str(e)}
 
-def main():
-    parser = argparse.ArgumentParser(description='Analyze files for cybersecurity purposes')
-    parser.add_argument('file_path', help='Path to the file to analyze')
-    parser.add_argument('--md', action='store_true', help='Output in markdown format (wrapped in triple backticks)')
-    args = parser.parse_args()
+def check_dependencies():
+    """
+    Check if all required dependencies are installed.
+    Exit with helpful error message if any dependencies are missing.
+    
+    This ensures users don't miss out on any functionality due to missing modules.
+    """
+    # Dictionary of required modules and their pip install commands
+    required_modules = {
+        # Core analysis modules
+        'sklearn': 'scikit-learn',
+        'joblib': 'joblib',
+        'spacy': 'spacy',
+        
+        # Code analysis modules
+        'astroid': 'astroid',
+        'radon': 'radon',
+        
+        # Binary analysis modules
+        'pefile': 'pefile',
+        'elftools': 'pyelftools',
+        'macholib': 'macholib',
+        'magic': 'python-magic',  # File type detection
+        
+        # Optional but recommended modules
+        'colorama': 'colorama',   # For colored terminal output
+        'tqdm': 'tqdm',           # For progress bars
+    }
+    
+    # Check each module
+    missing_modules = []
+    
+    for module_name, pip_package in required_modules.items():
+        try:
+            __import__(module_name)
+        except ImportError:
+            missing_modules.append((module_name, pip_package))
+    
+    # If any modules are missing, show error and exit
+    if missing_modules:
+        print("\n❌ ERROR: Missing required dependencies")
+        print("=" * 50)
+        print("The following dependencies are required but not installed:")
+        
+        for module_name, pip_package in missing_modules:
+            print(f"  - {module_name} (install with: pip install {pip_package})")
+        
+        print("\nTo install all dependencies at once, run:")
+        pip_command = "pip install " + " ".join(pkg for _, pkg in missing_modules)
+        print(f"  {pip_command}")
+        
+        print("\nAdditional note for spaCy:")
+        print("  After installing spaCy, you also need to download the language model:")
+        print("  python -m spacy download en_core_web_sm")
+        
+        print("\nExit due to missing dependencies.")
+        sys.exit(1)
+    
+    # Check if spaCy language model is installed
+    if 'spacy' not in dict(missing_modules):
+        import spacy
+        try:
+            spacy.load("en_core_web_sm")
+        except OSError:
+            print("\n❌ ERROR: Missing spaCy language model")
+            print("=" * 50)
+            print("The spaCy module is installed, but the language model is missing.")
+            print("Install it with: python -m spacy download en_core_web_sm")
+            sys.exit(1)
+    
+    # If we get here, all dependencies are installed
+    print("✅ All dependencies are installed correctly.\n")
 
-    analyzer = FileAnalyzer()
-    analyzer.analyze_file(args.file_path)
-    analyzer.print_results(markdown_format=args.md)
+def generate_requirements_file():
+    """
+    Generate a requirements.txt file with all needed dependencies.
+    This makes it easier for users to install everything at once.
+    """
+    requirements = [
+        "scikit-learn>=1.0.0",
+        "joblib>=1.1.0",
+        "spacy>=3.4.0",
+        "astroid>=2.11.0",
+        "radon>=5.1.0",
+        "pefile>=2023.2.7",
+        "pyelftools>=0.29",
+        "macholib>=1.16",
+        "python-magic>=0.4.27",
+        "colorama>=0.4.6",
+        "tqdm>=4.65.0"
+    ]
+    
+    with open("requirements.txt", "w") as f:
+        f.write("# Requirements for file-analyzer\n")
+        f.write("# Install with: pip install -r requirements.txt\n\n")
+        for req in requirements:
+            f.write(f"{req}\n")
+    
+    print("✅ Generated requirements.txt file")
+    print("Install all dependencies with: pip install -r requirements.txt")
+    print("Don't forget to also run: python -m spacy download en_core_web_sm")
+
+def setup_colored_output():
+    """
+    Set up colored terminal output for better readability.
+    """
+    try:
+        from colorama import init, Fore, Style
+        init()  # Initialize colorama
+        
+        # Define color functions
+        def red(text): return f"{Fore.RED}{text}{Style.RESET_ALL}"
+        def green(text): return f"{Fore.GREEN}{text}{Style.RESET_ALL}"
+        def yellow(text): return f"{Fore.YELLOW}{text}{Style.RESET_ALL}"
+        def blue(text): return f"{Fore.BLUE}{text}{Style.RESET_ALL}"
+        def magenta(text): return f"{Fore.MAGENTA}{text}{Style.RESET_ALL}"
+        def cyan(text): return f"{Fore.CYAN}{text}{Style.RESET_ALL}"
+        
+        return {
+            "red": red,
+            "green": green,
+            "yellow": yellow,
+            "blue": blue, 
+            "magenta": magenta,
+            "cyan": cyan
+        }
+    except ImportError:
+        # Fallback if colorama is not available
+        def no_color(text): return text
+        return {
+            "red": no_color,
+            "green": no_color,
+            "yellow": no_color,
+            "blue": no_color,
+            "magenta": no_color,
+            "cyan": no_color
+        }
+
+def main():
+    """
+    Main function to run the file analyzer with dependency checks.
+    """
+    parser = argparse.ArgumentParser(description='Analyze files for cybersecurity purposes')
+    parser.add_argument('file_path', nargs='?', help='Path to the file to analyze')
+    parser.add_argument('--md', action='store_true', help='Output in markdown format (wrapped in triple backticks)')
+    parser.add_argument('--skip-checks', action='store_true', help='Skip dependency checks (for advanced users)')
+    parser.add_argument('--requirements', action='store_true', help='Generate requirements.txt file and exit')
+    parser.add_argument('--version', action='store_true', help='Show version information and exit')
+    
+    args = parser.parse_args()
+    
+    # Show version info if requested
+    if args.version:
+        print("File Analyzer v1.0.0")
+        print("Author: Tristan Pereira")
+        print("A comprehensive file analysis tool for cybersecurity")
+        sys.exit(0)
+    
+    # Generate requirements file if requested
+    if args.requirements:
+        generate_requirements_file()
+        sys.exit(0)
+    
+    # Check dependencies unless explicitly skipped
+    if not args.skip_checks:
+        check_dependencies()
+    
+    # Set up colored output
+    colors = setup_colored_output()
+    
+    # We need a file path to analyze
+    if not args.file_path:
+        print(colors["red"]("Error: No file specified for analysis"))
+        print(f"Usage: python {sys.argv[0]} <file_path>")
+        print(f"Run with --help for more options")
+        sys.exit(1)
+    
+    # Create a progress bar for the analysis process if tqdm is available
+    try:
+        from tqdm import tqdm
+        with tqdm(total=100, desc="Analyzing file", unit="%") as progress_bar:
+            analyzer = FileAnalyzer()
+            # Update progress bar after initialization
+            progress_bar.update(10)
+            
+            analyzer.analyze_file(args.file_path)
+            # Update progress bar after main analysis
+            progress_bar.update(80)
+            
+            analyzer.print_results(markdown_format=args.md)
+            # Complete the progress bar
+            progress_bar.update(10)
+    except ImportError:
+        # Fall back to regular execution if tqdm is not available
+        analyzer = FileAnalyzer()
+        analyzer.analyze_file(args.file_path)
+        analyzer.print_results(markdown_format=args.md)
 
 if __name__ == "__main__":
     main() 

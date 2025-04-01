@@ -11,7 +11,13 @@ export LPORT=""
 export USERNAME=""
 export PASSWORD=""
 
+#### Compression ####
 
+
+#### Maldev ######
+#Compile nuitka with modules#
+#python -m nuitka --standalone --follow-imports file_analyzer.py
+# nuitka --standalone --follow-imports file_analyzer.py
 #### Administrative ######
 alias store='(){python3 "$KALI"/scripts/store.py "$@"}'
 alias ll='ls -lart'
