@@ -1,0 +1,66 @@
+This is a test file containing various patterns for the File Analyzer to detect.
+
+IP ADDRESSES:
+IPv4: 192.168.1.1
+IPv4 with context: Server IP is 10.0.0.1 on the internal network
+IPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+
+EMAIL ADDRESSES:
+Email: test@example.com
+Email with context: Contact our support at support@company.org for assistance
+
+DOMAIN NAMES:
+Domain: example.com
+Subdomain: api.example.com
+Domain with www: www.wikipedia.org
+
+URLs:
+HTTP URL: http://example.com/path/to/resource?param=value
+HTTPS URL: https://api.github.com/users/octocat
+URL with port: https://localhost:8080/api/v1/test
+
+CREDENTIALS:
+API Key: api_key="c532fe2a8f21a9a4c69c0a541a91d8ab"
+Password: password="SuperSecretPassword123!"
+JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+OAuth token: oauth_token="0a123b456c789d012e345f6789abcdef"
+Username: username="admin"
+
+HASHES:
+MD5: 5f4dcc3b5aa765d61d8327deb882cf99
+SHA1: da39a3ee5e6b4b0d3255bfef95601890afd80709
+SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+BCrypt: $2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy
+
+API ENDPOINTS:
+REST API: https://api.example.com/v1/users/{id}/profile
+GraphQL: query { 
+  user(id: "123") {
+    name
+    email
+  }
+}
+
+HTTP METHODS:
+GET: "GET /api/users HTTP/1.1"
+POST: "POST /api/login HTTP/1.1"
+DELETE: "DELETE /api/users/1 HTTP/1.1"
+
+DATABASE CONNECTION:
+MySQL: mysql://user:password@localhost:3306/database
+PostgreSQL: postgresql://postgres:secret@db.example.com:5432/mydb
+
+AWS KEYS:
+Access Key: AKIAIOSFODNN7EXAMPLE
+Secret Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+HIGH-ENTROPY STRINGS:
+Random String: XkNq9z6RuAhTpD2YsL8VcE4JyW7BfG5M
+Base64: SGVsbG8gV29ybGQhIFRoaXMgaXMgYSB0ZXN0IHN0cmluZyBmb3IgYmFzZTY0IGVuY29kaW5nLg==
+
+CREDIT CARD:
+Visa: 4111-1111-1111-1111
+Mastercard: 5555 5555 5555 4444
+
+SOCIAL SECURITY:
+SSN: 123-45-6789 

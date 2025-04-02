@@ -1,0 +1,5 @@
+This is a simple example file with sensitive data:
+API key: api_key="2a4e6c8f0b2d4d6a8c0e2f4a6c8e0f2a"
+A secret password: password="TopSecret123!"
+IP address: 192.168.1.100
+Email: admin@example.com
